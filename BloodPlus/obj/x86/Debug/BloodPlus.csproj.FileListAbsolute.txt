@@ -1,9 +1,0 @@
-c:\users\mislamion\documents\visual studio 2010\Projects\BloodPlus\BloodPlus\obj\x86\Debug\BloodPlus.frmImport.resources
-c:\users\mislamion\documents\visual studio 2010\Projects\BloodPlus\BloodPlus\obj\x86\Debug\BloodPlus.Properties.Resources.resources
-c:\users\mislamion\documents\visual studio 2010\Projects\BloodPlus\BloodPlus\obj\x86\Debug\BloodPlus.csproj.GenerateResource.Cache
-c:\users\mislamion\documents\visual studio 2010\Projects\BloodPlus\BloodPlus\bin\Debug\BloodPlus.exe
-c:\users\mislamion\documents\visual studio 2010\Projects\BloodPlus\BloodPlus\bin\Debug\BloodPlus.pdb
-c:\users\mislamion\documents\visual studio 2010\Projects\BloodPlus\BloodPlus\obj\x86\Debug\BloodPlus.exe
-c:\users\mislamion\documents\visual studio 2010\Projects\BloodPlus\BloodPlus\obj\x86\Debug\BloodPlus.pdb
-C:\Users\MISLamion\documents\visual studio 2010\Projects\BloodPlus\BloodPlus\obj\x86\Debug\BloodPlus.csprojResolveAssemblyReference.cache
-C:\Users\MISLamion\documents\visual studio 2010\Projects\BloodPlus\BloodPlus\bin\Debug\DeathCodez.dll
