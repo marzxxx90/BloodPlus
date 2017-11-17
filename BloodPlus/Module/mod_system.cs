@@ -19,10 +19,10 @@ namespace BloodPlus
 	public static bool ADS_ESKIE = false;
 
 	public static bool ADS_SHOW = false;
-    //public static System.DateTime CurrentDate = DateAndTime.Now;
+    public static System.DateTime CurrentDate = DateAndTime.Now;
 
-    //public static User ORuser = new User();
-    //public static int UserID = ORuser.ID;
+    public static ComputerUser bloodUser = new ComputerUser();
+    public static int UserID = bloodUser.ID;
 	
 	static internal bool isAuthorized = false;
 

@@ -1,4 +1,4 @@
-﻿namespace BloodPlus.Forms
+﻿namespace BloodPlus
 {
     partial class frmMain
     {
