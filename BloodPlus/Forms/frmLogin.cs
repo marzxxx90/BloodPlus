@@ -19,7 +19,7 @@ namespace BloodPlus
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-
+            txtUserName.Focus();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -51,13 +51,27 @@ namespace BloodPlus
             mod_system.UserID = mod_system.bloodUser.ID;
             Interaction.MsgBox("Welcome " + mod_system.bloodUser.FirstName  + " " + mod_system.bloodUser.LastName);
 
-            frmMain frm = new frmMain();
-            frm.Show();
+
+            if (Application.OpenForms["frmMain"] != null)
+            {
+                (Application.OpenForms["frmMain"] as frmMain).NotYetLogin(true);
+                //(Application.OpenForms["frmMain"] as frmMain).isNew = true;
+            }
 
             txtPassword.Clear();
             txtUserName.Clear();
             i = 0;
             this.Hide();
+        }
+
+        private void txtUserName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (mod_system.isEnter(e)) { btnLogin.PerformClick(); }
+        }
+
+        private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (mod_system.isEnter(e)) { btnLogin.PerformClick(); }
         }
     }
 }

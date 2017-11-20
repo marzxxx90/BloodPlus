@@ -18,7 +18,15 @@ namespace BloodPlus
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-
+            if (  mod_system.bloodUser.UserName == null)
+            {
+                NotYetLogin(false);
+            }
+            else
+            {
+                NotYetLogin();
+            }
+           
         }
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -54,6 +62,21 @@ namespace BloodPlus
         
                 frmLogin frm = new frmLogin();
                 frm.Show();
+            }
+        }
+
+        internal  void NotYetLogin(bool st = true)
+        {
+            reportToolStripMenuItem.Enabled = st;
+            maintenanceToolStripMenuItem.Enabled = st;
+
+            if (st == true)
+            {
+                logoutToolStripMenuItem.Text = "&Logout";
+            }
+            else
+            {
+                logoutToolStripMenuItem.Text = "&Login";
             }
         }
     }
