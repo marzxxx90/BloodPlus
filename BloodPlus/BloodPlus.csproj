@@ -59,6 +59,12 @@
   <ItemGroup>
     <Compile Include="Class\BloodDonor.cs" />
     <Compile Include="Class\ComputerUser.cs" />
+    <Compile Include="Forms\frmDonor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDonor.Designer.cs">
+      <DependentUpon>frmDonor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmImport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,17 +83,17 @@
     <Compile Include="Forms\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmMaintenance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMaintenance.Designer.cs">
+      <DependentUpon>frmMaintenance.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmUserManagement.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\frmUserManagement.Designer.cs">
       <DependentUpon>frmUserManagement.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Sample.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Sample.Designer.cs">
-      <DependentUpon>Sample.cs</DependentUpon>
     </Compile>
     <Compile Include="Module\Database.cs">
       <SubType>Code</SubType>
@@ -107,6 +113,9 @@
     <Compile Include="Reports\frmReport.Designer.cs">
       <DependentUpon>frmReport.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\frmDonor.resx">
+      <DependentUpon>frmDonor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmImport.resx">
       <DependentUpon>frmImport.cs</DependentUpon>
     </EmbeddedResource>
@@ -116,11 +125,11 @@
     <EmbeddedResource Include="Forms\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMaintenance.resx">
+      <DependentUpon>frmMaintenance.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmUserManagement.resx">
       <DependentUpon>frmUserManagement.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Sample.resx">
-      <DependentUpon>Sample.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
