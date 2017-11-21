@@ -61,6 +61,20 @@ namespace BloodPlus
             get { return _gender; }
             set { _gender = value; }
         }
+
+        private DateTime _docDate;
+        public virtual DateTime DocDate
+        {
+            get { return _docDate; }
+            set { _docDate = value; }
+        }
+
+        private string _status;
+        public virtual string Status
+        {
+            get { return _status; }
+            set { _status = value; }
+        }
         #endregion
 
         #region "Procedures"
@@ -79,6 +93,8 @@ namespace BloodPlus
             with["middlename"] = _middlename;
             with["lastname"] = _lastname;
             with["gender"] = _gender;
+            with["DocDate"] = _docDate;
+            with["Status"] = 1;
 
             ds.Tables[0].Rows.Add(dsnewRow);
             Database.SaveEntry(ds);
@@ -104,6 +120,7 @@ namespace BloodPlus
             _middlename = dr["middlename"].ToString();
             _lastname = dr["lastname"].ToString();
             _gender = dr["gender"].ToString();
+            _docDate = Convert.ToDateTime ( dr["DocDate"].ToString());
         }
 
         static internal bool TemplateIntegrityCheck(string[] headers)
@@ -117,6 +134,26 @@ namespace BloodPlus
             if (Security.HashString(mergeHeaders) == INTEGRITY_CHECK)
                 return true;
             return false;
+        }
+
+        internal void AddInv(string type, int inv = 1)
+        {
+            string mysql = "Select * From tblStock Where bloodType = '"+ type +"'";
+            DataSet ds = Database.LoadSQL(mysql,"tblStock");
+
+            int oldVal = Convert.ToInt16(Convert.ToInt16( ds.Tables[0].Rows[0]["Inv"].ToString()) + inv);
+            ds.Tables[0].Rows[0]["Inv"] = oldVal;
+            Database.SaveEntry(ds, false);
+        }
+
+        internal void DeductInv(string type, int inv = 1)
+        {
+            string mysql = "Select * From tblStock Where bloodType = '" + type + "'";
+            DataSet ds = Database.LoadSQL(mysql, "tblStock");
+
+            int oldVal = Convert.ToInt16(Convert.ToInt16(ds.Tables[0].Rows[0]["Inv"].ToString()) - inv);
+            ds.Tables[0].Rows[0]["Inv"] = oldVal;
+            Database.SaveEntry(ds, false);
         }
 
         #endregion

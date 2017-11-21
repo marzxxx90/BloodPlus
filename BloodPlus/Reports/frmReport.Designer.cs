@@ -1,6 +1,6 @@
 ﻿namespace BloodPlus
 {
-    partial class frmMonitor
+    partial class frmReport
     {
         /// <summary>
         /// Required designer variable.
@@ -28,20 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.rv_display = new Microsoft.Reporting.WinForms.ReportViewer();
             this.SuspendLayout();
             // 
-            // frmMonitor
+            // rv_display
+            // 
+            this.rv_display.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rv_display.Location = new System.Drawing.Point(0, 0);
+            this.rv_display.Name = "rv_display";
+            this.rv_display.Size = new System.Drawing.Size(919, 516);
+            this.rv_display.TabIndex = 0;
+            // 
+            // frmReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
-            this.Name = "frmMonitor";
-            this.Text = "frmMonitor";
-            this.Load += new System.EventHandler(this.frmMonitor_Load);
+            this.ClientSize = new System.Drawing.Size(919, 516);
+            this.Controls.Add(this.rv_display);
+            this.Name = "frmReport";
+            this.Text = "Report";
+            this.Load += new System.EventHandler(this.frmReport_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private Microsoft.Reporting.WinForms.ReportViewer rv_display;
     }
 }

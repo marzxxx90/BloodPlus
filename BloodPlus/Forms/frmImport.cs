@@ -95,7 +95,10 @@ namespace BloodPlus
                 Donate.MiddleName = lv.SubItems[3].Text.ToString();
                 Donate.LastName = lv.SubItems[4].Text.ToString();
                 Donate.Gender = lv.SubItems[5].Text.ToString();
+                Donate.DocDate = DateTime.Now;
                 Donate.SaveBloodDonor();
+
+                Donate.AddInv(lv.SubItems[1].Text.ToString());
             }
             MessageBox.Show("Successfuly Imported", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
