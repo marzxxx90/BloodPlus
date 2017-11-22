@@ -19,8 +19,17 @@ namespace BloodPlus
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (!isValid()) { return; }
+            BloodDonor donate = new BloodDonor();
+            var d = donate;
+            d.CardNum = txtCardNum.Text;
+            d.BloodType = cboBloodType.Text;
+            d.FirstName = txtFirstname.Text;
+            d.MiddleName = txtMiddlename.Text;
+            d.LastName = txtLastname.Text;
+            d.Gender = cboGender.Text;
+            d.DocDate = DateTime.Now;
 
-
+            MessageBox.Show("Successfully Saved", "Information"); ClearText();
         }
 
         private bool isValid()
@@ -34,5 +43,33 @@ namespace BloodPlus
             return true;
         }
 
+        private void frmDonor_Load(object sender, EventArgs e)
+        {
+            LoadBlood();
+        }
+
+        private void LoadBlood()
+        {
+            string mysql = "Select * From tblStock";
+            DataSet ds = Database.LoadSQL(mysql, "tblStock");
+            foreach (DataRow  dr in ds.Tables[0].Rows)
+            {
+                cboBloodType.Items.Add(dr["BloodType"]);
+                
+            }
+
+        }
+
+        private void ClearText()
+        {
+            txtCardNum.Clear();
+            txtFirstname.Clear();
+            txtMiddlename.Clear();
+            txtLastname.Clear();
+        }
+        private void txtCardNum_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            mod_system.DigitOnly(e);
+        }
     }
 }

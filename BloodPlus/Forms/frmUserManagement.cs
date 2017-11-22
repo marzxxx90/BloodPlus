@@ -11,6 +11,7 @@ namespace BloodPlus
 {
     public partial class frmUserManagement : Form
     {
+        ComputerUser tmpUser;
         public frmUserManagement()
         {
             InitializeComponent();
@@ -20,6 +21,7 @@ namespace BloodPlus
         {
             chkStatus.Enabled = false;
             ClearText();
+            LoadUser();
         }
 
         private void ClearText()
@@ -30,25 +32,39 @@ namespace BloodPlus
             txtMiddlename.Clear();
             txtLastname.Clear();
             txtRetype.Clear();
-            txtRule.Clear();
+            //cboRule.Clear();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (!isValid()) { MessageBox.Show("Please check the fields!","Warning. . ."); return; }
+           
+            if (btnSave.Text == "&Save")
+            {
+                if (!isValid()) { MessageBox.Show("Please check the fields!", "Warning. . ."); return; }
+                ComputerUser u = new ComputerUser();
 
-            ComputerUser tmpUser = new ComputerUser();
-            var u = tmpUser;
-            u.UserName = txtUserName.Text;
-            u.UserPassword = Security.EncryptString(txtPassword.Text);
-            u.FirstName = txtFirstname.Text;
-            u.MiddleName = txtMiddlename.Text;
-            u.LastName = txtLastname.Text;
-            u.Rule = txtRule.Text;
-            u.Status = "1";
-            u.SaveUser();
+                u.UserName = txtUserName.Text;
+                u.UserPassword = Security.EncryptString(txtPassword.Text);
+                u.FirstName = txtFirstname.Text;
+                u.MiddleName = txtMiddlename.Text;
+                u.LastName = txtLastname.Text;
+                u.Rule = cboRule.Text;
+                u.Status = "1";
+                u.SaveUser();
 
-            MessageBox.Show("User " + u.UserName + " Successfully Saved!", "Information");
+                MessageBox.Show("User " + u.UserName + " Successfully Saved!", "Information");
+            }
+            else {
+                if (txtPassword.Text == "") { return; }
+                if (txtRetype.Text != txtPassword.Text) { return; }
+                if (cboRule.Text == "") { return; }
+
+                tmpUser.UserPassword = Security.EncryptString(txtPassword.Text);
+                tmpUser.Rule = cboRule.Text;
+                tmpUser.UpdateUser();
+
+                MessageBox.Show("User " + tmpUser.UserName + " Successfully Updated!", "Information");
+            }
 
 
         }
@@ -61,11 +77,46 @@ namespace BloodPlus
             if (txtUserName.Text == "") { txtUserName.Focus(); return false; }
             if (txtPassword.Text == "") { txtPassword.Focus(); return false; }
             if (txtRetype.Text == "") { txtRetype.Focus(); return false; }
-            if (txtRule.Text == "") { txtRule.Focus(); return false; }
+            if (cboRule.Text == "") { cboRule.Focus(); return false; }
 
             if (txtPassword.Text != txtRetype.Text) {return false;}
             return true;
         }
+
+        private void LoadUser()
+        {
+            string mysql = "Select * From tblUser";
+            DataSet ds = Database.LoadSQL(mysql, "tblUser");
+
+            foreach (DataRow dr in ds.Tables[0].Rows)
+            {
+                ListViewItem lv = lvUser.Items.Add(dr["UserName"].ToString());
+                lv.SubItems.Add(dr["Role"].ToString());
+                lv.Tag = dr["id"].ToString();
+            }
+           
+        }
+
+        private void lvUser_DoubleClick(object sender, EventArgs e)
+        {
+            if (lvUser.SelectedItems.Count == 0) { return; }
+
+            int idx = Convert.ToInt16(lvUser.FocusedItem.Tag);
+            ComputerUser u = new ComputerUser();
+            u.ID = idx;
+            u.LoadUser();
+            tmpUser = u;
+            txtFirstname.Text = u.FirstName;
+            txtMiddlename.Text = u.MiddleName;
+            txtLastname.Text = u.LastName;
+            txtUserName.Text = u.UserName;
+            cboRule.Text = u.Rule;
+
+            chkStatus.Enabled = true;
+            btnSave.Text = "&Update";
+        }
+
+        
      
     }
 }

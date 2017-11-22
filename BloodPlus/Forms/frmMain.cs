@@ -67,9 +67,10 @@ namespace BloodPlus
 
         internal  void NotYetLogin(bool st = true)
         {
+            TransactionToolStripMenuItem.Enabled = st;
             reportToolStripMenuItem.Enabled = st;
             maintenanceToolStripMenuItem.Enabled = st;
-
+           
             if (st == true)
             {
                 logoutToolStripMenuItem.Text = "&Logout";
@@ -78,6 +79,18 @@ namespace BloodPlus
             {
                 logoutToolStripMenuItem.Text = "&Login";
             }
+        }
+
+        private void bloodDonorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDonor bloodDonor = new frmDonor();
+            bloodDonor.Show();
+        }
+
+        private void userManagementToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUserManagement frm = new frmUserManagement();
+            frm.Show();
         }
     }
 }

@@ -80,10 +80,21 @@ namespace BloodPlus
             _with3["Firstname"] = _firstname;
             _with3["Middlename"] = _middlename ;
             _with3["Lastname"] = _lastname ;
-            _with3["Rule"] = _rule ;
+            _with3["Role"] = _rule ;
             _with3["Status"] = _status;
             ds.Tables["tblUser"].Rows.Add(dsNewRow);
             Database.SaveEntry(ds);
+        }
+
+        internal void UpdateUser()
+        {
+            string mysql = "Select * From tblUser Where id = " + _id ;
+            DataSet ds = Database.LoadSQL(mysql, "tblUser");
+
+            ds.Tables[0].Rows[0]["UserPassword"] = _userpassword;
+            ds.Tables[0].Rows[0]["Role"] = _rule;
+
+            Database.SaveEntry(ds, false);
         }
 
         internal void LoadUser()
@@ -105,7 +116,7 @@ namespace BloodPlus
             _firstname = dr["Firstname"].ToString();
             _middlename = dr["Middlename"].ToString();
             _lastname = dr["Lastname"].ToString();
-            _rule =dr["Rule"].ToString();
+            _rule = dr["Role"].ToString();
             _status = dr["Status"].ToString();
         }
 
