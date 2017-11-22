@@ -39,6 +39,9 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnImport = new System.Windows.Forms.Button();
+            this.chkRandom = new System.Windows.Forms.CheckBox();
+            this.lblCount = new System.Windows.Forms.Label();
+            this.lblCount2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // ofdImport
@@ -123,11 +126,42 @@
             this.btnImport.UseVisualStyleBackColor = true;
             this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
+            // chkRandom
+            // 
+            this.chkRandom.AutoSize = true;
+            this.chkRandom.Location = new System.Drawing.Point(846, 24);
+            this.chkRandom.Name = "chkRandom";
+            this.chkRandom.Size = new System.Drawing.Size(92, 17);
+            this.chkRandom.TabIndex = 4;
+            this.chkRandom.Text = "Random Date";
+            this.chkRandom.UseVisualStyleBackColor = true;
+            // 
+            // lblCount
+            // 
+            this.lblCount.AutoSize = true;
+            this.lblCount.Location = new System.Drawing.Point(23, 438);
+            this.lblCount.Name = "lblCount";
+            this.lblCount.Size = new System.Drawing.Size(35, 13);
+            this.lblCount.TabIndex = 5;
+            this.lblCount.Text = "label1";
+            // 
+            // lblCount2
+            // 
+            this.lblCount2.AutoSize = true;
+            this.lblCount2.Location = new System.Drawing.Point(75, 438);
+            this.lblCount2.Name = "lblCount2";
+            this.lblCount2.Size = new System.Drawing.Size(35, 13);
+            this.lblCount2.TabIndex = 6;
+            this.lblCount2.Text = "label1";
+            // 
             // frmImport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1056, 465);
+            this.Controls.Add(this.lblCount2);
+            this.Controls.Add(this.lblCount);
+            this.Controls.Add(this.chkRandom);
             this.Controls.Add(this.btnImport);
             this.Controls.Add(this.lvImport);
             this.Controls.Add(this.lblPath);
@@ -153,5 +187,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.CheckBox chkRandom;
+        private System.Windows.Forms.Label lblCount;
+        private System.Windows.Forms.Label lblCount2;
     }
 }

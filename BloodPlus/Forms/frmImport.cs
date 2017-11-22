@@ -53,6 +53,7 @@ namespace BloodPlus
             for (int cnt = 2; cnt <= MaxEntries; cnt++)
             {
                 AddItems(oSheet, cnt);
+                lblCount.Text = Convert.ToString((cnt) - 2);
             }
 
         //Memory Unload
@@ -95,8 +96,23 @@ namespace BloodPlus
                 Donate.MiddleName = lv.SubItems[3].Text.ToString();
                 Donate.LastName = lv.SubItems[4].Text.ToString();
                 Donate.Gender = lv.SubItems[5].Text.ToString();
-                Donate.DocDate = DateTime.Now;
+                if (chkRandom.Checked == true)
+                {
+                    Random rnd = new Random();
+                    int i = rnd.Next(1, 365);
+
+                    if (i > 300) { i = i - 325; }
+
+                    Donate.DocDate = DateTime.Now.AddDays(i);
+                }
+                else
+                {
+                    Donate.DocDate = DateTime.Now;
+                }
                 Donate.SaveBloodDonor();
+                
+                lblCount2.Text = Convert.ToString(lvImport.Items.Count - 1);
+               
 
                 Donate.AddInv(lv.SubItems[1].Text.ToString());
             }

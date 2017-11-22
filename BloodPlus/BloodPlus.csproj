@@ -59,6 +59,12 @@
   <ItemGroup>
     <Compile Include="Class\BloodDonor.cs" />
     <Compile Include="Class\ComputerUser.cs" />
+    <Compile Include="Forms\devMonitor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\devMonitor.Designer.cs">
+      <DependentUpon>devMonitor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmDonor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,12 +88,6 @@
     </Compile>
     <Compile Include="Forms\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\frmMaintenance.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmMaintenance.Designer.cs">
-      <DependentUpon>frmMaintenance.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmUserManagement.cs">
       <SubType>Form</SubType>
@@ -113,6 +113,9 @@
     <Compile Include="Reports\frmReport.Designer.cs">
       <DependentUpon>frmReport.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\devMonitor.resx">
+      <DependentUpon>devMonitor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmDonor.resx">
       <DependentUpon>frmDonor.cs</DependentUpon>
     </EmbeddedResource>
@@ -124,9 +127,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmMaintenance.resx">
-      <DependentUpon>frmMaintenance.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmUserManagement.resx">
       <DependentUpon>frmUserManagement.cs</DependentUpon>
@@ -143,7 +143,9 @@
     <EmbeddedResource Include="Reports\frmReport.resx">
       <DependentUpon>frmReport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\rpt_Graph.rdlc" />
+    <EmbeddedResource Include="Reports\rpt_Graph.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <None Include="Properties\DataSources\BloodPlus.Reports.dsReports.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

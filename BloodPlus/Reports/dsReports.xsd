@@ -12,11 +12,12 @@
   <xs:element name="dsReports" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsReports" msprop:Generator_UserDSName="dsReports">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="MonthlySum" msprop:Generator_TableClassName="MonthlySumDataTable" msprop:Generator_TableVarName="tableMonthlySum" msprop:Generator_TablePropName="MonthlySum" msprop:Generator_RowDeletingName="MonthlySumRowDeleting" msprop:Generator_RowChangingName="MonthlySumRowChanging" msprop:Generator_RowEvHandlerName="MonthlySumRowChangeEventHandler" msprop:Generator_RowDeletedName="MonthlySumRowDeleted" msprop:Generator_UserTableName="MonthlySum" msprop:Generator_RowChangedName="MonthlySumRowChanged" msprop:Generator_RowEvArgName="MonthlySumRowChangeEvent" msprop:Generator_RowClassName="MonthlySumRow">
+        <xs:element name="MonthlySum" msprop:Generator_TableClassName="MonthlySumDataTable" msprop:Generator_TableVarName="tableMonthlySum" msprop:Generator_RowChangedName="MonthlySumRowChanged" msprop:Generator_TablePropName="MonthlySum" msprop:Generator_RowDeletingName="MonthlySumRowDeleting" msprop:Generator_RowChangingName="MonthlySumRowChanging" msprop:Generator_RowEvHandlerName="MonthlySumRowChangeEventHandler" msprop:Generator_RowDeletedName="MonthlySumRowDeleted" msprop:Generator_RowClassName="MonthlySumRow" msprop:Generator_UserTableName="MonthlySum" msprop:Generator_RowEvArgName="MonthlySumRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Month" msprop:Generator_ColumnVarNameInTable="columnMonth" msprop:Generator_ColumnPropNameInRow="Month" msprop:Generator_ColumnPropNameInTable="MonthColumn" msprop:Generator_UserColumnName="Month" type="xs:string" minOccurs="0" />
-              <xs:element name="Val" msprop:Generator_ColumnVarNameInTable="columnVal" msprop:Generator_ColumnPropNameInRow="Val" msprop:Generator_ColumnPropNameInTable="ValColumn" msprop:Generator_UserColumnName="Val" type="xs:string" minOccurs="0" />
+              <xs:element name="DocMonth" msprop:Generator_ColumnVarNameInTable="columnDocMonth" msprop:Generator_ColumnPropNameInRow="DocMonth" msprop:Generator_ColumnPropNameInTable="DocMonthColumn" msprop:Generator_UserColumnName="DocMonth" type="xs:string" minOccurs="0" />
+              <xs:element name="TotalCount" msprop:Generator_ColumnVarNameInTable="columnTotalCount" msprop:Generator_ColumnPropNameInRow="TotalCount" msprop:Generator_ColumnPropNameInTable="TotalCountColumn" msprop:Generator_UserColumnName="TotalCount" type="xs:string" minOccurs="0" />
+              <xs:element name="DocDate" msprop:Generator_ColumnVarNameInTable="columnDocDate" msprop:Generator_ColumnPropNameInRow="DocDate" msprop:Generator_ColumnPropNameInTable="DocDateColumn" msprop:Generator_UserColumnName="DocDate" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

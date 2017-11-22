@@ -10,14 +10,18 @@
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="DataSet1">
+    <DataSet Name="dsMonitor">
       <Fields>
-        <Field Name="Month">
-          <DataField>Month</DataField>
+        <Field Name="DocMonth">
+          <DataField>DocMonth</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Val">
-          <DataField>Val</DataField>
+        <Field Name="TotalCount">
+          <DataField>TotalCount</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DocDate">
+          <DataField>DocDate</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
@@ -35,38 +39,38 @@
   </DataSets>
   <Body>
     <ReportItems>
-      <Chart Name="Chart4">
+      <Chart Name="Chart1">
         <ChartCategoryHierarchy>
           <ChartMembers>
             <ChartMember>
-              <Group Name="Chart4_CategoryGroup1">
+              <Group Name="Chart1_CategoryGroup1">
                 <GroupExpressions>
-                  <GroupExpression>=Fields!Val.Value</GroupExpression>
+                  <GroupExpression>=Fields!DocMonth.Value</GroupExpression>
                 </GroupExpressions>
               </Group>
-              <Label>=Fields!Val.Value</Label>
+              <Label>=Fields!DocMonth.Value</Label>
             </ChartMember>
           </ChartMembers>
         </ChartCategoryHierarchy>
         <ChartSeriesHierarchy>
           <ChartMembers>
             <ChartMember>
-              <Group Name="Chart4_SeriesGroup1">
+              <Group Name="Chart1_SeriesGroup1">
                 <GroupExpressions>
-                  <GroupExpression>=Fields!Month.Value</GroupExpression>
+                  <GroupExpression>=Fields!TotalCount.Value</GroupExpression>
                 </GroupExpressions>
               </Group>
-              <Label>=Fields!Month.Value</Label>
+              <Label>=Fields!TotalCount.Value</Label>
             </ChartMember>
           </ChartMembers>
         </ChartSeriesHierarchy>
         <ChartData>
           <ChartSeriesCollection>
-            <ChartSeries Name="Val">
+            <ChartSeries Name="TotalCount">
               <ChartDataPoints>
                 <ChartDataPoint>
                   <ChartDataPointValues>
-                    <Y>=Count(Fields!Val.Value)</Y>
+                    <Y>=Count(Fields!TotalCount.Value)</Y>
                   </ChartDataPointValues>
                   <ChartDataLabel>
                     <Style />
@@ -287,11 +291,11 @@
             <VerticalAlign>Top</VerticalAlign>
           </Style>
         </ChartNoDataMessage>
-        <DataSetName>DataSet1</DataSetName>
-        <Top>0.205in</Top>
-        <Left>0.31958in</Left>
+        <DataSetName>dsMonitor</DataSetName>
+        <Top>0.30917in</Top>
+        <Left>0.23625in</Left>
         <Height>2in</Height>
-        <Width>5.86458in</Width>
+        <Width>5.72917in</Width>
         <Style>
           <Border>
             <Color>LightGrey</Color>
@@ -301,10 +305,46 @@
           <BackgroundGradientType>None</BackgroundGradientType>
         </Style>
       </Chart>
+      <Textbox Name="Textbox1">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Parameters!txtUsername.Value</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>3.04875in</Top>
+        <Left>0.23625in</Left>
+        <Height>0.25in</Height>
+        <Width>1in</Width>
+        <ZIndex>1</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>2.83in</Height>
+    <Height>3.56958in</Height>
     <Style />
   </Body>
+  <ReportParameters>
+    <ReportParameter Name="txtUsername">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+  </ReportParameters>
   <Width>6.5in</Width>
   <Page>
     <LeftMargin>1in</LeftMargin>
