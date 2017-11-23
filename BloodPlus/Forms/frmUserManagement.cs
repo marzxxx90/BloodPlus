@@ -48,31 +48,37 @@ namespace BloodPlus
                 u.FirstName = txtFirstname.Text;
                 u.MiddleName = txtMiddlename.Text;
                 u.LastName = txtLastname.Text;
-                u.Rule = cboRule.Text;
+                u.TmpRole = cboRule.Text;
                 u.Status = "1";
                 u.SaveUser();
 
                 MessageBox.Show("User " + u.UserName + " Successfully Saved!", "Information");
             }
             else {
-                if (txtPassword.Text == "") { return; }
-                if (txtRetype.Text != txtPassword.Text) { return; }
-                if (cboRule.Text == "") { return; }
+                if (txtPassword.Text == "") { MessageBox.Show("Please fill Password","Information"); return; }
+                if (txtRetype.Text != txtPassword.Text) { MessageBox.Show("Password Not Match", "Warning. . ."); return; }
+                if (cboRule.Text == "") { MessageBox.Show("Select Rule", "Information"); return; }
 
-                tmpUser.UserPassword = Security.EncryptString(txtPassword.Text);
-                tmpUser.Rule = cboRule.Text;
-                tmpUser.UpdateUser();
+                var u = tmpUser;
+                u.UserPassword = Security.EncryptString(txtPassword.Text);
+                u.TmpRole = cboRule.Text;
+                if (chkStatus.Checked == false) { u.Status = "0"; }
+                u.UpdateUser();
 
                 MessageBox.Show("User " + tmpUser.UserName + " Successfully Updated!", "Information");
             }
-
+            LoadUser();
+            ClearText();
+            btnSave.Text = "&Save";
+            chkStatus.Checked = true;
+            isEnable();
 
         }
 
         private bool isValid()
         {
             if (txtFirstname.Text == "") { txtFirstname.Focus(); return false; }
-            if (txtMiddlename.Text == "") { txtMiddlename.Focus(); return false; }
+            //if (txtMiddlename.Text == "") { txtMiddlename.Focus(); return false; }
             if (txtLastname.Text == "") { txtLastname.Focus(); return false; }
             if (txtUserName.Text == "") { txtUserName.Focus(); return false; }
             if (txtPassword.Text == "") { txtPassword.Focus(); return false; }
@@ -88,6 +94,7 @@ namespace BloodPlus
             string mysql = "Select * From tblUser";
             DataSet ds = Database.LoadSQL(mysql, "tblUser");
 
+            lvUser.Items.Clear();
             foreach (DataRow dr in ds.Tables[0].Rows)
             {
                 ListViewItem lv = lvUser.Items.Add(dr["UserName"].ToString());
@@ -110,13 +117,33 @@ namespace BloodPlus
             txtMiddlename.Text = u.MiddleName;
             txtLastname.Text = u.LastName;
             txtUserName.Text = u.UserName;
-            cboRule.Text = u.Rule;
-
+            cboRule.Text = u.TmpRole;
+            if (u.Status == "1")
+            {
+                chkStatus.Checked = true;
+            }
+            else {
+                chkStatus.Checked = false;
+            }
             chkStatus.Enabled = true;
             btnSave.Text = "&Update";
+
+            txtFirstname.Enabled = false;
+            txtUserName.Enabled = false;
+            txtMiddlename.Enabled = false;
+            txtLastname.Enabled = false;
         }
 
-        
+        private void isEnable()
+        {
+            txtUserName.Enabled = true;
+            txtPassword.Enabled = true;
+            txtRetype.Enabled = true;
+            txtFirstname.Enabled = true;
+            txtMiddlename.Enabled = true;
+            txtLastname.Enabled = true;
+
+        }
      
     }
 }

@@ -73,7 +73,7 @@
             // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "Rule";
+            this.columnHeader2.Text = "Role";
             this.columnHeader2.Width = 119;
             // 
             // txtUserName
@@ -181,7 +181,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(29, 13);
             this.label7.TabIndex = 13;
-            this.label7.Text = "Rule";
+            this.label7.Text = "Role";
             // 
             // btnSave
             // 

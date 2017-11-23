@@ -28,6 +28,7 @@ namespace BloodPlus
             d.LastName = txtLastname.Text;
             d.Gender = cboGender.Text;
             d.DocDate = DateTime.Now;
+            d.SaveBloodDonor();
 
             MessageBox.Show("Successfully Saved", "Information"); ClearText();
         }

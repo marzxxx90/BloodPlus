@@ -61,7 +61,7 @@
             this.txtCardNum.MaxLength = 20;
             this.txtCardNum.Name = "txtCardNum";
             this.txtCardNum.Size = new System.Drawing.Size(262, 26);
-            this.txtCardNum.TabIndex = 1;
+            this.txtCardNum.TabIndex = 0;
             this.txtCardNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCardNum_KeyPress);
             // 
             // groupBox1
@@ -83,7 +83,7 @@
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(406, 360);
-            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
             // btnSave
@@ -91,7 +91,7 @@
             this.btnSave.Location = new System.Drawing.Point(274, 297);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(120, 45);
-            this.btnSave.TabIndex = 13;
+            this.btnSave.TabIndex = 6;
             this.btnSave.Text = "&Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -106,7 +106,7 @@
             this.cboGender.Location = new System.Drawing.Point(132, 249);
             this.cboGender.Name = "cboGender";
             this.cboGender.Size = new System.Drawing.Size(262, 28);
-            this.cboGender.TabIndex = 12;
+            this.cboGender.TabIndex = 5;
             // 
             // label6
             // 
@@ -125,7 +125,7 @@
             this.cboBloodType.Location = new System.Drawing.Point(132, 61);
             this.cboBloodType.Name = "cboBloodType";
             this.cboBloodType.Size = new System.Drawing.Size(262, 28);
-            this.cboBloodType.TabIndex = 10;
+            this.cboBloodType.TabIndex = 1;
             // 
             // label5
             // 
@@ -142,7 +142,7 @@
             this.txtLastname.Location = new System.Drawing.Point(132, 200);
             this.txtLastname.Name = "txtLastname";
             this.txtLastname.Size = new System.Drawing.Size(262, 26);
-            this.txtLastname.TabIndex = 9;
+            this.txtLastname.TabIndex = 4;
             // 
             // label4
             // 
@@ -159,7 +159,7 @@
             this.txtMiddlename.Location = new System.Drawing.Point(132, 153);
             this.txtMiddlename.Name = "txtMiddlename";
             this.txtMiddlename.Size = new System.Drawing.Size(262, 26);
-            this.txtMiddlename.TabIndex = 7;
+            this.txtMiddlename.TabIndex = 3;
             // 
             // label3
             // 
@@ -176,7 +176,7 @@
             this.txtFirstname.Location = new System.Drawing.Point(132, 108);
             this.txtFirstname.Name = "txtFirstname";
             this.txtFirstname.Size = new System.Drawing.Size(262, 26);
-            this.txtFirstname.TabIndex = 5;
+            this.txtFirstname.TabIndex = 2;
             // 
             // label2
             // 
