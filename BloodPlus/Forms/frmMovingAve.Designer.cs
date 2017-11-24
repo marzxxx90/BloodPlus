@@ -73,7 +73,7 @@
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "Blood Type";
+            this.columnHeader3.Text = "Blood Count";
             this.columnHeader3.Width = 81;
             // 
             // columnHeader4

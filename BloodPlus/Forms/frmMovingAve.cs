@@ -59,6 +59,7 @@ namespace BloodPlus
             var mySeries = new SortedList<string, double>();
             int i = 0;
 
+            lvDev.Items.Clear();
             foreach (DataRow dr in ds.Tables[0].Rows)
 	            {
                     i +=1;
@@ -67,7 +68,7 @@ namespace BloodPlus
                     ListViewItem lv = lvDev.Items.Add(Convert.ToString(dr["DocMonth"]));
                     lv.SubItems.Add(dr["DocYear"].ToString());
                     lv.SubItems.Add(dr["BloodCount"].ToString());
-                    if (i >= Convert.ToInt16(nudPeriod.Value)) { lv.SubItems.Add(Convert.ToString( MovingAverage2(mySeries, 3))); }
+                    if (i >= Convert.ToInt16(nudPeriod.Value)) { lv.SubItems.Add(Convert.ToString(MovingAverage2(mySeries, 3))); }
                   
 	            }
         }
