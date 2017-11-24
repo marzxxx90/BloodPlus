@@ -6,7 +6,7 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>58a3f1a5-b3a6-46cb-93be-60c7e5677fe8</rd:DataSourceID>
+      <rd:DataSourceID>54d5ef81-aded-43c4-a4f4-2df25e33c07d</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -24,6 +24,18 @@
           <DataField>DocDate</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="BloodType">
+          <DataField>BloodType</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DocYear">
+          <DataField>DocYear</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MovingAve">
+          <DataField>MovingAve</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <Query>
         <DataSourceName>BloodPlusReports</DataSourceName>
@@ -39,11 +51,40 @@
   </DataSets>
   <Body>
     <ReportItems>
-      <Chart Name="Chart1">
+      <Textbox Name="Textbox1">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Parameters!txtUsername.Value</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>3.04875in</Top>
+        <Left>0.23625in</Left>
+        <Height>0.25in</Height>
+        <Width>1in</Width>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Chart Name="Chart4">
         <ChartCategoryHierarchy>
           <ChartMembers>
             <ChartMember>
-              <Group Name="Chart1_CategoryGroup1">
+              <Group Name="Chart4_CategoryGroup1">
                 <GroupExpressions>
                   <GroupExpression>=Fields!DocMonth.Value</GroupExpression>
                 </GroupExpressions>
@@ -55,25 +96,27 @@
         <ChartSeriesHierarchy>
           <ChartMembers>
             <ChartMember>
-              <Group Name="Chart1_SeriesGroup1">
+              <Group Name="Chart4_SeriesGroup1">
                 <GroupExpressions>
-                  <GroupExpression>=Fields!TotalCount.Value</GroupExpression>
+                  <GroupExpression>=Fields!BloodType.Value</GroupExpression>
                 </GroupExpressions>
               </Group>
-              <Label>=Fields!TotalCount.Value</Label>
+              <Label>=Fields!BloodType.Value</Label>
             </ChartMember>
           </ChartMembers>
         </ChartSeriesHierarchy>
         <ChartData>
           <ChartSeriesCollection>
-            <ChartSeries Name="TotalCount">
+            <ChartSeries Name="BloodType">
               <ChartDataPoints>
                 <ChartDataPoint>
                   <ChartDataPointValues>
-                    <Y>=Count(Fields!TotalCount.Value)</Y>
+                    <Y>=Count(Fields!BloodType.Value)</Y>
                   </ChartDataPointValues>
                   <ChartDataLabel>
                     <Style />
+                    <UseValueAsLabel>true</UseValueAsLabel>
+                    <Visible>true</Visible>
                   </ChartDataLabel>
                   <Style />
                   <ChartMarker>
@@ -84,6 +127,7 @@
                 </ChartDataPoint>
               </ChartDataPoints>
               <Type>Line</Type>
+              <Subtype>Smooth</Subtype>
               <Style />
               <ChartEmptyPoints>
                 <Style />
@@ -111,7 +155,7 @@
                   <FontSize>8pt</FontSize>
                 </Style>
                 <ChartAxisTitle>
-                  <Caption>Axis Title</Caption>
+                  <Caption />
                   <Style>
                     <FontSize>8pt</FontSize>
                   </Style>
@@ -180,7 +224,7 @@
                   <FontSize>8pt</FontSize>
                 </Style>
                 <ChartAxisTitle>
-                  <Caption>Axis Title</Caption>
+                  <Caption />
                   <Style>
                     <FontSize>8pt</FontSize>
                   </Style>
@@ -292,10 +336,11 @@
           </Style>
         </ChartNoDataMessage>
         <DataSetName>dsMonitor</DataSetName>
-        <Top>0.30917in</Top>
-        <Left>0.23625in</Left>
-        <Height>2in</Height>
-        <Width>5.72917in</Width>
+        <Top>0.15292in</Top>
+        <Left>0.11125in</Left>
+        <Height>2.72917in</Height>
+        <Width>10.15625in</Width>
+        <ZIndex>1</ZIndex>
         <Style>
           <Border>
             <Color>LightGrey</Color>
@@ -305,36 +350,6 @@
           <BackgroundGradientType>None</BackgroundGradientType>
         </Style>
       </Chart>
-      <Textbox Name="Textbox1">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=Parameters!txtUsername.Value</Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>3.04875in</Top>
-        <Left>0.23625in</Left>
-        <Height>0.25in</Height>
-        <Width>1in</Width>
-        <ZIndex>1</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
     </ReportItems>
     <Height>3.56958in</Height>
     <Style />
@@ -345,12 +360,14 @@
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
   </ReportParameters>
-  <Width>6.5in</Width>
+  <Width>11in</Width>
   <Page>
-    <LeftMargin>1in</LeftMargin>
-    <RightMargin>1in</RightMargin>
-    <TopMargin>1in</TopMargin>
-    <BottomMargin>1in</BottomMargin>
+    <PageHeight>8.5in</PageHeight>
+    <PageWidth>11in</PageWidth>
+    <LeftMargin>0.5in</LeftMargin>
+    <RightMargin>0.5in</RightMargin>
+    <TopMargin>0.5in</TopMargin>
+    <BottomMargin>0.5in</BottomMargin>
     <Style />
   </Page>
   <rd:ReportID>b707471c-6ff6-4523-846c-4961afbe7a4f</rd:ReportID>

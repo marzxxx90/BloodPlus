@@ -285,6 +285,12 @@ namespace BloodPlus.Reports {
             
             private global::System.Data.DataColumn columnDocDate;
             
+            private global::System.Data.DataColumn columnBloodType;
+            
+            private global::System.Data.DataColumn columnDocYear;
+            
+            private global::System.Data.DataColumn columnMovingAve;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public MonthlySumDataTable() {
@@ -344,6 +350,30 @@ namespace BloodPlus.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn BloodTypeColumn {
+                get {
+                    return this.columnBloodType;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DocYearColumn {
+                get {
+                    return this.columnDocYear;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MovingAveColumn {
+                get {
+                    return this.columnMovingAve;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -379,12 +409,15 @@ namespace BloodPlus.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public MonthlySumRow AddMonthlySumRow(string DocMonth, string TotalCount, string DocDate) {
+            public MonthlySumRow AddMonthlySumRow(string DocMonth, string TotalCount, string DocDate, string BloodType, string DocYear, string MovingAve) {
                 MonthlySumRow rowMonthlySumRow = ((MonthlySumRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         DocMonth,
                         TotalCount,
-                        DocDate};
+                        DocDate,
+                        BloodType,
+                        DocYear,
+                        MovingAve};
                 rowMonthlySumRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowMonthlySumRow);
                 return rowMonthlySumRow;
@@ -410,6 +443,9 @@ namespace BloodPlus.Reports {
                 this.columnDocMonth = base.Columns["DocMonth"];
                 this.columnTotalCount = base.Columns["TotalCount"];
                 this.columnDocDate = base.Columns["DocDate"];
+                this.columnBloodType = base.Columns["BloodType"];
+                this.columnDocYear = base.Columns["DocYear"];
+                this.columnMovingAve = base.Columns["MovingAve"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -421,6 +457,12 @@ namespace BloodPlus.Reports {
                 base.Columns.Add(this.columnTotalCount);
                 this.columnDocDate = new global::System.Data.DataColumn("DocDate", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDocDate);
+                this.columnBloodType = new global::System.Data.DataColumn("BloodType", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBloodType);
+                this.columnDocYear = new global::System.Data.DataColumn("DocYear", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDocYear);
+                this.columnMovingAve = new global::System.Data.DataColumn("MovingAve", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMovingAve);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -611,6 +653,54 @@ namespace BloodPlus.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string BloodType {
+                get {
+                    try {
+                        return ((string)(this[this.tableMonthlySum.BloodTypeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'BloodType\' in table \'MonthlySum\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMonthlySum.BloodTypeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string DocYear {
+                get {
+                    try {
+                        return ((string)(this[this.tableMonthlySum.DocYearColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DocYear\' in table \'MonthlySum\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMonthlySum.DocYearColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string MovingAve {
+                get {
+                    try {
+                        return ((string)(this[this.tableMonthlySum.MovingAveColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MovingAve\' in table \'MonthlySum\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMonthlySum.MovingAveColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsDocMonthNull() {
                 return this.IsNull(this.tableMonthlySum.DocMonthColumn);
             }
@@ -643,6 +733,42 @@ namespace BloodPlus.Reports {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetDocDateNull() {
                 this[this.tableMonthlySum.DocDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBloodTypeNull() {
+                return this.IsNull(this.tableMonthlySum.BloodTypeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBloodTypeNull() {
+                this[this.tableMonthlySum.BloodTypeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDocYearNull() {
+                return this.IsNull(this.tableMonthlySum.DocYearColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDocYearNull() {
+                this[this.tableMonthlySum.DocYearColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMovingAveNull() {
+                return this.IsNull(this.tableMonthlySum.MovingAveColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMovingAveNull() {
+                this[this.tableMonthlySum.MovingAveColumn] = global::System.Convert.DBNull;
             }
         }
         

@@ -87,6 +87,7 @@ namespace BloodPlus
         {
             if (lvImport.Items.Count == 0) { return; }
 
+            btnImport.Enabled = false;
             foreach (ListViewItem  lv in lvImport.Items)
             {
                 BloodDonor Donate = new BloodDonor();
@@ -102,7 +103,7 @@ namespace BloodPlus
                     int i = rnd.Next(1, 365);
 
                     if (i > 300) { i = i - 325; }
-
+                    i = i - 325;
                     Donate.DocDate = DateTime.Now.AddDays(i);
                 }
                 else
@@ -112,12 +113,12 @@ namespace BloodPlus
                 Donate.SaveBloodDonor();
                 
                 lblCount2.Text = Convert.ToString(lvImport.Items.Count - 1);
-               
+               // Application.DoEvents();
 
                 Donate.AddInv(lv.SubItems[1].Text.ToString());
             }
             MessageBox.Show("Successfuly Imported", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+            btnImport.Enabled = true;
         }
 
         private void frmImport_Load(object sender, EventArgs e)
