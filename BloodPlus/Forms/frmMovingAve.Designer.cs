@@ -42,6 +42,7 @@
             this.dtpTo = new System.Windows.Forms.DateTimePicker();
             this.nudPeriod = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
+            this.rv_display = new Microsoft.Reporting.WinForms.ReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.nudPeriod)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,7 +57,7 @@
             this.lvDev.GridLines = true;
             this.lvDev.Location = new System.Drawing.Point(12, 73);
             this.lvDev.Name = "lvDev";
-            this.lvDev.Size = new System.Drawing.Size(400, 330);
+            this.lvDev.Size = new System.Drawing.Size(400, 393);
             this.lvDev.TabIndex = 1;
             this.lvDev.UseCompatibleStateImageBehavior = false;
             this.lvDev.View = System.Windows.Forms.View.Details;
@@ -161,11 +162,20 @@
             this.label4.TabIndex = 10;
             this.label4.Text = "Period";
             // 
+            // rv_display
+            // 
+            this.rv_display.DocumentMapWidth = 16;
+            this.rv_display.Location = new System.Drawing.Point(418, 11);
+            this.rv_display.Name = "rv_display";
+            this.rv_display.Size = new System.Drawing.Size(654, 455);
+            this.rv_display.TabIndex = 11;
+            // 
             // frmMovingAve
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(992, 415);
+            this.ClientSize = new System.Drawing.Size(1084, 478);
+            this.Controls.Add(this.rv_display);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.nudPeriod);
             this.Controls.Add(this.dtpTo);
@@ -201,5 +211,6 @@
         private System.Windows.Forms.DateTimePicker dtpTo;
         private System.Windows.Forms.NumericUpDown nudPeriod;
         private System.Windows.Forms.Label label4;
+        private Microsoft.Reporting.WinForms.ReportViewer rv_display;
     }
 }
