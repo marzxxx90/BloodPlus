@@ -48,11 +48,11 @@ namespace BloodPlus
             mysql += "When 5 then 'May'  ";
             mysql += "When 6 then 'Jun'  ";
             mysql += "When 7 then 'Jul'  ";
-            mysql += "When '8' then 'Aug' ";
-            mysql += "When '9' then 'Sep'  ";
-            mysql += "When '10' then 'Oct'  ";
-            mysql += "When '11' then 'Nov'  ";
-            mysql += "When '12' then 'Dec' else 'None' End as DocMonth, BloodType, Count(BloodType)as BloodCount , DocDate, Year(DocDate)as DocYear ";
+            mysql += "When 8 then 'Aug' ";
+            mysql += "When 9 then 'Sep'  ";
+            mysql += "When 10 then 'Oct'  ";
+            mysql += "When 11 then 'Nov'  ";
+            mysql += "When 12 then 'Dec' else 'None' End as DocMonth, BloodType, Count(BloodType)as BloodCount , DocDate, Year(DocDate)as DocYear ";
             mysql += "From tblDonor Where BloodType = '" + cboBloodType.Text + "' And (DocDate Between '" + dtpFrom.Text  + "' And '" + dtpTo.Text + "') ";
             mysql += "Group By Month(DocDate), BloodType ";
             mysql += "Order By DocDate ";
@@ -65,8 +65,6 @@ namespace BloodPlus
             foreach (DataRow dr in ds.Tables[0].Rows)
 	            {
                     i +=1;
-                    mySeries.Add(dr["DocNum"].ToString(), Convert.ToDouble(dr["BloodCount"]));
-
                     ListViewItem lv = lvDev.Items.Add(Convert.ToString(dr["DocMonth"]));
                     lv.SubItems.Add(dr["DocYear"].ToString());
                     lv.SubItems.Add(dr["BloodCount"].ToString());
@@ -82,11 +80,11 @@ namespace BloodPlus
             mysql += "When 5 then 'May'  ";
             mysql += "When 6 then 'Jun'  ";
             mysql += "When 7 then 'Jul'  ";
-            mysql += "When '8' then 'Aug' ";
-            mysql += "When '9' then 'Sep'  ";
-            mysql += "When '10' then 'Oct'  ";
-            mysql += "When '11' then 'Nov'  ";
-            mysql += "When '12' then 'Dec' else 'None' End as DocMonth, BloodType , DocDate, Year(DocDate)as DocYear ";
+            mysql += "When 8 then 'Aug' ";
+            mysql += "When 9 then 'Sep'  ";
+            mysql += "When 10 then 'Oct'  ";
+            mysql += "When 11 then 'Nov'  ";
+            mysql += "When 12 then 'Dec' else 'None' End as DocMonth, BloodType , DocDate, Year(DocDate)as DocYear ";
             mysql += "From tblDonor Where BloodType = '" + cboBloodType.Text + "' And (DocDate Between '" + dtpFrom.Text + "' And '" + dtpTo.Text + "') ";
             mysql += "Order By DocDate ";
             ds = Database.LoadSQL(mysql,"tblDonor");
@@ -173,6 +171,25 @@ namespace BloodPlus
             {
                 MessageBox.Show(ex.Message.ToString());
             }
+        }
+
+        private void IniTmpTable()
+        {
+            DataColumn dtidx = new DataColumn("ID", Type.GetType("System.Int32"));
+            DataColumn dtItemCode = new DataColumn("ItemCOde", Type.GetType("System.String"));
+            DataColumn dtDescription = new DataColumn("Description", Type.GetType("System.String"));
+            DataColumn dtItemGroup = new DataColumn("ItemGroup", Type.GetType("System.String"));
+            DataColumn dtItemClass = new DataColumn("ItemClass", Type.GetType("System.String"));
+            DataColumn dtQty = new DataColumn("Qty", Type.GetType("System.Double"));
+            DataColumn dtUnitCost = new DataColumn("UnitCost", Type.GetType("System.Double"));
+            DataColumn dtSellingPrice = new DataColumn("SellingPrice", Type.GetType("System.Double"));
+            DataColumn dtGrams = new DataColumn("Grams", Type.GetType("System.Double"));
+            DataColumn dtKarat = new DataColumn("Karat", Type.GetType("System.Int32"));
+            DataColumn dtAmount = new DataColumn("Amount", Type.GetType("System.Double"));
+            DataColumn dtBranchCode = new DataColumn("BranchCode", Type.GetType("System.String"));
+            DataColumn dtdocDate = new DataColumn("DocDate", Type.GetType("System.DateTime"));
+            DataColumn dtBracket = new DataColumn("Bracket", Type.GetType("System.Double"));
+ 
         }
     }
 }
