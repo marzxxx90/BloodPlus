@@ -11,6 +11,7 @@ namespace BloodPlus
 {
     public partial class frmMovingAve : Form
     {
+        int iRows = 0;
         public frmMovingAve()
         {
             InitializeComponent();
@@ -64,14 +65,15 @@ namespace BloodPlus
             foreach (DataRow dr in ds.Tables[0].Rows)
 	            {
                     i +=1;
-                    mySeries.Add(dr["DocMonth"].ToString(), Convert.ToDouble(dr["BloodCount"]));
+                    mySeries.Add(dr["DocNum"].ToString(), Convert.ToDouble(dr["BloodCount"]));
 
                     ListViewItem lv = lvDev.Items.Add(Convert.ToString(dr["DocMonth"]));
                     lv.SubItems.Add(dr["DocYear"].ToString());
                     lv.SubItems.Add(dr["BloodCount"].ToString());
-                    if (i >= Convert.ToInt16(nudPeriod.Value)) { lv.SubItems.Add(Convert.ToString(MovingAverage2(mySeries, 3))); }
+                    if (i >= Convert.ToInt16(nudPeriod.Value)) { lv.SubItems.Add(Convert.ToString(MovingAverage(ds, Convert.ToInt16(nudPeriod.Value)))); }
                   
 	            }
+
             mysql = "Select Month(DocDate)as DocNum, case Month(DocDate) ";
             mysql += "When 1 then 'Jan'  ";
             mysql += "When 2 then 'Feb'  ";
@@ -88,26 +90,36 @@ namespace BloodPlus
             mysql += "From tblDonor Where BloodType = '" + cboBloodType.Text + "' And (DocDate Between '" + dtpFrom.Text + "' And '" + dtpTo.Text + "') ";
             mysql += "Order By DocDate ";
             ds = Database.LoadSQL(mysql,"tblDonor");
+
             ReportInit(ds, "dsMonitor", @"Reports\rpt_Graph.rdlc");
         }
 
-        public double MovingAverage2(SortedList<string, double> series, int period)
+        public double MovingAverage(DataSet ds, int period)
         {
             double average;
-
-            for (int i = 0; i < series.Count(); i++)
+            for (int i = iRows; i < ds.Tables[0].Rows.Count; i++)
             {
                 if (i >= period - 1)
                 {
                     double total = 0;
                     for (int x = i; x > (i - period); x--)
-                        total += series.Values[x];
-                    average = total / period;
-                    return average;
-                    // result.Add(series.Keys[i], average);
-                }
+                    {
+                        total += Convert.ToDouble(ds.Tables[0].Rows[x]["BloodCount"]);
+                        Console.WriteLine("Month " + ds.Tables[0].Rows[x]["DocMonth"].ToString());
+                        Console.WriteLine("Value " + ds.Tables[0].Rows[x]["BloodCount"].ToString());
+                    }
+                        average = total / period;
+                        if (iRows < period)
+                        {
+                            iRows += period;
+                        }
+                        else { iRows += 1; }
 
+                        return average;
+                    
+                }
             }
+
             return 0;
         }
 
