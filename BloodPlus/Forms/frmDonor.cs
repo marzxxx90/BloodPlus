@@ -11,6 +11,7 @@ namespace BloodPlus
 {
     public partial class frmDonor : Form
     {
+        Recepient Donor;
         public frmDonor()
         {
             InitializeComponent();
@@ -18,18 +19,21 @@ namespace BloodPlus
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (!isValid()) { return; }
+            if (!isValid()) { MessageBox.Show("Please Check the Fields!", "Error"); return; }
+
             BloodDonor donate = new BloodDonor();
             var d = donate;
             d.CardNum = txtCardNum.Text;
             d.BloodType = cboBloodType.Text;
-            d.FirstName = txtFirstname.Text;
-            d.MiddleName = txtMiddlename.Text;
-            d.LastName = txtLastname.Text;
-            d.Gender = cboGender.Text;
+            //d.FirstName = txtFirstname.Text;
+            //d.MiddleName = txtMiddlename.Text;
+            //d.LastName = txtLastname.Text;
+            //d.Gender = cboGender.Text;
+            d.Recepient = Donor;
             d.DocDate = DateTime.Now;
             d.SaveBloodDonor();
 
+            d.AddInv(cboBloodType.Text);
             MessageBox.Show("Successfully Saved", "Information"); ClearText();
         }
 
@@ -37,9 +41,10 @@ namespace BloodPlus
         {
             if (txtCardNum.Text == "") { return false; }
             if (cboBloodType.Text == "") { return false; }
-            if (txtFirstname.Text == "") { return false; }
-            if (txtLastname.Text == "") { return false; }
-            if (cboGender.Text == "") { return false; }
+            //if (txtFirstname.Text == "") { return false; }
+            //if (txtLastname.Text == "") { return false; }
+            //if (cboGender.Text == "") { return false; }
+            if (Donor == null) { return false; }
 
             return true;
         }
@@ -67,10 +72,44 @@ namespace BloodPlus
             txtFirstname.Clear();
             txtMiddlename.Clear();
             txtLastname.Clear();
+            txtGender.Clear();
+            txtDob.Clear();
+            txtSearchRecepient.Clear();
         }
         private void txtCardNum_KeyPress(object sender, KeyPressEventArgs e)
         {
             mod_system.DigitOnly(e);
+        }
+
+        private void btnSearchRecepient_Click(object sender, EventArgs e)
+        {
+            frmRecepientList frm = new frmRecepientList();
+            frm.SearchSelect(txtSearchRecepient.Text, FormChange.FormName.DonorBlood);
+            frm.Show();
+        }
+
+        internal void LoadRecepientInfo(Recepient info)
+        {
+            string tmpGender;
+            txtFirstname.Text = info.Firstname;
+            txtMiddlename.Text = info.Middlename;
+            txtLastname.Text = info.Lastname;
+            if (Convert.ToString(info.Gender) == "F")
+            {
+                tmpGender = "Female";
+            }
+            else 
+            {
+                tmpGender = "Male";
+            }
+            txtGender.Text = tmpGender ;
+            txtDob.Text = Convert.ToString(info.DateofBirth.ToString("yyyy-mm-dd"));
+            Donor = info;
+        }
+
+        private void txtSearchRecepient_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (mod_system.isEnter(e)) { btnSearchRecepient.PerformClick(); }
         }
     }
 }

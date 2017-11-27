@@ -40,8 +40,8 @@
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnImport = new System.Windows.Forms.Button();
             this.chkRandom = new System.Windows.Forms.CheckBox();
-            this.lblCount = new System.Windows.Forms.Label();
-            this.lblCount2 = new System.Windows.Forms.Label();
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.pbStatus = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // ofdImport
@@ -75,7 +75,8 @@
             this.columnHeader3,
             this.columnHeader4,
             this.columnHeader5,
-            this.columnHeader6});
+            this.columnHeader6,
+            this.columnHeader7});
             this.lvImport.FullRowSelect = true;
             this.lvImport.GridLines = true;
             this.lvImport.Location = new System.Drawing.Point(12, 69);
@@ -93,7 +94,7 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "Blood Type";
-            this.columnHeader2.Width = 274;
+            this.columnHeader2.Width = 141;
             // 
             // columnHeader3
             // 
@@ -136,31 +137,24 @@
             this.chkRandom.Text = "Random Date";
             this.chkRandom.UseVisualStyleBackColor = true;
             // 
-            // lblCount
+            // columnHeader7
             // 
-            this.lblCount.AutoSize = true;
-            this.lblCount.Location = new System.Drawing.Point(23, 438);
-            this.lblCount.Name = "lblCount";
-            this.lblCount.Size = new System.Drawing.Size(35, 13);
-            this.lblCount.TabIndex = 5;
-            this.lblCount.Text = "label1";
+            this.columnHeader7.Text = "Date of Birth";
+            this.columnHeader7.Width = 139;
             // 
-            // lblCount2
+            // pbStatus
             // 
-            this.lblCount2.AutoSize = true;
-            this.lblCount2.Location = new System.Drawing.Point(75, 438);
-            this.lblCount2.Name = "lblCount2";
-            this.lblCount2.Size = new System.Drawing.Size(35, 13);
-            this.lblCount2.TabIndex = 6;
-            this.lblCount2.Text = "label1";
+            this.pbStatus.Location = new System.Drawing.Point(15, 432);
+            this.pbStatus.Name = "pbStatus";
+            this.pbStatus.Size = new System.Drawing.Size(948, 23);
+            this.pbStatus.TabIndex = 5;
             // 
             // frmImport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1056, 465);
-            this.Controls.Add(this.lblCount2);
-            this.Controls.Add(this.lblCount);
+            this.Controls.Add(this.pbStatus);
             this.Controls.Add(this.chkRandom);
             this.Controls.Add(this.btnImport);
             this.Controls.Add(this.lvImport);
@@ -188,7 +182,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.CheckBox chkRandom;
-        private System.Windows.Forms.Label lblCount;
-        private System.Windows.Forms.Label lblCount2;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ProgressBar pbStatus;
     }
 }
