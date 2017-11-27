@@ -50,7 +50,9 @@ namespace BloodPlus
         internal  void LoadRecepient(string str = "")
         {
             string mysql;
-            string[] strWords = str.Split(new char[] { ' ' });
+            string clean_str = str;
+            clean_str = Security.CleanMyHeart(clean_str );
+            string[] strWords = clean_str.Split(new char[] { ' ' });
             string name = null;
             if (str == "")
             {
