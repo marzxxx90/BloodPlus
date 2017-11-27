@@ -33,6 +33,9 @@
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.maintenanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TransactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bloodDonorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.userManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.msMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -41,7 +44,8 @@
             this.msMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.reportToolStripMenuItem,
-            this.maintenanceToolStripMenuItem});
+            this.maintenanceToolStripMenuItem,
+            this.TransactionToolStripMenuItem});
             this.msMenu.Location = new System.Drawing.Point(0, 0);
             this.msMenu.Name = "msMenu";
             this.msMenu.Size = new System.Drawing.Size(1063, 24);
@@ -71,9 +75,33 @@
             // 
             // maintenanceToolStripMenuItem
             // 
+            this.maintenanceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.userManagementToolStripMenuItem});
             this.maintenanceToolStripMenuItem.Name = "maintenanceToolStripMenuItem";
             this.maintenanceToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
             this.maintenanceToolStripMenuItem.Text = "&Maintenance";
+            // 
+            // TransactionToolStripMenuItem
+            // 
+            this.TransactionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bloodDonorToolStripMenuItem});
+            this.TransactionToolStripMenuItem.Name = "TransactionToolStripMenuItem";
+            this.TransactionToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
+            this.TransactionToolStripMenuItem.Text = "Transaction";
+            // 
+            // bloodDonorToolStripMenuItem
+            // 
+            this.bloodDonorToolStripMenuItem.Name = "bloodDonorToolStripMenuItem";
+            this.bloodDonorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.bloodDonorToolStripMenuItem.Text = "Blood Donor";
+            this.bloodDonorToolStripMenuItem.Click += new System.EventHandler(this.bloodDonorToolStripMenuItem_Click);
+            // 
+            // userManagementToolStripMenuItem
+            // 
+            this.userManagementToolStripMenuItem.Name = "userManagementToolStripMenuItem";
+            this.userManagementToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.userManagementToolStripMenuItem.Text = "&User Management";
+            this.userManagementToolStripMenuItem.Click += new System.EventHandler(this.userManagementToolStripMenuItem_Click);
             // 
             // frmMain
             // 
@@ -99,5 +127,8 @@
         private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem maintenanceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem TransactionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bloodDonorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem userManagementToolStripMenuItem;
     }
 }

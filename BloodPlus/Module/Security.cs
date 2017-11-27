@@ -33,5 +33,18 @@ namespace BloodPlus
         {
             return DeathCodez.Security.Decrypt(src);
         }
+
+        static internal string CleanMyHeart(string str, string special = null)
+        {
+            str = str.Replace("'", "''");
+            str = str.Replace("\"", "\"\"");
+
+            if (special != null)
+            {
+                str = str.Replace(special, "");
+            }
+
+            return str;
+        }
     }
 }

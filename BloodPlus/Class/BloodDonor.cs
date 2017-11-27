@@ -9,7 +9,7 @@ namespace BloodPlus
 {
     class BloodDonor
     {
-        const string INTEGRITY_CHECK = "zVo1e+bBFcJICtuJl1vJuqalkFk9hvJq0pZO0TEaDEmBH/CqXHMGUefTsK8JRNYVAKWhaCpMB9fwfUNqHDNhj2aX2T5tuE6g";
+        const string INTEGRITY_CHECK = "zVo1e+bBFcJICtuJl1vJuqalkFk9hvJq0pZO0TEaDEmBH/CqXHMGUefTsK8JRNYVAKWhaCpMB9cu1IM3iE/2u0x/fCR4P9zxhy0xTGl4OxaBFJSMfpdqwQ==";
 
         #region "Properties"
 
@@ -34,32 +34,32 @@ namespace BloodPlus
             set { _bloodType = value; }
         }
 
-        private string _firstName;
-        public virtual string FirstName
+        private int _donorID;
+        public virtual int DonorID
         {
-            get { return _firstName; }
-            set { _firstName = value; }
+            get { return _donorID; }
+            set { _donorID = value; }
         }
 
-        private string _middlename;
-        public virtual string MiddleName
+        private Recepient _recepient;
+        public virtual Recepient Recepient
         {
-            get { return _middlename; }
-            set { _middlename = value; }
+            get { return _recepient; }
+            set { _recepient = value; }
         }
 
-        private string _lastname;
-        public virtual string LastName
+        private DateTime _docDate;
+        public virtual DateTime DocDate
         {
-            get { return _lastname; }
-            set { _lastname = value; }
+            get { return _docDate; }
+            set { _docDate = value; }
         }
 
-        private string _gender;
-        public virtual string Gender
+        private string _status;
+        public virtual string Status
         {
-            get { return _gender; }
-            set { _gender = value; }
+            get { return _status; }
+            set { _status = value; }
         }
         #endregion
 
@@ -75,10 +75,9 @@ namespace BloodPlus
 
             with["cardnum"] = _cardnum;
             with["bloodtype"] = _bloodType;
-            with["firstname"] = _firstName;
-            with["middlename"] = _middlename;
-            with["lastname"] = _lastname;
-            with["gender"] = _gender;
+            with["DonorID"] = _recepient.ID;
+            with["DocDate"] = _docDate;
+            with["Status"] = 1;
 
             ds.Tables[0].Rows.Add(dsnewRow);
             Database.SaveEntry(ds);
@@ -100,10 +99,14 @@ namespace BloodPlus
             _id = Convert.ToInt32(dr["ID"]);
             _cardnum = dr["cardnum"].ToString();
             _bloodType = dr["bloodtype"].ToString();
-            _firstName = dr["firstname"].ToString();
-            _middlename = dr["middlename"].ToString();
-            _lastname = dr["lastname"].ToString();
-            _gender = dr["gender"].ToString();
+            //_firstName = dr["firstname"].ToString();
+            //_middlename = dr["middlename"].ToString();
+            //_lastname = dr["lastname"].ToString();
+            //_gender = dr["gender"].ToString();
+            _recepient = new Recepient();
+            _recepient.ID = Convert.ToInt16(dr["DonorID"]);
+            _recepient.LoadRecepient();
+            _docDate = Convert.ToDateTime ( dr["DocDate"].ToString());
         }
 
         static internal bool TemplateIntegrityCheck(string[] headers)
@@ -117,6 +120,26 @@ namespace BloodPlus
             if (Security.HashString(mergeHeaders) == INTEGRITY_CHECK)
                 return true;
             return false;
+        }
+
+        internal void AddInv(string type, int inv = 1)
+        {
+            string mysql = "Select * From tblStock Where bloodType = '"+ type +"'";
+            DataSet ds = Database.LoadSQL(mysql,"tblStock");
+
+            int oldVal = Convert.ToInt16(Convert.ToInt16( ds.Tables[0].Rows[0]["Inv"].ToString()) + inv);
+            ds.Tables[0].Rows[0]["Inv"] = oldVal;
+            Database.SaveEntry(ds, false);
+        }
+
+        internal void DeductInv(string type, int inv = 1)
+        {
+            string mysql = "Select * From tblStock Where bloodType = '" + type + "'";
+            DataSet ds = Database.LoadSQL(mysql, "tblStock");
+
+            int oldVal = Convert.ToInt16(Convert.ToInt16(ds.Tables[0].Rows[0]["Inv"].ToString()) - inv);
+            ds.Tables[0].Rows[0]["Inv"] = oldVal;
+            Database.SaveEntry(ds, false);
         }
 
         #endregion

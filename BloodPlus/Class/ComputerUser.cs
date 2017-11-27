@@ -58,11 +58,18 @@ namespace BloodPlus
             set { _status = value; }
         }
 
-        private string _rule;
-        public virtual string Rule
+        //private string _role;
+        //public virtual string Role
+        //{
+        //    get { return _role; }
+        //    set { _status = value; }
+        //}
+
+        private string _tmpRole;
+        public virtual string TmpRole
         {
-            get { return _rule; }
-            set { _status = value; }
+            get { return _tmpRole; }
+            set { _tmpRole = value; }
         }
         #endregion
 
@@ -80,10 +87,22 @@ namespace BloodPlus
             _with3["Firstname"] = _firstname;
             _with3["Middlename"] = _middlename ;
             _with3["Lastname"] = _lastname ;
-            _with3["Rule"] = _rule ;
+            _with3["Role"] = _tmpRole;
             _with3["Status"] = _status;
             ds.Tables["tblUser"].Rows.Add(dsNewRow);
             Database.SaveEntry(ds);
+        }
+
+        internal void UpdateUser()
+        {
+            string mysql = "Select * From tblUser Where id = " + _id ;
+            DataSet ds = Database.LoadSQL(mysql, "tblUser");
+
+            ds.Tables[0].Rows[0]["UserPassword"] = _userpassword;
+            ds.Tables[0].Rows[0]["Role"] = _tmpRole;
+            ds.Tables[0].Rows[0]["Status"] = _status;
+
+            Database.SaveEntry(ds, false);
         }
 
         internal void LoadUser()
@@ -105,7 +124,7 @@ namespace BloodPlus
             _firstname = dr["Firstname"].ToString();
             _middlename = dr["Middlename"].ToString();
             _lastname = dr["Lastname"].ToString();
-            _rule =dr["Rule"].ToString();
+            _tmpRole = dr["Role"].ToString();
             _status = dr["Status"].ToString();
         }
 

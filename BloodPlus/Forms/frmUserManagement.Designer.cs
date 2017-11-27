@@ -43,12 +43,12 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtLastname = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtRule = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.chkStatus = new System.Windows.Forms.CheckBox();
+            this.cboRule = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lvUser
@@ -64,6 +64,7 @@
             this.lvUser.TabIndex = 0;
             this.lvUser.UseCompatibleStateImageBehavior = false;
             this.lvUser.View = System.Windows.Forms.View.Details;
+            this.lvUser.DoubleClick += new System.EventHandler(this.lvUser_DoubleClick);
             // 
             // columnHeader1
             // 
@@ -72,7 +73,7 @@
             // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "Rule";
+            this.columnHeader2.Text = "Role";
             this.columnHeader2.Width = 119;
             // 
             // txtUserName
@@ -173,13 +174,6 @@
             this.label6.TabIndex = 11;
             this.label6.Text = "Last Name";
             // 
-            // txtRule
-            // 
-            this.txtRule.Location = new System.Drawing.Point(345, 180);
-            this.txtRule.Name = "txtRule";
-            this.txtRule.Size = new System.Drawing.Size(197, 20);
-            this.txtRule.TabIndex = 14;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -187,7 +181,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(29, 13);
             this.label7.TabIndex = 13;
-            this.label7.Text = "Rule";
+            this.label7.Text = "Role";
             // 
             // btnSave
             // 
@@ -227,16 +221,28 @@
             this.chkStatus.Text = "Enable / Disable";
             this.chkStatus.UseVisualStyleBackColor = true;
             // 
+            // cboRule
+            // 
+            this.cboRule.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboRule.FormattingEnabled = true;
+            this.cboRule.Items.AddRange(new object[] {
+            "User",
+            "Admin"});
+            this.cboRule.Location = new System.Drawing.Point(345, 180);
+            this.cboRule.Name = "cboRule";
+            this.cboRule.Size = new System.Drawing.Size(197, 21);
+            this.cboRule.TabIndex = 19;
+            // 
             // frmUserManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(554, 262);
+            this.Controls.Add(this.cboRule);
             this.Controls.Add(this.chkStatus);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.txtRule);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtLastname);
             this.Controls.Add(this.label6);
@@ -278,11 +284,11 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtLastname;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtRule;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.CheckBox chkStatus;
+        private System.Windows.Forms.ComboBox cboRule;
     }
 }

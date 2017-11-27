@@ -39,6 +39,9 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnImport = new System.Windows.Forms.Button();
+            this.chkRandom = new System.Windows.Forms.CheckBox();
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.pbStatus = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // ofdImport
@@ -72,7 +75,8 @@
             this.columnHeader3,
             this.columnHeader4,
             this.columnHeader5,
-            this.columnHeader6});
+            this.columnHeader6,
+            this.columnHeader7});
             this.lvImport.FullRowSelect = true;
             this.lvImport.GridLines = true;
             this.lvImport.Location = new System.Drawing.Point(12, 69);
@@ -90,7 +94,7 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "Blood Type";
-            this.columnHeader2.Width = 274;
+            this.columnHeader2.Width = 141;
             // 
             // columnHeader3
             // 
@@ -123,11 +127,35 @@
             this.btnImport.UseVisualStyleBackColor = true;
             this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
+            // chkRandom
+            // 
+            this.chkRandom.AutoSize = true;
+            this.chkRandom.Location = new System.Drawing.Point(846, 24);
+            this.chkRandom.Name = "chkRandom";
+            this.chkRandom.Size = new System.Drawing.Size(92, 17);
+            this.chkRandom.TabIndex = 4;
+            this.chkRandom.Text = "Random Date";
+            this.chkRandom.UseVisualStyleBackColor = true;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Date of Birth";
+            this.columnHeader7.Width = 139;
+            // 
+            // pbStatus
+            // 
+            this.pbStatus.Location = new System.Drawing.Point(15, 432);
+            this.pbStatus.Name = "pbStatus";
+            this.pbStatus.Size = new System.Drawing.Size(948, 23);
+            this.pbStatus.TabIndex = 5;
+            // 
             // frmImport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1056, 465);
+            this.Controls.Add(this.pbStatus);
+            this.Controls.Add(this.chkRandom);
             this.Controls.Add(this.btnImport);
             this.Controls.Add(this.lvImport);
             this.Controls.Add(this.lblPath);
@@ -153,5 +181,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.CheckBox chkRandom;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ProgressBar pbStatus;
     }
 }
