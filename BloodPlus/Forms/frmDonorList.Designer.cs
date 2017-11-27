@@ -124,6 +124,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lvDonor);
             this.Name = "frmDonorList";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Donor List Form";
             this.Load += new System.EventHandler(this.frmDonorList_Load);
             this.groupBox1.ResumeLayout(false);

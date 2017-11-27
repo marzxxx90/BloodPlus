@@ -32,8 +32,8 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,7 +46,7 @@
             this.lvBlood.GridLines = true;
             this.lvBlood.Location = new System.Drawing.Point(12, 59);
             this.lvBlood.Name = "lvBlood";
-            this.lvBlood.Size = new System.Drawing.Size(761, 337);
+            this.lvBlood.Size = new System.Drawing.Size(361, 337);
             this.lvBlood.TabIndex = 0;
             this.lvBlood.UseCompatibleStateImageBehavior = false;
             this.lvBlood.View = System.Windows.Forms.View.Details;
@@ -67,21 +67,14 @@
             this.groupBox1.Controls.Add(this.txtSearch);
             this.groupBox1.Location = new System.Drawing.Point(12, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(766, 51);
+            this.groupBox1.Size = new System.Drawing.Size(361, 51);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Search";
             // 
-            // txtSearch
-            // 
-            this.txtSearch.Location = new System.Drawing.Point(6, 19);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(673, 20);
-            this.txtSearch.TabIndex = 0;
-            // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(685, 17);
+            this.btnSearch.Location = new System.Drawing.Point(280, 17);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 1;
@@ -89,11 +82,18 @@
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(6, 19);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(268, 20);
+            this.txtSearch.TabIndex = 0;
+            // 
             // frmBloodList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(785, 417);
+            this.ClientSize = new System.Drawing.Size(381, 417);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lvBlood);
             this.Name = "frmBloodList";

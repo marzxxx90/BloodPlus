@@ -132,5 +132,18 @@ namespace BloodPlus
         {
             if (mod_system.isEnter(e)) { btnSearch.PerformClick(); }
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["frmRecepient"] != null)
+            {
+                (Application.OpenForms["frmRecepient"] as frmRecepient).Show();
+            }
+            else
+            {
+                frmRecepient frm = new frmRecepient();
+                frm.Show();
+            }
+        }
     }
 }

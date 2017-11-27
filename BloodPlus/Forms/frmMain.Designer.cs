@@ -33,9 +33,13 @@
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.maintenanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.userManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TransactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bloodDonorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.userManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bloodCountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bloodRecepientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.importBloodDonorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bloodReleaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.msMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,7 +67,7 @@
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.logoutToolStripMenuItem.Text = "&Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
@@ -81,10 +85,21 @@
             this.maintenanceToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
             this.maintenanceToolStripMenuItem.Text = "&Maintenance";
             // 
+            // userManagementToolStripMenuItem
+            // 
+            this.userManagementToolStripMenuItem.Name = "userManagementToolStripMenuItem";
+            this.userManagementToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.userManagementToolStripMenuItem.Text = "&User Management";
+            this.userManagementToolStripMenuItem.Click += new System.EventHandler(this.userManagementToolStripMenuItem_Click);
+            // 
             // TransactionToolStripMenuItem
             // 
             this.TransactionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bloodDonorToolStripMenuItem});
+            this.bloodDonorToolStripMenuItem,
+            this.bloodCountToolStripMenuItem,
+            this.bloodRecepientToolStripMenuItem,
+            this.importBloodDonorToolStripMenuItem,
+            this.bloodReleaseToolStripMenuItem});
             this.TransactionToolStripMenuItem.Name = "TransactionToolStripMenuItem";
             this.TransactionToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
             this.TransactionToolStripMenuItem.Text = "Transaction";
@@ -92,16 +107,36 @@
             // bloodDonorToolStripMenuItem
             // 
             this.bloodDonorToolStripMenuItem.Name = "bloodDonorToolStripMenuItem";
-            this.bloodDonorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.bloodDonorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.bloodDonorToolStripMenuItem.Text = "Blood Donor";
             this.bloodDonorToolStripMenuItem.Click += new System.EventHandler(this.bloodDonorToolStripMenuItem_Click);
             // 
-            // userManagementToolStripMenuItem
+            // bloodCountToolStripMenuItem
             // 
-            this.userManagementToolStripMenuItem.Name = "userManagementToolStripMenuItem";
-            this.userManagementToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-            this.userManagementToolStripMenuItem.Text = "&User Management";
-            this.userManagementToolStripMenuItem.Click += new System.EventHandler(this.userManagementToolStripMenuItem_Click);
+            this.bloodCountToolStripMenuItem.Name = "bloodCountToolStripMenuItem";
+            this.bloodCountToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.bloodCountToolStripMenuItem.Text = "Blood Count";
+            this.bloodCountToolStripMenuItem.Click += new System.EventHandler(this.bloodCountToolStripMenuItem_Click);
+            // 
+            // bloodRecepientToolStripMenuItem
+            // 
+            this.bloodRecepientToolStripMenuItem.Name = "bloodRecepientToolStripMenuItem";
+            this.bloodRecepientToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.bloodRecepientToolStripMenuItem.Text = "Blood Recepient";
+            this.bloodRecepientToolStripMenuItem.Click += new System.EventHandler(this.bloodRecepientToolStripMenuItem_Click);
+            // 
+            // importBloodDonorToolStripMenuItem
+            // 
+            this.importBloodDonorToolStripMenuItem.Name = "importBloodDonorToolStripMenuItem";
+            this.importBloodDonorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.importBloodDonorToolStripMenuItem.Text = "Import Blood Donor";
+            this.importBloodDonorToolStripMenuItem.Click += new System.EventHandler(this.importBloodDonorToolStripMenuItem_Click);
+            // 
+            // bloodReleaseToolStripMenuItem
+            // 
+            this.bloodReleaseToolStripMenuItem.Name = "bloodReleaseToolStripMenuItem";
+            this.bloodReleaseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.bloodReleaseToolStripMenuItem.Text = "Blood Release";
             // 
             // frmMain
             // 
@@ -130,5 +165,9 @@
         private System.Windows.Forms.ToolStripMenuItem TransactionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bloodDonorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem userManagementToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bloodCountToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bloodRecepientToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem importBloodDonorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bloodReleaseToolStripMenuItem;
     }
 }

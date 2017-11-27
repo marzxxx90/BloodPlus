@@ -38,9 +38,9 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnImport = new System.Windows.Forms.Button();
             this.chkRandom = new System.Windows.Forms.CheckBox();
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pbStatus = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
@@ -116,6 +116,11 @@
             this.columnHeader6.Text = "Gender";
             this.columnHeader6.Width = 96;
             // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Date of Birth";
+            this.columnHeader7.Width = 139;
+            // 
             // btnImport
             // 
             this.btnImport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -130,17 +135,12 @@
             // chkRandom
             // 
             this.chkRandom.AutoSize = true;
-            this.chkRandom.Location = new System.Drawing.Point(846, 24);
+            this.chkRandom.Location = new System.Drawing.Point(952, 41);
             this.chkRandom.Name = "chkRandom";
             this.chkRandom.Size = new System.Drawing.Size(92, 17);
             this.chkRandom.TabIndex = 4;
             this.chkRandom.Text = "Random Date";
             this.chkRandom.UseVisualStyleBackColor = true;
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "Date of Birth";
-            this.columnHeader7.Width = 139;
             // 
             // pbStatus
             // 

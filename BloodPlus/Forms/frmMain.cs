@@ -99,5 +99,44 @@ namespace BloodPlus
             frmUserManagement frm = new frmUserManagement();
             frm.Show();
         }
+
+        private void importBloodDonorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["frmImport"] != null)
+            {
+                (Application.OpenForms["frmImport"] as frmImport).Show();
+            }
+            else
+            {
+                frmImport frm = new frmImport();
+                frm.Show();
+            }
+        }
+
+        private void bloodRecepientToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["frmRecepientList"] != null)
+            {
+                (Application.OpenForms["frmRecepientList"] as frmRecepientList).Show();
+            }
+            else
+            {
+                frmRecepientList frm = new frmRecepientList();
+                frm.Show();
+            }
+        }
+
+        private void bloodCountToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["frmBloodList"] != null)
+            {
+                (Application.OpenForms["frmBloodList"] as frmBloodList).Show();
+            }
+            else
+            {
+                frmBloodList frm = new frmBloodList();
+                frm.Show();
+            }
+        }
     }
 }
