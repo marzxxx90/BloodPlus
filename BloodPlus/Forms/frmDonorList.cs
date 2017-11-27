@@ -24,14 +24,34 @@ namespace BloodPlus
         private void LoadDonor(string str = "")
         {
             string mysql;
+            string clean_str = str;
+            clean_str = Security.CleanMyHeart(clean_str);
+            string[] strWords = clean_str.Split(new char[] { ' ' });
+            string name = null;
             if (str == "")
             {
-                mysql = "Select * From tblDonor Limit 50";
+                mysql = "Select D.id, D.CardNum, D.BloodType, R.Firstname, R.Middlename, R.Lastname, R.Gender, R.dob, D.DocDate, D.Status ";
+                mysql +=" From tblDonor D " ;
+                mysql += " Inner Join tblRecepient R On R.ID = D.DonorID Limit 50";
             }
             else {
-                mysql = "Select * From tblDonor Where";
+                mysql = "Select D.id, D.CardNum, D.BloodType, R.Firstname, R.Middlename, R.Lastname, R.Gender, R.dob, D.DocDate, D.Status ";
+                mysql += " From tblDonor D ";
+                mysql += " Inner Join tblRecepient R On R.ID = D.DonorID ";
+                mysql += " Where ";
+
+                foreach (string name_loopVariable in strWords)
+                {
+                    name = name_loopVariable;
+                    mysql += " CONCAT(FIRSTNAME, ',', LASTNAME) LIKE UPPER('%" + name + "%') and ";
+                    if (object.ReferenceEquals(name, strWords.Last()))
+                    {
+                        mysql += " CONCAT(FIRSTNAME, ',', LASTNAME) LIKE UPPER('%" + name + "%') ";
+                        break;
+                    }
+                }
             }
-            DataSet ds = Database.LoadSQL(mysql, "tblDonor");
+            DataSet ds = Database.LoadSQL(mysql);
             string tmpGender;
             foreach (DataRow dr in ds.Tables[0].Rows )
             {
@@ -55,7 +75,20 @@ namespace BloodPlus
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            LoadDonor(txtSearch.Text);
+        }
 
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["frmDonor"] != null)
+            {
+                (Application.OpenForms["frmDonor"] as frmDonor).Show();
+            }
+            else 
+            {
+                frmDonor frm = new frmDonor();
+                frm.Show();
+            }
         }
     }
 }

@@ -32,10 +32,11 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,7 +51,7 @@
             this.lvDonor.GridLines = true;
             this.lvDonor.Location = new System.Drawing.Point(12, 69);
             this.lvDonor.Name = "lvDonor";
-            this.lvDonor.Size = new System.Drawing.Size(766, 322);
+            this.lvDonor.Size = new System.Drawing.Size(766, 297);
             this.lvDonor.TabIndex = 0;
             this.lvDonor.UseCompatibleStateImageBehavior = false;
             this.lvDonor.View = System.Windows.Forms.View.Details;
@@ -70,6 +71,11 @@
             this.columnHeader3.Text = "Fullname";
             this.columnHeader3.Width = 340;
             // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Gender";
+            this.columnHeader7.Width = 123;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnSearch);
@@ -81,13 +87,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Search";
             // 
-            // txtSearch
-            // 
-            this.txtSearch.Location = new System.Drawing.Point(6, 19);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(674, 20);
-            this.txtSearch.TabIndex = 0;
-            // 
             // btnSearch
             // 
             this.btnSearch.Location = new System.Drawing.Point(686, 17);
@@ -98,16 +97,30 @@
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // columnHeader7
+            // txtSearch
             // 
-            this.columnHeader7.Text = "Gender";
-            this.columnHeader7.Width = 123;
+            this.txtSearch.Location = new System.Drawing.Point(6, 19);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(674, 20);
+            this.txtSearch.TabIndex = 0;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Location = new System.Drawing.Point(12, 372);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(87, 33);
+            this.btnAdd.TabIndex = 2;
+            this.btnAdd.Text = "&Add";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // frmDonorList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(785, 417);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lvDonor);
             this.Name = "frmDonorList";
@@ -129,5 +142,6 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.Button btnAdd;
     }
 }

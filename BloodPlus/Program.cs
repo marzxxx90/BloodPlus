@@ -15,7 +15,7 @@ namespace BloodPlus
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmDonor ());
+            Application.Run(new frmMain ());
         }
     }
 }

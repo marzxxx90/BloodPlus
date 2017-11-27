@@ -83,8 +83,15 @@ namespace BloodPlus
 
         private void bloodDonorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmDonor bloodDonor = new frmDonor();
-            bloodDonor.Show();
+            if (Application.OpenForms["frmDonorList"] != null)
+            {
+                (Application.OpenForms["frmDonorList"] as frmDonorList).Show();
+            }
+            else
+            {
+                frmDonorList frm = new frmDonorList();
+                frm.Show();
+            }
         }
 
         private void userManagementToolStripMenuItem_Click(object sender, EventArgs e)

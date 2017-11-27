@@ -35,6 +35,7 @@ namespace BloodPlus
 
             d.AddInv(cboBloodType.Text);
             MessageBox.Show("Successfully Saved", "Information"); ClearText();
+            this.Close();
         }
 
         private bool isValid()
