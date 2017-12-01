@@ -138,5 +138,16 @@ namespace BloodPlus
                 frm.Show();
             }
         }
+
+        private void button1_MouseHover(object sender, EventArgs e)
+        {
+            button1.BackColor  = Color.Red;
+        }
+
+        private void button1_MouseLeave(object sender, EventArgs e)
+        {
+            button1.BackColor = Control.DefaultBackColor;
+        }
+
     }
 }

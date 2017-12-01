@@ -123,6 +123,7 @@ namespace BloodPlus
 
         private void btnGenerate_Click(object sender, EventArgs e)
         {
+            iRows = 0;
             if (cboBloodType.Text == "") { MessageBox.Show("Please Select Blood Type!","Information"); return; }
             if (nudPeriod.Value < 1) { MessageBox.Show("Invalid Period"); return; }
             Generate();

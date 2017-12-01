@@ -77,12 +77,7 @@
         <ChartSeriesHierarchy>
           <ChartMembers>
             <ChartMember>
-              <Group Name="Chart1_SeriesGroup1">
-                <GroupExpressions>
-                  <GroupExpression>=Fields!BloodType.Value</GroupExpression>
-                </GroupExpressions>
-              </Group>
-              <Label>=Fields!BloodType.Value</Label>
+              <Label>Blood Type</Label>
             </ChartMember>
           </ChartMembers>
         </ChartSeriesHierarchy>
@@ -125,6 +120,49 @@
               </ChartSmartLabel>
             </ChartSeries>
           </ChartSeriesCollection>
+          <ChartDerivedSeriesCollection>
+            <ChartDerivedSeries>
+              <ChartSeries Name="Series1">
+                <Type>Line</Type>
+                <Style />
+                <ChartMarker>
+                  <Style />
+                </ChartMarker>
+                <ChartDataLabel>
+                  <Style />
+                </ChartDataLabel>
+                <ChartEmptyPoints>
+                  <Style />
+                  <ChartMarker>
+                    <Style />
+                  </ChartMarker>
+                  <ChartDataLabel>
+                    <Style />
+                  </ChartDataLabel>
+                </ChartEmptyPoints>
+                <ChartItemInLegend>
+                  <LegendText>Moving Average</LegendText>
+                </ChartItemInLegend>
+                <ChartAreaName>Default</ChartAreaName>
+                <ValueAxisName>Primary</ValueAxisName>
+                <CategoryAxisName>Primary</CategoryAxisName>
+                <ChartSmartLabel>
+                  <CalloutLineColor>Black</CalloutLineColor>
+                  <MinMovingDistance>0pt</MinMovingDistance>
+                </ChartSmartLabel>
+              </ChartSeries>
+              <SourceChartSeriesName>BloodType</SourceChartSeriesName>
+              <DerivedSeriesFormula>MovingAverage</DerivedSeriesFormula>
+              <ChartFormulaParameters>
+                <ChartFormulaParameter Name="Period">
+                  <Value>3</Value>
+                </ChartFormulaParameter>
+                <ChartFormulaParameter Name="StartFromFirst">
+                  <Value>False</Value>
+                </ChartFormulaParameter>
+              </ChartFormulaParameters>
+            </ChartDerivedSeries>
+          </ChartDerivedSeriesCollection>
         </ChartData>
         <ChartAreas>
           <ChartArea Name="Default">
@@ -277,7 +315,7 @@
               <FontSize>8pt</FontSize>
             </Style>
             <ChartLegendTitle>
-              <Caption />
+              <Caption>=First(Fields!BloodType.Value, "dsMonitor")</Caption>
               <Style>
                 <FontSize>8pt</FontSize>
                 <FontWeight>Bold</FontWeight>
@@ -288,17 +326,6 @@
             <ColumnSeparatorColor>Black</ColumnSeparatorColor>
           </ChartLegend>
         </ChartLegends>
-        <ChartTitles>
-          <ChartTitle Name="Default">
-            <Caption>Chart Title</Caption>
-            <Style>
-              <BackgroundGradientType>None</BackgroundGradientType>
-              <FontWeight>Bold</FontWeight>
-              <TextAlign>General</TextAlign>
-              <VerticalAlign>Top</VerticalAlign>
-            </Style>
-          </ChartTitle>
-        </ChartTitles>
         <Palette>BrightPastel</Palette>
         <ChartBorderSkin>
           <Style>
