@@ -26,7 +26,7 @@ namespace BloodPlus
             {
                 NotYetLogin();
             }
-           
+            LoadBloodStatus();
         }
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -139,15 +139,75 @@ namespace BloodPlus
             }
         }
 
-        private void button1_MouseHover(object sender, EventArgs e)
+        private void button2_MouseHover(object sender, EventArgs e)
         {
-            button1.BackColor  = Color.Red;
+            ToolTip toolTip1 = new ToolTip();
+            toolTip1.ShowAlways = true;
+            toolTip1.SetToolTip(btnA, "Click me to execute.");
         }
 
-        private void button1_MouseLeave(object sender, EventArgs e)
+        private void LoadBloodStatus()
         {
-            button1.BackColor = Control.DefaultBackColor;
+            string mysql = "Select * From tblStock";
+            DataSet ds = Database.LoadSQL(mysql,"tblStock");
+
+            foreach (DataRow dr in ds.Tables[0].Rows)
+            {
+                switch (dr["bloodtype"].ToString())
+                {
+                    case "A":
+                        if (Convert.ToInt16(dr["inv"].ToString()) <= Convert.ToInt16(dr["min"].ToString()))
+                        {
+                            btnA.BackColor = Color.Red;
+                        }
+                        else
+                        {
+                            btnA.BackColor = Color.Blue;
+ 
+                        }
+                        break;
+
+                    case "B":
+                         if (Convert.ToInt16(dr["inv"].ToString()) <= Convert.ToInt16(dr["min"].ToString()))
+                        {
+                            btnB.BackColor = Color.Red;
+                        }
+                        else
+                        {
+                            btnB.BackColor = Color.Blue;
+ 
+                        }
+                        break;
+
+                    case "AB":
+                        if (Convert.ToInt16(dr["inv"].ToString()) <= Convert.ToInt16(dr["min"].ToString()))
+                        {
+                            btnAB.BackColor = Color.Red;
+                        }
+                        else
+                        {
+                            btnAB.BackColor = Color.Blue;
+
+                        }
+                        break;
+
+                    case "O":
+                        if (Convert.ToInt16(dr["inv"].ToString()) <= Convert.ToInt16(dr["min"].ToString()))
+                        {
+                            btnO.BackColor = Color.Red;
+                        }
+                        else
+                        {
+                            btnO.BackColor = Color.Blue;
+
+                        }
+                        break;
+                     
+                }
+               
+            }
         }
+
 
     }
 }

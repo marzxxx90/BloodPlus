@@ -141,7 +141,7 @@
                   </ChartDataLabel>
                 </ChartEmptyPoints>
                 <ChartItemInLegend>
-                  <LegendText>Moving Average</LegendText>
+                  <LegendText>Mov.Avg (BloodType)</LegendText>
                 </ChartItemInLegend>
                 <ChartAreaName>Default</ChartAreaName>
                 <ValueAxisName>Primary</ValueAxisName>

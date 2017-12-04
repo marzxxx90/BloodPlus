@@ -162,22 +162,22 @@ namespace BloodPlus
         /// </summary>
         /// <returns>return false if the database version is not match.</returns>
         /// <remarks></remarks>
-        static internal bool DBCompatibilityCheck()
-        {
-            Console.WriteLine("Checking database compatibility...");
-            string strDB = GetOption("DBVersion");
+        //static internal bool DBCompatibilityCheck()
+        //{
+        //    Console.WriteLine("Checking database compatibility...");
+        //    string strDB = GetOption("DBVersion");
 
-            if (DBversion == strDB)
-            {
-                Console.WriteLine("Success!");
-                return true;
-            }
-            else
-            {
-                Console.WriteLine("Database Version didn't match... " + strDB);
-                return false;
-            }
-        }
+        //    if (DBversion == strDB)
+        //    {
+        //        Console.WriteLine("Success!");
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine("Database Version didn't match... " + strDB);
+        //        return false;
+        //    }
+        //}
 
         /// <summary>
         ///This function where the table load to dataset.
@@ -255,31 +255,7 @@ namespace BloodPlus
         public static void dbReaderClose()
         {
             ReaderCon.Close();
-        }
-
-        /// <summary>
-        /// This function select all data from tblmaintenance.
-        /// </summary>
-        /// <param name="keys">keys is the parameter </param>
-        /// <returns>return ret after reading the dataset.</returns>
-        /// <remarks></remarks>
-        static internal string GetOption(string keys)
-        {
-            string mySql = "SELECT * FROM tblmaintenance WHERE opt_keys = '" + keys + "'";
-            string ret = null;
-            try
-            {
-                DataSet ds = LoadSQL(mySql);
-                // ret = ds.Tables[0].Rows[0]["opt_values"];
-            }
-            catch (Exception ex)
-            {
-                ret = " ";
-            }
-
-            return ret;
-        }
-       
+        }     
 	}
 }
 

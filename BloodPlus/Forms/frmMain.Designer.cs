@@ -40,7 +40,10 @@
             this.bloodRecepientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importBloodDonorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bloodReleaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnA = new System.Windows.Forms.Button();
+            this.btnB = new System.Windows.Forms.Button();
+            this.btnAB = new System.Windows.Forms.Button();
+            this.btnO = new System.Windows.Forms.Button();
             this.msMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -139,23 +142,52 @@
             this.bloodReleaseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.bloodReleaseToolStripMenuItem.Text = "Blood Release";
             // 
-            // button1
+            // btnA
             // 
-            this.button1.Location = new System.Drawing.Point(57, 73);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(285, 119);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.MouseLeave += new System.EventHandler(this.button1_MouseLeave);
-            this.button1.MouseHover += new System.EventHandler(this.button1_MouseHover);
+            this.btnA.Location = new System.Drawing.Point(36, 64);
+            this.btnA.Name = "btnA";
+            this.btnA.Size = new System.Drawing.Size(161, 119);
+            this.btnA.TabIndex = 2;
+            this.btnA.Text = "Type A";
+            this.btnA.UseVisualStyleBackColor = true;
+            this.btnA.MouseHover += new System.EventHandler(this.button2_MouseHover);
+            // 
+            // btnB
+            // 
+            this.btnB.Location = new System.Drawing.Point(236, 64);
+            this.btnB.Name = "btnB";
+            this.btnB.Size = new System.Drawing.Size(161, 119);
+            this.btnB.TabIndex = 3;
+            this.btnB.Text = "Type B";
+            this.btnB.UseVisualStyleBackColor = true;
+            // 
+            // btnAB
+            // 
+            this.btnAB.Location = new System.Drawing.Point(429, 64);
+            this.btnAB.Name = "btnAB";
+            this.btnAB.Size = new System.Drawing.Size(161, 119);
+            this.btnAB.TabIndex = 4;
+            this.btnAB.Text = "Type AB";
+            this.btnAB.UseVisualStyleBackColor = true;
+            // 
+            // btnO
+            // 
+            this.btnO.Location = new System.Drawing.Point(614, 64);
+            this.btnO.Name = "btnO";
+            this.btnO.Size = new System.Drawing.Size(161, 119);
+            this.btnO.TabIndex = 5;
+            this.btnO.Text = "Type O";
+            this.btnO.UseVisualStyleBackColor = true;
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1063, 485);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnO);
+            this.Controls.Add(this.btnAB);
+            this.Controls.Add(this.btnB);
+            this.Controls.Add(this.btnA);
             this.Controls.Add(this.msMenu);
             this.MainMenuStrip = this.msMenu;
             this.Name = "frmMain";
@@ -182,6 +214,9 @@
         private System.Windows.Forms.ToolStripMenuItem bloodRecepientToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem importBloodDonorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bloodReleaseToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnA;
+        private System.Windows.Forms.Button btnB;
+        private System.Windows.Forms.Button btnAB;
+        private System.Windows.Forms.Button btnO;
     }
 }
