@@ -66,12 +66,6 @@
     <Compile Include="Forms\devMonitor.Designer.cs">
       <DependentUpon>devMonitor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmBloodList.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmBloodList.Designer.cs">
-      <DependentUpon>frmBloodList.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\frmConsole.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,9 +154,6 @@
     </Compile>
     <EmbeddedResource Include="Forms\devMonitor.resx">
       <DependentUpon>devMonitor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmBloodList.resx">
-      <DependentUpon>frmBloodList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmConsole.resx">
       <DependentUpon>frmConsole.cs</DependentUpon>

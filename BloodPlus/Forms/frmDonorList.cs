@@ -53,6 +53,7 @@ namespace BloodPlus
             }
             DataSet ds = Database.LoadSQL(mysql);
             string tmpGender;
+            lvDonor.Items.Clear();
             foreach (DataRow dr in ds.Tables[0].Rows )
             {
                 ListViewItem lv = lvDonor.Items.Add(dr["CardNum"].ToString());
@@ -89,6 +90,11 @@ namespace BloodPlus
                 frmDonor frm = new frmDonor();
                 frm.Show();
             }
+        }
+
+        private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (mod_system.isEnter(e)) {btnSearch.PerformClick();}
         }
     }
 }

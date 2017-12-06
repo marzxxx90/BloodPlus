@@ -115,19 +115,6 @@ namespace BloodPlus
             }
         }
 
-        private void bloodCountToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (Application.OpenForms["frmBloodList"] != null)
-            {
-                (Application.OpenForms["frmBloodList"] as frmBloodList).Show();
-            }
-            else
-            {
-                frmBloodList frm = new frmBloodList();
-                frm.Show();
-            }
-        }
-
         private void clientListToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (Application.OpenForms["frmPersonList"] != null)
