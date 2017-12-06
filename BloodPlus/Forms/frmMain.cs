@@ -25,8 +25,8 @@ namespace BloodPlus
             else
             {
                 NotYetLogin();
+               
             }
-           
         }
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -76,6 +76,7 @@ namespace BloodPlus
             {
                 logoutToolStripMenuItem.Text = "&Logout";
                 isExpire();
+                tBloodStatus.Start();
             }
             else
             {
@@ -188,6 +189,68 @@ namespace BloodPlus
                 frmSettings frm = new frmSettings();
                 frm.Show();
             }
+        }
+
+        private void BloodStatus()
+        {
+            string mysql = "Select * From tblStock";
+            DataSet ds = Database.LoadSQL(mysql,"tblStock");
+            Maintenance GetOption = new Maintenance();
+            foreach (DataRow dr in ds.Tables[0].Rows)
+	            {
+		             switch (dr["bloodType"].ToString())
+                     {
+                         case "A":
+                             if (Convert.ToInt16(dr["Inv"].ToString()) < Convert.ToInt16(GetOption.GetSettingsVal("ParLevel")))
+                             {
+                                 btnTypeA.BackColor = Color.Red;
+                             }
+                             else {
+                                 btnTypeA.BackColor = Color.Blue;
+                             }
+                             break;
+
+                         case "B":
+                             if (Convert.ToInt16(dr["Inv"].ToString()) < Convert.ToInt16(GetOption.GetSettingsVal("ParLevel")))
+                             {
+                                 btnTypeB.BackColor = Color.Red;
+                             }
+                             else
+                             {
+                                 btnTypeB.BackColor = Color.Blue;
+                             }
+                             break;
+                             
+                         case "AB":
+                             if (Convert.ToInt16(dr["Inv"].ToString()) < Convert.ToInt16(GetOption.GetSettingsVal("ParLevel")))
+                             {
+                                 btnTypeAB.BackColor = Color.Red;
+                             }
+                             else
+                             {
+                                 btnTypeAB.BackColor = Color.Blue;
+                             }
+                             break;
+
+                         case "O":
+                             if (Convert.ToInt16(dr["Inv"].ToString()) < Convert.ToInt16(GetOption.GetSettingsVal("ParLevel")))
+                             {
+                                 btnTypeO.BackColor = Color.Red;
+                             }
+                             else
+                             {
+                                 btnTypeO.BackColor = Color.Blue;
+                             }
+                             break;
+                     }
+                           
+	            }
+            
+        }
+
+        private void tBloodStatus_Tick(object sender, EventArgs e)
+        {
+            BloodStatus();
         }
 
     }

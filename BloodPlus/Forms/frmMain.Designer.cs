@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.msMenu = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,6 +44,10 @@
             this.importBloodDonorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnTypeA = new System.Windows.Forms.Button();
+            this.btnTypeB = new System.Windows.Forms.Button();
+            this.btnTypeAB = new System.Windows.Forms.Button();
+            this.btnTypeO = new System.Windows.Forms.Button();
+            this.tBloodStatus = new System.Windows.Forms.Timer(this.components);
             this.msMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,14 +76,14 @@
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.settingsToolStripMenuItem.Text = "&Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.logoutToolStripMenuItem.Text = "&Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
@@ -159,19 +164,59 @@
             // 
             // btnTypeA
             // 
+            this.btnTypeA.BackColor = System.Drawing.SystemColors.Control;
             this.btnTypeA.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTypeA.Location = new System.Drawing.Point(73, 69);
+            this.btnTypeA.Location = new System.Drawing.Point(12, 115);
             this.btnTypeA.Name = "btnTypeA";
-            this.btnTypeA.Size = new System.Drawing.Size(204, 119);
+            this.btnTypeA.Size = new System.Drawing.Size(250, 119);
             this.btnTypeA.TabIndex = 1;
             this.btnTypeA.Text = "Type A";
-            this.btnTypeA.UseVisualStyleBackColor = true;
+            this.btnTypeA.UseVisualStyleBackColor = false;
+            // 
+            // btnTypeB
+            // 
+            this.btnTypeB.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTypeB.Location = new System.Drawing.Point(292, 115);
+            this.btnTypeB.Name = "btnTypeB";
+            this.btnTypeB.Size = new System.Drawing.Size(250, 119);
+            this.btnTypeB.TabIndex = 2;
+            this.btnTypeB.Text = "Type B";
+            this.btnTypeB.UseVisualStyleBackColor = true;
+            // 
+            // btnTypeAB
+            // 
+            this.btnTypeAB.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTypeAB.Location = new System.Drawing.Point(575, 115);
+            this.btnTypeAB.Name = "btnTypeAB";
+            this.btnTypeAB.Size = new System.Drawing.Size(250, 119);
+            this.btnTypeAB.TabIndex = 3;
+            this.btnTypeAB.Text = "Type AB";
+            this.btnTypeAB.UseVisualStyleBackColor = true;
+            // 
+            // btnTypeO
+            // 
+            this.btnTypeO.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTypeO.Location = new System.Drawing.Point(860, 115);
+            this.btnTypeO.Name = "btnTypeO";
+            this.btnTypeO.Size = new System.Drawing.Size(250, 119);
+            this.btnTypeO.TabIndex = 4;
+            this.btnTypeO.Text = "Type O";
+            this.btnTypeO.UseVisualStyleBackColor = true;
+            // 
+            // tBloodStatus
+            // 
+            this.tBloodStatus.Enabled = true;
+            this.tBloodStatus.Interval = 5000;
+            this.tBloodStatus.Tick += new System.EventHandler(this.tBloodStatus_Tick);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 750);
+            this.Controls.Add(this.btnTypeO);
+            this.Controls.Add(this.btnTypeAB);
+            this.Controls.Add(this.btnTypeB);
             this.Controls.Add(this.btnTypeA);
             this.Controls.Add(this.msMenu);
             this.MainMenuStrip = this.msMenu;
@@ -203,5 +248,9 @@
         private System.Windows.Forms.ToolStripMenuItem bloodInventoryReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bloodDonationReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
+        private System.Windows.Forms.Button btnTypeB;
+        private System.Windows.Forms.Button btnTypeAB;
+        private System.Windows.Forms.Button btnTypeO;
+        private System.Windows.Forms.Timer tBloodStatus;
     }
 }
