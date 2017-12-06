@@ -171,6 +171,9 @@ namespace BloodPlus
                 Deduct.UpdateStatus();
                 Deduct.DeductInv(dr["bloodtype"].ToString());
             }
+
+            (Application.OpenForms["frmConsole"] as frmConsole).ClearLogs();
+            (Application.OpenForms["frmConsole"] as frmConsole).Close();
             return true;
         }
 
