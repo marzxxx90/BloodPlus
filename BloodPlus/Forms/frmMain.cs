@@ -26,7 +26,7 @@ namespace BloodPlus
             {
                 NotYetLogin();
             }
-            LoadBloodStatus();
+           
         }
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -70,10 +70,12 @@ namespace BloodPlus
             TransactionToolStripMenuItem.Enabled = st;
             reportToolStripMenuItem.Enabled = st;
             maintenanceToolStripMenuItem.Enabled = st;
+            settingsToolStripMenuItem.Enabled = st;
            
             if (st == true)
             {
                 logoutToolStripMenuItem.Text = "&Logout";
+                isExpire();
             }
             else
             {
@@ -113,19 +115,6 @@ namespace BloodPlus
             }
         }
 
-        private void bloodRecepientToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (Application.OpenForms["frmRecepientList"] != null)
-            {
-                (Application.OpenForms["frmRecepientList"] as frmRecepientList).Show();
-            }
-            else
-            {
-                frmRecepientList frm = new frmRecepientList();
-                frm.Show();
-            }
-        }
-
         private void bloodCountToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (Application.OpenForms["frmBloodList"] != null)
@@ -139,75 +128,77 @@ namespace BloodPlus
             }
         }
 
-        private void button2_MouseHover(object sender, EventArgs e)
+        private void clientListToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ToolTip toolTip1 = new ToolTip();
-            toolTip1.ShowAlways = true;
-            toolTip1.SetToolTip(btnA, "Click me to execute.");
-        }
-
-        private void LoadBloodStatus()
-        {
-            string mysql = "Select * From tblStock";
-            DataSet ds = Database.LoadSQL(mysql,"tblStock");
-
-            foreach (DataRow dr in ds.Tables[0].Rows)
+            if (Application.OpenForms["frmPersonList"] != null)
             {
-                switch (dr["bloodtype"].ToString())
-                {
-                    case "A":
-                        if (Convert.ToInt16(dr["inv"].ToString()) <= Convert.ToInt16(dr["min"].ToString()))
-                        {
-                            btnA.BackColor = Color.Red;
-                        }
-                        else
-                        {
-                            btnA.BackColor = Color.Blue;
- 
-                        }
-                        break;
-
-                    case "B":
-                         if (Convert.ToInt16(dr["inv"].ToString()) <= Convert.ToInt16(dr["min"].ToString()))
-                        {
-                            btnB.BackColor = Color.Red;
-                        }
-                        else
-                        {
-                            btnB.BackColor = Color.Blue;
- 
-                        }
-                        break;
-
-                    case "AB":
-                        if (Convert.ToInt16(dr["inv"].ToString()) <= Convert.ToInt16(dr["min"].ToString()))
-                        {
-                            btnAB.BackColor = Color.Red;
-                        }
-                        else
-                        {
-                            btnAB.BackColor = Color.Blue;
-
-                        }
-                        break;
-
-                    case "O":
-                        if (Convert.ToInt16(dr["inv"].ToString()) <= Convert.ToInt16(dr["min"].ToString()))
-                        {
-                            btnO.BackColor = Color.Red;
-                        }
-                        else
-                        {
-                            btnO.BackColor = Color.Blue;
-
-                        }
-                        break;
-                     
-                }
-               
+                (Application.OpenForms["frmPersonList"] as frmPersonList).Show();
+            }
+            else
+            {
+                frmPersonList frm = new frmPersonList();
+                frm.Show();
             }
         }
 
+        private void bloodInventoryReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string mysql = "Select * From tblStock ";
+
+            Dictionary<string, string> rptPara = new Dictionary<string, string>();
+            rptPara.Add("txtDate", "Date: " + DateAndTime.Now.ToString("MMM dd, yyyy"));
+           // rptPara.Add("IsDailyMonthly", "Daily Sales Report");
+
+            frmReport frm = new frmReport();
+            frm.ReportInit(mysql, "dsStock", @"Reports\rpt_BloodInventory.rdlc", rptPara);
+            frm.Show();
+           
+        }
+
+        private bool isExpire()
+        {
+            string mysql = "Select *, date_add(DocDate, Interval 60 Day) ";
+            mysql += "From tblDonor ";
+            mysql += "Where date_add(DocDate, Interval 60 Day) <= '" + DateTime.Now.ToString("yyyy-MM-dd") + "' And Status = 1";
+            DataSet ds = Database.LoadSQL(mysql, "tblDonor");
+            if (ds.Tables[0].Rows.Count == 0) { return true; }
+
+           
+
+            foreach (DataRow  dr in ds.Tables[0].Rows )
+            {
+                if (Application.OpenForms["frmConsole"] != null)
+                {
+                    (Application.OpenForms["frmConsole"] as frmConsole).SetValue(ds.Tables[0].Rows.Count);
+                    (Application.OpenForms["frmConsole"] as frmConsole).Show();
+                    (Application.OpenForms["frmConsole"] as frmConsole).AddtoList();
+                }
+                else
+                {
+                    frmConsole frm = new frmConsole();
+                    frm.Show();
+                }
+
+                BloodDonor Deduct = new BloodDonor();
+                Deduct.ID = Convert.ToInt16(dr["id"]);
+                Deduct.UpdateStatus();
+                Deduct.DeductInv(dr["bloodtype"].ToString());
+            }
+            return true;
+        }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["frmSettings"] != null)
+            {
+                (Application.OpenForms["frmSettings"] as frmSettings).Show();
+            }
+            else
+            {
+                frmSettings frm = new frmSettings();
+                frm.Show();
+            }
+        }
 
     }
 }

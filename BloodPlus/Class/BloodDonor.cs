@@ -41,8 +41,8 @@ namespace BloodPlus
             set { _donorID = value; }
         }
 
-        private Recepient _recepient;
-        public virtual Recepient Recepient
+        private PersonInfo _recepient;
+        public virtual PersonInfo Recepient
         {
             get { return _recepient; }
             set { _recepient = value; }
@@ -103,7 +103,7 @@ namespace BloodPlus
             //_middlename = dr["middlename"].ToString();
             //_lastname = dr["lastname"].ToString();
             //_gender = dr["gender"].ToString();
-            _recepient = new Recepient();
+            _recepient = new PersonInfo();
             _recepient.ID = Convert.ToInt16(dr["DonorID"]);
             _recepient.LoadRecepient();
             _docDate = Convert.ToDateTime ( dr["DocDate"].ToString());
@@ -140,6 +140,15 @@ namespace BloodPlus
             int oldVal = Convert.ToInt16(Convert.ToInt16(ds.Tables[0].Rows[0]["Inv"].ToString()) - inv);
             ds.Tables[0].Rows[0]["Inv"] = oldVal;
             Database.SaveEntry(ds, false);
+        }
+
+        internal void UpdateStatus()
+        {
+            string mysql = "Select * From tblDonor Where ID = '"+ _id +"'";
+            DataSet ds = Database.LoadSQL(mysql, "tblDonor");
+
+            ds.Tables[0].Rows[0]["Status"] = 0;
+            Database.SaveEntry(ds,false);
         }
 
         #endregion

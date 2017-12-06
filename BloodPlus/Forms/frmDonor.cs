@@ -11,7 +11,7 @@ namespace BloodPlus
 {
     public partial class frmDonor : Form
     {
-        Recepient Donor;
+        PersonInfo Donor;
         public frmDonor()
         {
             InitializeComponent();
@@ -84,12 +84,12 @@ namespace BloodPlus
 
         private void btnSearchRecepient_Click(object sender, EventArgs e)
         {
-            frmRecepientList frm = new frmRecepientList();
+            frmPersonList frm = new frmPersonList();
             frm.SearchSelect(txtSearchRecepient.Text, FormChange.FormName.DonorBlood);
             frm.Show();
         }
 
-        internal void LoadRecepientInfo(Recepient info)
+        internal void LoadRecepientInfo(PersonInfo info)
         {
             string tmpGender;
             txtFirstname.Text = info.Firstname;

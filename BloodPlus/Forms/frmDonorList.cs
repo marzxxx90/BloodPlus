@@ -32,12 +32,12 @@ namespace BloodPlus
             {
                 mysql = "Select D.id, D.CardNum, D.BloodType, R.Firstname, R.Middlename, R.Lastname, R.Gender, R.dob, D.DocDate, D.Status ";
                 mysql +=" From tblDonor D " ;
-                mysql += " Inner Join tblRecepient R On R.ID = D.DonorID Limit 50";
+                mysql += " Inner Join tblPersonInfo R On R.ID = D.DonorID Limit 50";
             }
             else {
                 mysql = "Select D.id, D.CardNum, D.BloodType, R.Firstname, R.Middlename, R.Lastname, R.Gender, R.dob, D.DocDate, D.Status ";
                 mysql += " From tblDonor D ";
-                mysql += " Inner Join tblRecepient R On R.ID = D.DonorID ";
+                mysql += " Inner Join tblPersonInfo R On R.ID = D.DonorID ";
                 mysql += " Where ";
 
                 foreach (string name_loopVariable in strWords)

@@ -12,7 +12,7 @@
   <xs:element name="dsReports" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsReports" msprop:Generator_UserDSName="dsReports">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="MonthlySum" msprop:Generator_TableClassName="MonthlySumDataTable" msprop:Generator_TableVarName="tableMonthlySum" msprop:Generator_TablePropName="MonthlySum" msprop:Generator_RowDeletingName="MonthlySumRowDeleting" msprop:Generator_RowChangingName="MonthlySumRowChanging" msprop:Generator_RowEvHandlerName="MonthlySumRowChangeEventHandler" msprop:Generator_RowDeletedName="MonthlySumRowDeleted" msprop:Generator_UserTableName="MonthlySum" msprop:Generator_RowChangedName="MonthlySumRowChanged" msprop:Generator_RowEvArgName="MonthlySumRowChangeEvent" msprop:Generator_RowClassName="MonthlySumRow">
+        <xs:element name="MonthlySum" msprop:Generator_TableClassName="MonthlySumDataTable" msprop:Generator_TableVarName="tableMonthlySum" msprop:Generator_RowChangedName="MonthlySumRowChanged" msprop:Generator_TablePropName="MonthlySum" msprop:Generator_RowDeletingName="MonthlySumRowDeleting" msprop:Generator_RowChangingName="MonthlySumRowChanging" msprop:Generator_RowEvHandlerName="MonthlySumRowChangeEventHandler" msprop:Generator_RowDeletedName="MonthlySumRowDeleted" msprop:Generator_RowClassName="MonthlySumRow" msprop:Generator_UserTableName="MonthlySum" msprop:Generator_RowEvArgName="MonthlySumRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="DocMonth" msprop:Generator_ColumnVarNameInTable="columnDocMonth" msprop:Generator_ColumnPropNameInRow="DocMonth" msprop:Generator_ColumnPropNameInTable="DocMonthColumn" msprop:Generator_UserColumnName="DocMonth" type="xs:string" minOccurs="0" />
@@ -21,6 +21,15 @@
               <xs:element name="BloodType" msprop:Generator_ColumnVarNameInTable="columnBloodType" msprop:Generator_ColumnPropNameInRow="BloodType" msprop:Generator_ColumnPropNameInTable="BloodTypeColumn" msprop:Generator_UserColumnName="BloodType" type="xs:string" minOccurs="0" />
               <xs:element name="DocYear" msprop:Generator_ColumnVarNameInTable="columnDocYear" msprop:Generator_ColumnPropNameInRow="DocYear" msprop:Generator_ColumnPropNameInTable="DocYearColumn" msprop:Generator_UserColumnName="DocYear" type="xs:string" minOccurs="0" />
               <xs:element name="MovingAve" msprop:Generator_ColumnVarNameInTable="columnMovingAve" msprop:Generator_ColumnPropNameInRow="MovingAve" msprop:Generator_ColumnPropNameInTable="MovingAveColumn" msprop:Generator_UserColumnName="MovingAve" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Stock" msprop:Generator_TableClassName="StockDataTable" msprop:Generator_TableVarName="tableStock" msprop:Generator_TablePropName="Stock" msprop:Generator_RowDeletingName="StockRowDeleting" msprop:Generator_RowChangingName="StockRowChanging" msprop:Generator_RowEvHandlerName="StockRowChangeEventHandler" msprop:Generator_RowDeletedName="StockRowDeleted" msprop:Generator_UserTableName="Stock" msprop:Generator_RowChangedName="StockRowChanged" msprop:Generator_RowEvArgName="StockRowChangeEvent" msprop:Generator_RowClassName="StockRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:string" minOccurs="0" />
+              <xs:element name="bloodtype" msprop:Generator_ColumnVarNameInTable="columnbloodtype" msprop:Generator_ColumnPropNameInRow="bloodtype" msprop:Generator_ColumnPropNameInTable="bloodtypeColumn" msprop:Generator_UserColumnName="bloodtype" type="xs:string" minOccurs="0" />
+              <xs:element name="Inv" msprop:Generator_ColumnVarNameInTable="columnInv" msprop:Generator_ColumnPropNameInRow="Inv" msprop:Generator_ColumnPropNameInTable="InvColumn" msprop:Generator_UserColumnName="Inv" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

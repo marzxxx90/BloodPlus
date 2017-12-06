@@ -59,7 +59,7 @@
   <ItemGroup>
     <Compile Include="Class\BloodDonor.cs" />
     <Compile Include="Class\ComputerUser.cs" />
-    <Compile Include="Class\Recepient.cs" />
+    <Compile Include="Class\PersonInfo.cs" />
     <Compile Include="Forms\devMonitor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +71,12 @@
     </Compile>
     <Compile Include="Forms\frmBloodList.Designer.cs">
       <DependentUpon>frmBloodList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmConsole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmConsole.Designer.cs">
+      <DependentUpon>frmConsole.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmDonor.cs">
       <SubType>Form</SubType>
@@ -108,17 +114,23 @@
     <Compile Include="Forms\frmMovingAve.Designer.cs">
       <DependentUpon>frmMovingAve.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmRecepient.cs">
+    <Compile Include="Forms\frmPersonInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmRecepient.Designer.cs">
-      <DependentUpon>frmRecepient.cs</DependentUpon>
+    <Compile Include="Forms\frmPersonInfo.Designer.cs">
+      <DependentUpon>frmPersonInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmRecepientList.cs">
+    <Compile Include="Forms\frmPersonList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmRecepientList.Designer.cs">
-      <DependentUpon>frmRecepientList.cs</DependentUpon>
+    <Compile Include="Forms\frmPersonList.Designer.cs">
+      <DependentUpon>frmPersonList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmSettings.Designer.cs">
+      <DependentUpon>frmSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmUserManagement.cs">
       <SubType>Form</SubType>
@@ -130,6 +142,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Module\FormChange.cs" />
+    <Compile Include="Module\Maintenance.cs" />
     <Compile Include="Module\mod_system.cs" />
     <Compile Include="Module\Security.cs" />
     <Compile Include="Program.cs" />
@@ -151,6 +164,9 @@
     <EmbeddedResource Include="Forms\frmBloodList.resx">
       <DependentUpon>frmBloodList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmConsole.resx">
+      <DependentUpon>frmConsole.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmDonor.resx">
       <DependentUpon>frmDonor.cs</DependentUpon>
     </EmbeddedResource>
@@ -169,11 +185,14 @@
     <EmbeddedResource Include="Forms\frmMovingAve.resx">
       <DependentUpon>frmMovingAve.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmRecepient.resx">
-      <DependentUpon>frmRecepient.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\frmPersonInfo.resx">
+      <DependentUpon>frmPersonInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmRecepientList.resx">
-      <DependentUpon>frmRecepientList.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\frmPersonList.resx">
+      <DependentUpon>frmPersonList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmSettings.resx">
+      <DependentUpon>frmSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmUserManagement.resx">
       <DependentUpon>frmUserManagement.cs</DependentUpon>
@@ -189,6 +208,9 @@
     </Compile>
     <EmbeddedResource Include="Reports\frmReport.resx">
       <DependentUpon>frmReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rpt_BloodInventory.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rpt_Graph.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

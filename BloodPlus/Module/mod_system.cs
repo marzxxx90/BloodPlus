@@ -14,11 +14,7 @@ namespace BloodPlus
    class mod_system
   {
       #region "Global Variables"
-      public static bool DEV_MODE = true;
-	public static bool PROTOTYPE = false;
-	public static bool ADS_ESKIE = false;
 
-	public static bool ADS_SHOW = false;
     public static System.DateTime CurrentDate = DateAndTime.Now;
 
     public static ComputerUser bloodUser = new ComputerUser();
@@ -26,9 +22,6 @@ namespace BloodPlus
 	
 	static internal bool isAuthorized = false;
 
-	public static string backupPath = ".";
-       
-	static internal int dailyID = 1;
 	static internal string DBVERSION = "";
       #endregion
 

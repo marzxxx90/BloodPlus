@@ -14,7 +14,7 @@ namespace BloodPlus
             RequestBlood = 1,
         }
 
-        static internal void ReloadFormFromItemList(FormName gotoForm, Recepient Selected_Recepient)
+        static internal void ReloadFormFromItemList(FormName gotoForm, PersonInfo Selected_Recepient)
         {
             switch (gotoForm)
             {

@@ -251,7 +251,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "frmDonor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmDonor";
+            this.Text = "Donor Form";
             this.Load += new System.EventHandler(this.frmDonor_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

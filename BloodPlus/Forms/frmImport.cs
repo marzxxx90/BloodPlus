@@ -12,7 +12,7 @@ namespace BloodPlus
 {
     public partial class frmImport : Form
     {
-        Recepient Donor;
+        PersonInfo Donor;
         public frmImport()
         {
             InitializeComponent();
@@ -102,7 +102,7 @@ namespace BloodPlus
                 //Donate.MiddleName = lv.SubItems[3].Text.ToString();
                 //Donate.LastName = lv.SubItems[4].Text.ToString();
                 //Donate.Gender = lv.SubItems[5].Text.ToString();
-                Donor = new Recepient();
+                Donor = new PersonInfo();
                 if (Donor.isExist(lv.SubItems[2].Text.ToString(), lv.SubItems[4].Text.ToString(), lv.SubItems[3].Text.ToString()))
                 {
                     Donate.Recepient = Donor;

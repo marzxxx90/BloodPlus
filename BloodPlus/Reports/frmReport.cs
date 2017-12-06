@@ -67,5 +67,10 @@ namespace BloodPlus
                 MessageBox.Show(ex.Message.ToString());
             }
         }
+
+        private void rv_display_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

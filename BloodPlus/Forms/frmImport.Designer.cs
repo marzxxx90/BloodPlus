@@ -161,7 +161,7 @@
             this.Controls.Add(this.lblPath);
             this.Controls.Add(this.btnBrowse);
             this.Name = "frmImport";
-            this.Text = "frmImport";
+            this.Text = "Excel Importer";
             this.Load += new System.EventHandler(this.frmImport_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

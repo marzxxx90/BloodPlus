@@ -1,6 +1,6 @@
 ﻿namespace BloodPlus
 {
-    partial class frmRecepientList
+    partial class frmPersonList
     {
         /// <summary>
         /// Required designer variable.
@@ -120,7 +120,7 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // frmRecepientList
+            // frmPersonList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -129,10 +129,10 @@
             this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lvRecepient);
-            this.Name = "frmRecepientList";
+            this.Name = "frmPersonList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmRecepientList";
-            this.Load += new System.EventHandler(this.frmRecepientList_Load);
+            this.Text = "Information List";
+            this.Load += new System.EventHandler(this.frmPersonList_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

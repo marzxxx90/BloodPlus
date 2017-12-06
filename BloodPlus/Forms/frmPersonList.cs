@@ -9,11 +9,11 @@ using System.Windows.Forms;
 
 namespace BloodPlus
 {
-    public partial class frmRecepientList : Form
+    public partial class frmPersonList : Form
     {
         bool fromOtherForm = false;
         FormChange.FormName frmOrig;
-        public frmRecepientList()
+        public frmPersonList()
         {
             InitializeComponent();
         }
@@ -22,29 +22,6 @@ namespace BloodPlus
         {
             txtSearch.Clear();
             lvRecepient.Items.Clear();
-        }
-
-        private void frmRecepientList_Load(object sender, EventArgs e)
-        {
-            if (!fromOtherForm)
-                ClearText();
-
-            if (string.IsNullOrEmpty(txtSearch.Text))
-            {
-                LoadRecepient();
-
-            }
-
-            if (!fromOtherForm)
-            {
-                txtSearch.Focus();
-            }
-
-            txtSearch.Text = (!string.IsNullOrEmpty(txtSearch.Text) ? txtSearch.Text : "");
-            if (!string.IsNullOrEmpty(txtSearch.Text))
-            {
-                btnSearch.PerformClick();
-            }
         }
 
         internal  void LoadRecepient(string str = "")
@@ -56,11 +33,11 @@ namespace BloodPlus
             string name = null;
             if (str == "")
             {
-                mysql = "Select * From tblRecepient Limit 50";
+                mysql = "Select * From tblPersonInfo Limit 50";
             }
             else
             {
-                mysql = "Select * From tblRecepient Where ";
+                mysql = "Select * From tblPersonInfo Where ";
                 foreach (string name_loopVariable in strWords)
                 {
                     name = name_loopVariable;
@@ -72,7 +49,7 @@ namespace BloodPlus
                     }
                 }
             }
-                DataSet ds = Database.LoadSQL(mysql, "tblRecepient");
+            DataSet ds = Database.LoadSQL(mysql, "tblPersonInfo");
             string tmpGender;
             lvRecepient.Items.Clear();
                 foreach (DataRow dr in ds.Tables[0].Rows)
@@ -99,7 +76,7 @@ namespace BloodPlus
             if (lvRecepient.SelectedItems.Count == 0) { return; }
 
             int idx = Convert.ToInt16(lvRecepient.FocusedItem.Tag);
-            Recepient rec = new Recepient();
+            PersonInfo rec = new PersonInfo();
             rec.ID = idx;
             rec.LoadRecepient();
             //if (Application.OpenForms["frmDonor"] != null)
@@ -137,12 +114,35 @@ namespace BloodPlus
         {
             if (Application.OpenForms["frmRecepient"] != null)
             {
-                (Application.OpenForms["frmRecepient"] as frmRecepient).Show();
+                (Application.OpenForms["frmRecepient"] as frmPersonInfo).Show();
             }
             else
             {
-                frmRecepient frm = new frmRecepient();
+                frmPersonInfo frm = new frmPersonInfo();
                 frm.Show();
+            }
+        }
+
+        private void frmPersonList_Load(object sender, EventArgs e)
+        {
+            if (!fromOtherForm)
+                ClearText();
+
+            if (string.IsNullOrEmpty(txtSearch.Text))
+            {
+                LoadRecepient();
+
+            }
+
+            if (!fromOtherForm)
+            {
+                txtSearch.Focus();
+            }
+
+            txtSearch.Text = (!string.IsNullOrEmpty(txtSearch.Text) ? txtSearch.Text : "");
+            if (!string.IsNullOrEmpty(txtSearch.Text))
+            {
+                btnSearch.PerformClick();
             }
         }
     }

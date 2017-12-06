@@ -9,22 +9,17 @@ using System.Windows.Forms;
 
 namespace BloodPlus
 {
-    public partial class frmRecepient : Form
+    public partial class frmPersonInfo : Form
     {
-        public frmRecepient()
+        public frmPersonInfo()
         {
             InitializeComponent();
-        }
-
-        private void frmRecepient_Load(object sender, EventArgs e)
-        {
-            ClearText();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (! isValid()) { return; }
-            Recepient Reg = new Recepient();
+            PersonInfo Reg = new PersonInfo();
             Reg.Firstname = txtFirstname.Text;
             Reg.Middlename = txtMiddlename.Text;
             Reg.Lastname = txtLastname.Text;
@@ -52,6 +47,11 @@ namespace BloodPlus
             txtFirstname.Clear();
             txtMiddlename.Clear();
             txtLastname.Clear();
+        }
+
+        private void frmPersonInfo_Load(object sender, EventArgs e)
+        {
+            ClearText();
         }
     }
 }

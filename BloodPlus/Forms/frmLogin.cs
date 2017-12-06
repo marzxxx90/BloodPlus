@@ -51,17 +51,17 @@ namespace BloodPlus
             mod_system.UserID = mod_system.bloodUser.ID;
             Interaction.MsgBox("Welcome " + mod_system.bloodUser.FirstName  + " " + mod_system.bloodUser.LastName);
 
+            this.Hide();
 
             if (Application.OpenForms["frmMain"] != null)
             {
                 (Application.OpenForms["frmMain"] as frmMain).NotYetLogin(true);
-                //(Application.OpenForms["frmMain"] as frmMain).isNew = true;
             }
 
             txtPassword.Clear();
             txtUserName.Clear();
             i = 0;
-            this.Hide();
+           
         }
 
         private void txtUserName_KeyPress(object sender, KeyPressEventArgs e)

@@ -5,7 +5,7 @@ using System.Text;
 using System.Data;
 namespace BloodPlus
 {
-    class Recepient
+    class PersonInfo
     {
         #region "Properties"
         private int _id;
@@ -55,9 +55,9 @@ namespace BloodPlus
         #region "Procedures"
         internal void SaveRecepient()
         {
-            string mysql = "Select * From tblRecepient Where Upper(firstname) = Upper('"+ _firstname +"') ";
+            string mysql = "Select * From tblPersonInfo Where Upper(firstname) = Upper('"+ _firstname +"') ";
             mysql +="And Upper(middlename) = Upper('" + _middlename + "') And Upper(Lastname) = Upper('"+ _lastname +"')";
-            DataSet ds = Database.LoadSQL(mysql, "tblRecepient");
+            DataSet ds = Database.LoadSQL(mysql, "tblPersonInfo");
 
             if (ds.Tables[0].Rows.Count == 0)
             {
@@ -86,8 +86,8 @@ namespace BloodPlus
 
         internal void LoadRecepient()
         {
-            string mysql = "Select * From tblRecepient Where id = '" + _id + "'";
-            DataSet ds = Database.LoadSQL(mysql, "tblRecepient");
+            string mysql = "Select * From tblPersonInfo Where id = '" + _id + "'";
+            DataSet ds = Database.LoadSQL(mysql, "tblPersonInfo");
 
             foreach (DataRow dr in ds.Tables[0].Rows)
             {
@@ -111,13 +111,13 @@ namespace BloodPlus
             string mysql;
             if (tmpmiddlename == "")
             {
-                mysql = "Select * From tblRecepient Where Upper(firstname) = Upper('" + tmpfirstname + "') And Upper(lastname) = Upper('"+ tmplastname +"')";
+                mysql = "Select * From tblPersonInfo Where Upper(firstname) = Upper('" + tmpfirstname + "') And Upper(lastname) = Upper('" + tmplastname + "')";
             }
             else 
             {
-                mysql = "Select * From tblRecepient Where Upper(firstname) = Upper('" + tmpfirstname + "') And Upper(lastname) = Upper('" + tmplastname + "') And Upper(middlename) = Upper('"+ tmpmiddlename +"')";
+                mysql = "Select * From tblPersonInfo Where Upper(firstname) = Upper('" + tmpfirstname + "') And Upper(lastname) = Upper('" + tmplastname + "') And Upper(middlename) = Upper('" + tmpmiddlename + "')";
             }
-            DataSet ds = Database.LoadSQL(mysql, "tblRecepient");
+            DataSet ds = Database.LoadSQL(mysql, "tblPersonInfo");
 
             if (ds.Tables[0].Rows.Count > 0) 
             {
@@ -130,8 +130,8 @@ namespace BloodPlus
 
         internal void SaveImportRecepient()
         {
-            string mysql = "Select * From tblRecepient Limit 0";
-            DataSet ds = Database.LoadSQL(mysql, "tblRecepient");
+            string mysql = "Select * From tblPersonInfo Limit 0";
+            DataSet ds = Database.LoadSQL(mysql, "tblPersonInfo");
 
             DataRow dsnewRow = null;
             dsnewRow = ds.Tables[0].NewRow();
@@ -151,7 +151,7 @@ namespace BloodPlus
 
         internal void loadLastID()
         {
-            string mysql = "Select * From tblRecepient Order by ID Desc Limit 1";
+            string mysql = "Select * From tblPersonInfo Order by ID Desc Limit 1";
             DataSet ds = Database.LoadSQL(mysql, "tblRecepient");
 
             _id = Convert.ToInt16(ds.Tables[0].Rows[0]["id"]);
