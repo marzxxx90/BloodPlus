@@ -65,7 +65,7 @@ namespace BloodPlus
         }
 
         private void txtUserName_KeyPress(object sender, KeyPressEventArgs e)
-        {
+            {
             if (mod_system.isEnter(e)) { btnLogin.PerformClick(); }
         }
 

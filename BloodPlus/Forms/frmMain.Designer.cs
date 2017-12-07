@@ -205,7 +205,6 @@
             // 
             // tBloodStatus
             // 
-            this.tBloodStatus.Enabled = true;
             this.tBloodStatus.Interval = 5000;
             this.tBloodStatus.Tick += new System.EventHandler(this.tBloodStatus_Tick);
             // 

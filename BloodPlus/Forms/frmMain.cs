@@ -76,6 +76,7 @@ namespace BloodPlus
             {
                 logoutToolStripMenuItem.Text = "&Logout";
                 isExpire();
+                tBloodStatus.Enabled = true;
                 tBloodStatus.Start();
             }
             else
@@ -171,6 +172,8 @@ namespace BloodPlus
                 Deduct.ID = Convert.ToInt16(dr["id"]);
                 Deduct.UpdateStatus();
                 Deduct.DeductInv(dr["bloodtype"].ToString());
+
+                System.Windows.Forms.Application.DoEvents();
             }
 
             (Application.OpenForms["frmConsole"] as frmConsole).ClearLogs();

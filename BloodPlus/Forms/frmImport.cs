@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Microsoft.Office.Interop.Excel ;
-
+using System.Windows;
 namespace BloodPlus
 {
     public partial class frmImport : Form
@@ -56,8 +56,8 @@ namespace BloodPlus
             for (int cnt = 2; cnt <= MaxEntries; cnt++)
             {
                 AddItems(oSheet, cnt);
-                //lblCount.Text = Convert.ToString((cnt) - 2);
                 pbStatus.Value += 1;
+                System.Windows.Forms.Application.DoEvents();
             }
 
         //Memory Unload
@@ -139,6 +139,7 @@ namespace BloodPlus
                 pbStatus.Value -= 1;
 
                 Donate.AddInv(lv.SubItems[1].Text.ToString());
+                System.Windows.Forms.Application.DoEvents();
             }
             MessageBox.Show("Successfuly Imported", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             btnImport.Enabled = true;
