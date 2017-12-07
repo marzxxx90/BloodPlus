@@ -263,7 +263,16 @@ namespace BloodPlus
 
         private void bloodDonationReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            if (Application.OpenForms["frmTransactionReport"] != null)
+            {
+                (Application.OpenForms["frmTransactionReport"] as frmTransactionReport).FormType = frmTransactionReport.BloodReport.BloodDonor;
+                (Application.OpenForms["frmTransactionReport"] as frmTransactionReport).Show();
+            }
+            else
+            {
+                frmTransactionReport frm = new frmTransactionReport();
+                frm.Show();
+            }
         }
 
     }

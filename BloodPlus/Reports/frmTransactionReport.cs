@@ -23,8 +23,14 @@ namespace BloodPlus
         internal BloodReport FormType = BloodReport.BloodDonor ;
         private void btnGenerate_Click(object sender, EventArgs e)
         {
-            BloodDonor();
+            switch (FormType)
+            {
+                case BloodReport.BloodDonor:
+                    BloodDonor();
+                    break;
 
+            }
+      
         }
 
         private void BloodDonor()
