@@ -196,6 +196,8 @@ namespace BloodPlus
 
         private void BloodStatus()
         {
+            ToolTip ttStock = new ToolTip();
+
             string mysql = "Select * From tblStock";
             DataSet ds = Database.LoadSQL(mysql,"tblStock");
             Maintenance GetOption = new Maintenance();
@@ -211,6 +213,7 @@ namespace BloodPlus
                              else {
                                  btnTypeA.BackColor = Color.Blue;
                              }
+                             ttStock.SetToolTip(btnTypeA, dr["Inv"].ToString() + " Stock remaining");     
                              break;
 
                          case "B":
@@ -222,6 +225,7 @@ namespace BloodPlus
                              {
                                  btnTypeB.BackColor = Color.Blue;
                              }
+                             ttStock.SetToolTip(btnTypeB, dr["Inv"].ToString() + " Stock remaining");    
                              break;
                              
                          case "AB":
@@ -233,6 +237,7 @@ namespace BloodPlus
                              {
                                  btnTypeAB.BackColor = Color.Blue;
                              }
+                             ttStock.SetToolTip(btnTypeAB, dr["Inv"].ToString() + " Stock remaining");    
                              break;
 
                          case "O":
@@ -244,9 +249,9 @@ namespace BloodPlus
                              {
                                  btnTypeO.BackColor = Color.Blue;
                              }
+                             ttStock.SetToolTip(btnTypeO, dr["Inv"].ToString() + " Stock remaining");    
                              break;
-                     }
-                           
+                     } 
 	            }
             
         }
