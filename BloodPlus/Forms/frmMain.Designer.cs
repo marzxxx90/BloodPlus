@@ -108,6 +108,7 @@
             this.bloodDonationReportToolStripMenuItem.Name = "bloodDonationReportToolStripMenuItem";
             this.bloodDonationReportToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.bloodDonationReportToolStripMenuItem.Text = "Blood Donation Report";
+            this.bloodDonationReportToolStripMenuItem.Click += new System.EventHandler(this.bloodDonationReportToolStripMenuItem_Click);
             // 
             // maintenanceToolStripMenuItem
             // 

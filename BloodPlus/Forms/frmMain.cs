@@ -261,5 +261,10 @@ namespace BloodPlus
             BloodStatus();
         }
 
+        private void bloodDonationReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

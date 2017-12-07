@@ -31,6 +31,7 @@ namespace BloodPlus
             //d.Gender = cboGender.Text;
             d.Recepient = Donor;
             d.DocDate = DateTime.Now;
+            d.EncodeBy = mod_system.bloodUser.ID;
             d.SaveBloodDonor();
 
             d.AddInv(cboBloodType.Text);

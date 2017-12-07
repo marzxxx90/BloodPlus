@@ -152,6 +152,12 @@
     <Compile Include="Reports\frmReport.Designer.cs">
       <DependentUpon>frmReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\frmTransactionReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmTransactionReport.Designer.cs">
+      <DependentUpon>frmTransactionReport.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Forms\devMonitor.resx">
       <DependentUpon>devMonitor.cs</DependentUpon>
     </EmbeddedResource>
@@ -200,7 +206,13 @@
     <EmbeddedResource Include="Reports\frmReport.resx">
       <DependentUpon>frmReport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmTransactionReport.resx">
+      <DependentUpon>frmTransactionReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\rpt_BloodInventory.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rpt_DonorReport.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rpt_Graph.rdlc">

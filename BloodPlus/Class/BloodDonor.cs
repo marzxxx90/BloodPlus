@@ -61,6 +61,13 @@ namespace BloodPlus
             get { return _status; }
             set { _status = value; }
         }
+
+        private int _encodeby;
+        public virtual int EncodeBy
+        {
+            get { return _encodeby; }
+            set { _encodeby = value; }
+        }
         #endregion
 
         #region "Procedures"
@@ -78,7 +85,7 @@ namespace BloodPlus
             with["DonorID"] = _recepient.ID;
             with["DocDate"] = _docDate;
             with["Status"] = 1;
-
+            with["encodeby"] = _encodeby;
             ds.Tables[0].Rows.Add(dsnewRow);
             Database.SaveEntry(ds);
         }
@@ -107,6 +114,7 @@ namespace BloodPlus
             _recepient.ID = Convert.ToInt16(dr["DonorID"]);
             _recepient.LoadRecepient();
             _docDate = Convert.ToDateTime ( dr["DocDate"].ToString());
+            _encodeby = Convert.ToInt16(dr["encodeby"].ToString());
         }
 
         static internal bool TemplateIntegrityCheck(string[] headers)
