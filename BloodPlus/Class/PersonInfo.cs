@@ -109,7 +109,7 @@ namespace BloodPlus
         internal bool isExist(string tmpfirstname, string tmplastname, string tmpmiddlename = "")
         {
             string mysql;
-            if (tmpmiddlename == "")
+            if (tmpmiddlename == "" | tmpmiddlename == null)
             {
                 mysql = "Select * From tblPersonInfo Where Upper(firstname) = Upper('" + tmpfirstname + "') And Upper(lastname) = Upper('" + tmplastname + "')";
             }

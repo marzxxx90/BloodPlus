@@ -25,6 +25,13 @@ namespace BloodPlus
                     }
                     break;
 
+                case FormName.RequestBlood:
+                    if (Application.OpenForms["frmRecipient"] != null)
+                    {
+                        (Application.OpenForms["frmRecipient"] as frmRecipient).LoadRecepientInfo(Selected_Recepient);
+                    }
+                    break;
+
             }
         }
     }

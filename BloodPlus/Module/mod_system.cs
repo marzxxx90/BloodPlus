@@ -76,6 +76,15 @@ namespace BloodPlus
         }
         return false;
     }
+
+    static internal int GetCurrentAge(System.DateTime dob)
+    {
+        int age = 0;
+        age = DateAndTime.Today.Year - dob.Year;
+        if ((dob > DateAndTime.Today.AddYears(-age)))
+            age -= 1;
+        return age;
+    }
       #endregion
   }
 }

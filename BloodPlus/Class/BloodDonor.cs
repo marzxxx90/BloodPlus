@@ -115,6 +115,7 @@ namespace BloodPlus
             _recepient.LoadRecepient();
             _docDate = Convert.ToDateTime ( dr["DocDate"].ToString());
             _encodeby = Convert.ToInt16(dr["encodeby"].ToString());
+            _status = dr["Status"].ToString();
         }
 
         static internal bool TemplateIntegrityCheck(string[] headers)

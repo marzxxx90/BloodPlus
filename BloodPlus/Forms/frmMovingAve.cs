@@ -35,7 +35,7 @@ namespace BloodPlus
 
         }
 
-        private void Generate ()
+        private void Generate()
         {
             dtpFrom.CustomFormat = "yyyy-MM-dd";
             dtpTo.CustomFormat = "yyyy-MM-dd";
@@ -68,7 +68,7 @@ namespace BloodPlus
                     ListViewItem lv = lvDev.Items.Add(Convert.ToString(dr["DocMonth"]));
                     lv.SubItems.Add(dr["DocYear"].ToString());
                     lv.SubItems.Add(dr["BloodCount"].ToString());
-                    if (i >= Convert.ToInt16(nudPeriod.Value)) { lv.SubItems.Add(Convert.ToString(MovingAverage(ds, Convert.ToInt16(nudPeriod.Value)))); }
+                    if (i >= 3) { lv.SubItems.Add(Convert.ToString(MovingAverage(ds, 3))); }
                   
 	            }
 
@@ -92,6 +92,62 @@ namespace BloodPlus
             ReportInit(ds, "dsMonitor", @"Reports\rpt_Graph.rdlc");
         }
 
+        private void GenerateRecipient()
+        {
+            dtpFrom.CustomFormat = "yyyy-MM-dd";
+            dtpTo.CustomFormat = "yyyy-MM-dd";
+
+            string mysql = "Select Month(DocDate)as DocNum, case Month(DocDate) ";
+            mysql += "When 1 then 'Jan'  ";
+            mysql += "When 2 then 'Feb'  ";
+            mysql += "When 3 then 'Mar'  ";
+            mysql += "When 4 then 'Apr'  ";
+            mysql += "When 5 then 'May'  ";
+            mysql += "When 6 then 'Jun'  ";
+            mysql += "When 7 then 'Jul'  ";
+            mysql += "When 8 then 'Aug' ";
+            mysql += "When 9 then 'Sep'  ";
+            mysql += "When 10 then 'Oct'  ";
+            mysql += "When 11 then 'Nov'  ";
+            mysql += "When 12 then 'Dec' else 'None' End as DocMonth, BloodType, Count(BloodType)as BloodCount , DocDate, Year(DocDate)as DocYear ";
+            mysql += "From tblRecipient Where BloodType = '" + cboBloodType.Text + "' And (DocDate Between '" + dtpFrom.Text + "' And '" + dtpTo.Text + "') ";
+            mysql += "Group By Month(DocDate), BloodType ";
+            mysql += "Order By DocDate ";
+            DataSet ds = Database.LoadSQL(mysql, "tblRecipient");
+
+            var mySeries = new SortedList<string, double>();
+            int i = 0;
+
+            lvDev.Items.Clear();
+            foreach (DataRow dr in ds.Tables[0].Rows)
+            {
+                i += 1;
+                ListViewItem lv = lvDev.Items.Add(Convert.ToString(dr["DocMonth"]));
+                lv.SubItems.Add(dr["DocYear"].ToString());
+                lv.SubItems.Add(dr["BloodCount"].ToString());
+                if (i >= 3) { lv.SubItems.Add(Convert.ToString(MovingAverage(ds, 3))); }
+
+            }
+
+            mysql = "Select Month(DocDate)as DocNum, case Month(DocDate) ";
+            mysql += "When 1 then 'Jan'  ";
+            mysql += "When 2 then 'Feb'  ";
+            mysql += "When 3 then 'Mar'  ";
+            mysql += "When 4 then 'Apr'  ";
+            mysql += "When 5 then 'May'  ";
+            mysql += "When 6 then 'Jun'  ";
+            mysql += "When 7 then 'Jul'  ";
+            mysql += "When 8 then 'Aug' ";
+            mysql += "When 9 then 'Sep'  ";
+            mysql += "When 10 then 'Oct'  ";
+            mysql += "When 11 then 'Nov'  ";
+            mysql += "When 12 then 'Dec' else 'None' End as DocMonth, BloodType , DocDate, Year(DocDate)as DocYear ";
+            mysql += "From tblRecipient Where BloodType = '" + cboBloodType.Text + "' And (DocDate Between '" + dtpFrom.Text + "' And '" + dtpTo.Text + "') ";
+            mysql += "Order By DocDate ";
+            ds = Database.LoadSQL(mysql, "tblRecipient");
+
+            ReportInit(ds, "dsMonitor", @"Reports\rpt_Graph.rdlc");
+        }
         public double MovingAverage(DataSet ds, int period)
         {
             double average;
@@ -125,8 +181,18 @@ namespace BloodPlus
         {
             iRows = 0;
             if (cboBloodType.Text == "") { MessageBox.Show("Please Select Blood Type!","Information"); return; }
-            if (nudPeriod.Value < 1) { MessageBox.Show("Invalid Period"); return; }
-            Generate();
+           // if (nudPeriod.Value < 1) { MessageBox.Show("Invalid Period"); return; }
+            if (cboTransaction.Text == "") {MessageBox.Show("Please Select Transaction"); return;}
+            switch (cboTransaction.Text)
+            {
+                case "Blood Donor":
+                    Generate() ;
+                    break;
+                case "Blood Recipient":
+                    GenerateRecipient();
+                    break;
+            }
+           
         }
 
         private void ReportInit(DataSet ds, string dsName, string rptUrl, Dictionary<string, string> addPara = null, bool hasUser = true)

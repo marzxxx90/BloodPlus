@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\BloodDonor.cs" />
+    <Compile Include="Class\BloodRecipient.cs" />
     <Compile Include="Class\ComputerUser.cs" />
     <Compile Include="Class\PersonInfo.cs" />
     <Compile Include="Forms\devMonitor.cs">
@@ -119,6 +120,18 @@
     </Compile>
     <Compile Include="Forms\frmPersonList.Designer.cs">
       <DependentUpon>frmPersonList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmRecipient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmRecipient.Designer.cs">
+      <DependentUpon>frmRecipient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmRecipientList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmRecipientList.Designer.cs">
+      <DependentUpon>frmRecipientList.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmSettings.cs">
       <SubType>Form</SubType>
@@ -187,6 +200,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmPersonList.resx">
       <DependentUpon>frmPersonList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmRecipient.resx">
+      <DependentUpon>frmRecipient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmRecipientList.resx">
+      <DependentUpon>frmRecipientList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmSettings.resx">
       <DependentUpon>frmSettings.cs</DependentUpon>

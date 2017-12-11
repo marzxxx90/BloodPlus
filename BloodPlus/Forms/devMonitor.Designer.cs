@@ -29,40 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.lvDev = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dsReportsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button1 = new System.Windows.Forms.Button();
-            this.rvSample = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lblPath = new System.Windows.Forms.Label();
+            this.ofdImport = new System.Windows.Forms.OpenFileDialog();
+            this.btnBrowse = new System.Windows.Forms.Button();
+            this.pbStatus = new System.Windows.Forms.ProgressBar();
+            this.chkRandom = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dsReportsBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lvDev
-            // 
-            this.lvDev.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4});
-            this.lvDev.FullRowSelect = true;
-            this.lvDev.GridLines = true;
-            this.lvDev.Location = new System.Drawing.Point(3, 12);
-            this.lvDev.Name = "lvDev";
-            this.lvDev.Size = new System.Drawing.Size(649, 157);
-            this.lvDev.TabIndex = 0;
-            this.lvDev.UseCompatibleStateImageBehavior = false;
-            this.lvDev.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Width = 74;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Width = 259;
             // 
             // dsReportsBindingSource
             // 
@@ -71,7 +46,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(699, 22);
+            this.button1.Location = new System.Drawing.Point(498, 10);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(127, 85);
             this.button1.TabIndex = 2;
@@ -79,42 +54,73 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // rvSample
+            // lblPath
             // 
-            this.rvSample.Location = new System.Drawing.Point(3, 175);
-            this.rvSample.Name = "rvSample";
-            this.rvSample.Size = new System.Drawing.Size(858, 318);
-            this.rvSample.TabIndex = 3;
+            this.lblPath.AutoSize = true;
+            this.lblPath.Location = new System.Drawing.Point(12, 22);
+            this.lblPath.Name = "lblPath";
+            this.lblPath.Size = new System.Drawing.Size(35, 13);
+            this.lblPath.TabIndex = 3;
+            this.lblPath.Text = "label1";
             // 
-            // columnHeader3
+            // ofdImport
             // 
-            this.columnHeader3.Width = 187;
+            this.ofdImport.Filter = "Excel 2007|*.xlsx";
+            // 
+            // btnBrowse
+            // 
+            this.btnBrowse.Location = new System.Drawing.Point(15, 38);
+            this.btnBrowse.Name = "btnBrowse";
+            this.btnBrowse.Size = new System.Drawing.Size(75, 29);
+            this.btnBrowse.TabIndex = 4;
+            this.btnBrowse.Text = "&Browse";
+            this.btnBrowse.UseVisualStyleBackColor = true;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
+            // 
+            // pbStatus
+            // 
+            this.pbStatus.Location = new System.Drawing.Point(3, 113);
+            this.pbStatus.Name = "pbStatus";
+            this.pbStatus.Size = new System.Drawing.Size(622, 23);
+            this.pbStatus.TabIndex = 5;
+            // 
+            // chkRandom
+            // 
+            this.chkRandom.AutoSize = true;
+            this.chkRandom.Location = new System.Drawing.Point(352, 31);
+            this.chkRandom.Name = "chkRandom";
+            this.chkRandom.Size = new System.Drawing.Size(80, 17);
+            this.chkRandom.TabIndex = 6;
+            this.chkRandom.Text = "checkBox1";
+            this.chkRandom.UseVisualStyleBackColor = true;
             // 
             // devMonitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(873, 505);
-            this.Controls.Add(this.rvSample);
+            this.ClientSize = new System.Drawing.Size(626, 139);
+            this.Controls.Add(this.chkRandom);
+            this.Controls.Add(this.pbStatus);
+            this.Controls.Add(this.btnBrowse);
+            this.Controls.Add(this.lblPath);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.lvDev);
             this.Name = "devMonitor";
             this.Text = "dev";
             this.Load += new System.EventHandler(this.dev_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dsReportsBindingSource)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ListView lvDev;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.BindingSource dsReportsBindingSource;
         private System.Windows.Forms.Button button1;
-        private Microsoft.Reporting.WinForms.ReportViewer rvSample;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.Label lblPath;
+        private System.Windows.Forms.OpenFileDialog ofdImport;
+        private System.Windows.Forms.Button btnBrowse;
+        private System.Windows.Forms.ProgressBar pbStatus;
+        private System.Windows.Forms.CheckBox chkRandom;
     }
 }

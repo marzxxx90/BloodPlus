@@ -40,10 +40,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dtpTo = new System.Windows.Forms.DateTimePicker();
-            this.nudPeriod = new System.Windows.Forms.NumericUpDown();
-            this.label4 = new System.Windows.Forms.Label();
             this.rv_display = new Microsoft.Reporting.WinForms.ReportViewer();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPeriod)).BeginInit();
+            this.cboTransaction = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lvDev
@@ -98,7 +96,7 @@
             this.cboBloodType.FormattingEnabled = true;
             this.cboBloodType.Location = new System.Drawing.Point(76, 11);
             this.cboBloodType.Name = "cboBloodType";
-            this.cboBloodType.Size = new System.Drawing.Size(96, 21);
+            this.cboBloodType.Size = new System.Drawing.Size(74, 21);
             this.cboBloodType.TabIndex = 3;
             // 
             // dtpFrom
@@ -146,22 +144,6 @@
             this.dtpTo.Size = new System.Drawing.Size(107, 20);
             this.dtpTo.TabIndex = 8;
             // 
-            // nudPeriod
-            // 
-            this.nudPeriod.Location = new System.Drawing.Point(228, 12);
-            this.nudPeriod.Name = "nudPeriod";
-            this.nudPeriod.Size = new System.Drawing.Size(61, 20);
-            this.nudPeriod.TabIndex = 9;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(179, 14);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(37, 13);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Period";
-            // 
             // rv_display
             // 
             this.rv_display.DocumentMapWidth = 16;
@@ -170,14 +152,25 @@
             this.rv_display.Size = new System.Drawing.Size(654, 455);
             this.rv_display.TabIndex = 11;
             // 
+            // cboTransaction
+            // 
+            this.cboTransaction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTransaction.FormattingEnabled = true;
+            this.cboTransaction.Items.AddRange(new object[] {
+            "Blood Donor",
+            "Blood Recipient"});
+            this.cboTransaction.Location = new System.Drawing.Point(182, 11);
+            this.cboTransaction.Name = "cboTransaction";
+            this.cboTransaction.Size = new System.Drawing.Size(107, 21);
+            this.cboTransaction.TabIndex = 12;
+            // 
             // frmMovingAve
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1084, 478);
+            this.Controls.Add(this.cboTransaction);
             this.Controls.Add(this.rv_display);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.nudPeriod);
             this.Controls.Add(this.dtpTo);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -189,7 +182,6 @@
             this.Name = "frmMovingAve";
             this.Text = "frmMovingAve";
             this.Load += new System.EventHandler(this.frmMovingAve_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.nudPeriod)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -209,8 +201,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dtpTo;
-        private System.Windows.Forms.NumericUpDown nudPeriod;
-        private System.Windows.Forms.Label label4;
         private Microsoft.Reporting.WinForms.ReportViewer rv_display;
+        private System.Windows.Forms.ComboBox cboTransaction;
     }
 }

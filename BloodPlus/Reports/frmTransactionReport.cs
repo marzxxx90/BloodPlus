@@ -28,7 +28,8 @@ namespace BloodPlus
                 case BloodReport.BloodDonor:
                     BloodDonor();
                     break;
-
+                case BloodReport.BloodRecipient:
+                    break;
             }
       
         }
