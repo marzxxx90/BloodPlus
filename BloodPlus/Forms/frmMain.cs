@@ -271,6 +271,35 @@ namespace BloodPlus
             else
             {
                 frmTransactionReport frm = new frmTransactionReport();
+                frm.FormType = frmTransactionReport.BloodReport.BloodDonor;
+                frm.Show();
+            }
+        }
+
+        private void bloodRecipientReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["frmTransactionReport"] != null)
+            {
+                (Application.OpenForms["frmTransactionReport"] as frmTransactionReport).FormType = frmTransactionReport.BloodReport.BloodRecipient;
+                (Application.OpenForms["frmTransactionReport"] as frmTransactionReport).Show();
+            }
+            else
+            {
+                frmTransactionReport frm = new frmTransactionReport();
+                frm.FormType = frmTransactionReport.BloodReport.BloodRecipient;
+                frm.Show();
+            }
+        }
+
+        private void bloodRecepientToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["frmRecipientList"] != null)
+            {
+                (Application.OpenForms["frmRecipientList"] as frmRecipientList).Show();
+            }
+            else
+            {
+                frmRecipientList frm = new frmRecipientList();
                 frm.Show();
             }
         }

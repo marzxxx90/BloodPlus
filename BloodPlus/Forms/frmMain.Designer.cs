@@ -48,6 +48,7 @@
             this.btnTypeAB = new System.Windows.Forms.Button();
             this.btnTypeO = new System.Windows.Forms.Button();
             this.tBloodStatus = new System.Windows.Forms.Timer(this.components);
+            this.bloodRecipientReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.msMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -91,7 +92,8 @@
             // 
             this.reportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bloodInventoryReportToolStripMenuItem,
-            this.bloodDonationReportToolStripMenuItem});
+            this.bloodDonationReportToolStripMenuItem,
+            this.bloodRecipientReportToolStripMenuItem});
             this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
             this.reportToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.reportToolStripMenuItem.Text = "&Report";
@@ -148,6 +150,7 @@
             this.bloodRecepientToolStripMenuItem.Name = "bloodRecepientToolStripMenuItem";
             this.bloodRecepientToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.bloodRecepientToolStripMenuItem.Text = "Blood Recepient";
+            this.bloodRecepientToolStripMenuItem.Click += new System.EventHandler(this.bloodRecepientToolStripMenuItem_Click);
             // 
             // importBloodDonorToolStripMenuItem
             // 
@@ -209,6 +212,13 @@
             this.tBloodStatus.Interval = 5000;
             this.tBloodStatus.Tick += new System.EventHandler(this.tBloodStatus_Tick);
             // 
+            // bloodRecipientReportToolStripMenuItem
+            // 
+            this.bloodRecipientReportToolStripMenuItem.Name = "bloodRecipientReportToolStripMenuItem";
+            this.bloodRecipientReportToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.bloodRecipientReportToolStripMenuItem.Text = "Blood Recipient Report";
+            this.bloodRecipientReportToolStripMenuItem.Click += new System.EventHandler(this.bloodRecipientReportToolStripMenuItem_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -252,5 +262,6 @@
         private System.Windows.Forms.Button btnTypeAB;
         private System.Windows.Forms.Button btnTypeO;
         private System.Windows.Forms.Timer tBloodStatus;
+        private System.Windows.Forms.ToolStripMenuItem bloodRecipientReportToolStripMenuItem;
     }
 }

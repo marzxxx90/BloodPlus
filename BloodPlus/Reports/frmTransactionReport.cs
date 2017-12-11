@@ -20,7 +20,7 @@ namespace BloodPlus
         {
             InitializeComponent();
         }
-        internal BloodReport FormType = BloodReport.BloodDonor ;
+        internal BloodReport FormType = BloodReport.BloodDonor   ;
         private void btnGenerate_Click(object sender, EventArgs e)
         {
             switch (FormType)
@@ -29,9 +29,9 @@ namespace BloodPlus
                     BloodDonor();
                     break;
                 case BloodReport.BloodRecipient:
+                    BloodRecipient();
                     break;
             }
-      
         }
 
         private void BloodDonor()
@@ -48,6 +48,23 @@ namespace BloodPlus
 
             frmReport frm = new frmReport();
             frm.ReportInit(mysql, "dsDonor", @"Reports\rpt_DonorReport.rdlc", rptPara);
+            frm.Show();
+        }
+
+        private void BloodRecipient()
+        {
+            string mysql = "Select R.ID, R.BloodType, CONCAT(P.FIRSTNAME, ' ', P.LASTNAME) AS Fullname, ";
+            mysql += "R.DocDate, R.Status, CONCAT(U.FIRSTNAME, ' ', U.LASTNAME) AS Encoder ";
+            mysql += "From tblRecipient R ";
+            mysql += "Inner Join tblPersonInfo P On P.ID = R.RecipientID ";
+            mysql += "Inner Join tblUser U On U.ID = R.EncodeBy  ";
+            mysql += "Where R.DocDate = '" + MonCalReport.SelectionStart.Date.ToString("yyyy-MM-dd") + "'";
+
+            Dictionary<string, string> rptPara = new Dictionary<string, string>();
+            rptPara.Add("txtDate", "Date: " + MonCalReport.SelectionStart.Date.ToString("yyyy-MM-dd"));
+
+            frmReport frm = new frmReport();
+            frm.ReportInit(mysql, "dsRecipient", @"Reports\rpt_RecipientReport.rdlc", rptPara);
             frm.Show();
         }
     }
