@@ -101,6 +101,7 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "Blood Type";
+            this.columnHeader2.Width = 161;
             // 
             // columnHeader3
             // 
