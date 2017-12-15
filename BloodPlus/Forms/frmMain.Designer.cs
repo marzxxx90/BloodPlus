@@ -36,6 +36,7 @@
             this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bloodInventoryReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bloodDonationReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bloodRecipientReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.maintenanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TransactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,7 +49,10 @@
             this.btnTypeAB = new System.Windows.Forms.Button();
             this.btnTypeO = new System.Windows.Forms.Button();
             this.tBloodStatus = new System.Windows.Forms.Timer(this.components);
-            this.bloodRecipientReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lvNotify = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnClear = new System.Windows.Forms.Button();
+            this.chkAll = new System.Windows.Forms.CheckBox();
             this.msMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -112,6 +116,13 @@
             this.bloodDonationReportToolStripMenuItem.Text = "Blood Donation Report";
             this.bloodDonationReportToolStripMenuItem.Click += new System.EventHandler(this.bloodDonationReportToolStripMenuItem_Click);
             // 
+            // bloodRecipientReportToolStripMenuItem
+            // 
+            this.bloodRecipientReportToolStripMenuItem.Name = "bloodRecipientReportToolStripMenuItem";
+            this.bloodRecipientReportToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.bloodRecipientReportToolStripMenuItem.Text = "Blood Recipient Report";
+            this.bloodRecipientReportToolStripMenuItem.Click += new System.EventHandler(this.bloodRecipientReportToolStripMenuItem_Click);
+            // 
             // maintenanceToolStripMenuItem
             // 
             this.maintenanceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -172,7 +183,7 @@
             this.btnTypeA.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTypeA.Location = new System.Drawing.Point(12, 115);
             this.btnTypeA.Name = "btnTypeA";
-            this.btnTypeA.Size = new System.Drawing.Size(250, 119);
+            this.btnTypeA.Size = new System.Drawing.Size(250, 200);
             this.btnTypeA.TabIndex = 1;
             this.btnTypeA.Text = "Type A";
             this.btnTypeA.UseVisualStyleBackColor = false;
@@ -182,7 +193,7 @@
             this.btnTypeB.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTypeB.Location = new System.Drawing.Point(292, 115);
             this.btnTypeB.Name = "btnTypeB";
-            this.btnTypeB.Size = new System.Drawing.Size(250, 119);
+            this.btnTypeB.Size = new System.Drawing.Size(250, 200);
             this.btnTypeB.TabIndex = 2;
             this.btnTypeB.Text = "Type B";
             this.btnTypeB.UseVisualStyleBackColor = true;
@@ -190,9 +201,9 @@
             // btnTypeAB
             // 
             this.btnTypeAB.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTypeAB.Location = new System.Drawing.Point(575, 115);
+            this.btnTypeAB.Location = new System.Drawing.Point(572, 115);
             this.btnTypeAB.Name = "btnTypeAB";
-            this.btnTypeAB.Size = new System.Drawing.Size(250, 119);
+            this.btnTypeAB.Size = new System.Drawing.Size(250, 200);
             this.btnTypeAB.TabIndex = 3;
             this.btnTypeAB.Text = "Type AB";
             this.btnTypeAB.UseVisualStyleBackColor = true;
@@ -200,9 +211,9 @@
             // btnTypeO
             // 
             this.btnTypeO.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTypeO.Location = new System.Drawing.Point(860, 115);
+            this.btnTypeO.Location = new System.Drawing.Point(852, 115);
             this.btnTypeO.Name = "btnTypeO";
-            this.btnTypeO.Size = new System.Drawing.Size(250, 119);
+            this.btnTypeO.Size = new System.Drawing.Size(250, 200);
             this.btnTypeO.TabIndex = 4;
             this.btnTypeO.Text = "Type O";
             this.btnTypeO.UseVisualStyleBackColor = true;
@@ -212,18 +223,54 @@
             this.tBloodStatus.Interval = 5000;
             this.tBloodStatus.Tick += new System.EventHandler(this.tBloodStatus_Tick);
             // 
-            // bloodRecipientReportToolStripMenuItem
+            // lvNotify
             // 
-            this.bloodRecipientReportToolStripMenuItem.Name = "bloodRecipientReportToolStripMenuItem";
-            this.bloodRecipientReportToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.bloodRecipientReportToolStripMenuItem.Text = "Blood Recipient Report";
-            this.bloodRecipientReportToolStripMenuItem.Click += new System.EventHandler(this.bloodRecipientReportToolStripMenuItem_Click);
+            this.lvNotify.CheckBoxes = true;
+            this.lvNotify.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1});
+            this.lvNotify.FullRowSelect = true;
+            this.lvNotify.GridLines = true;
+            this.lvNotify.Location = new System.Drawing.Point(12, 390);
+            this.lvNotify.Name = "lvNotify";
+            this.lvNotify.Size = new System.Drawing.Size(1346, 241);
+            this.lvNotify.TabIndex = 5;
+            this.lvNotify.UseCompatibleStateImageBehavior = false;
+            this.lvNotify.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Notification";
+            this.columnHeader1.Width = 1344;
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(55, 637);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(130, 23);
+            this.btnClear.TabIndex = 6;
+            this.btnClear.Text = "&Clear Notification";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // chkAll
+            // 
+            this.chkAll.AutoSize = true;
+            this.chkAll.Location = new System.Drawing.Point(12, 641);
+            this.chkAll.Name = "chkAll";
+            this.chkAll.Size = new System.Drawing.Size(37, 17);
+            this.chkAll.TabIndex = 7;
+            this.chkAll.Text = "All";
+            this.chkAll.UseVisualStyleBackColor = true;
+            this.chkAll.CheckedChanged += new System.EventHandler(this.chkAll_CheckedChanged);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1370, 750);
+            this.ClientSize = new System.Drawing.Size(1370, 672);
+            this.Controls.Add(this.chkAll);
+            this.Controls.Add(this.btnClear);
+            this.Controls.Add(this.lvNotify);
             this.Controls.Add(this.btnTypeO);
             this.Controls.Add(this.btnTypeAB);
             this.Controls.Add(this.btnTypeB);
@@ -263,5 +310,9 @@
         private System.Windows.Forms.Button btnTypeO;
         private System.Windows.Forms.Timer tBloodStatus;
         private System.Windows.Forms.ToolStripMenuItem bloodRecipientReportToolStripMenuItem;
+        private System.Windows.Forms.ListView lvNotify;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.CheckBox chkAll;
     }
 }

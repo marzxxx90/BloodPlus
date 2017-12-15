@@ -209,6 +209,7 @@ namespace BloodPlus
                              if (Convert.ToInt16(dr["Inv"].ToString()) < Convert.ToInt16(GetOption.GetSettingsVal("ParLevel")))
                              {
                                  btnTypeA.BackColor = Color.Red;
+                                 AddNotify("Please be inform Blood Type A only have " + dr["Inv"].ToString() + " remaining","A");
                              }
                              else {
                                  btnTypeA.BackColor = Color.Blue;
@@ -220,6 +221,7 @@ namespace BloodPlus
                              if (Convert.ToInt16(dr["Inv"].ToString()) < Convert.ToInt16(GetOption.GetSettingsVal("ParLevel")))
                              {
                                  btnTypeB.BackColor = Color.Red;
+                                 AddNotify("Please be inform Blood Type B only have " + dr["Inv"].ToString() + " remaining", "B");
                              }
                              else
                              {
@@ -232,6 +234,7 @@ namespace BloodPlus
                              if (Convert.ToInt16(dr["Inv"].ToString()) < Convert.ToInt16(GetOption.GetSettingsVal("ParLevel")))
                              {
                                  btnTypeAB.BackColor = Color.Red;
+                                 AddNotify("Please be inform Blood Type AB only have " + dr["Inv"].ToString() + " remaining", "AB");
                              }
                              else
                              {
@@ -244,6 +247,7 @@ namespace BloodPlus
                              if (Convert.ToInt16(dr["Inv"].ToString()) < Convert.ToInt16(GetOption.GetSettingsVal("ParLevel")))
                              {
                                  btnTypeO.BackColor = Color.Red;
+                                 AddNotify("Please be inform Blood Type O only have " + dr["Inv"].ToString() + " remaining", "O");
                              }
                              else
                              {
@@ -301,6 +305,52 @@ namespace BloodPlus
             {
                 frmRecipientList frm = new frmRecipientList();
                 frm.Show();
+            }
+        }
+
+        private void AddNotify(string strNote, string type)
+        {
+            bool isExist = false;
+            if (lvNotify.Items.Count == 0)
+            {
+                ListViewItem lv = lvNotify.Items.Add(strNote);
+                lv.Tag = type;
+         
+            }
+            else 
+            {
+                foreach (ListViewItem lvitm in lvNotify.Items)
+                {
+                    if (lvitm.Tag == type)
+                    {
+                        isExist = true ;
+                    }
+
+                }
+
+                if (isExist == false)
+                {
+                    ListViewItem lv = lvNotify.Items.Add(strNote);
+                    lv.Tag = type;
+                }
+            }
+            
+           
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewItem lv in lvNotify.CheckedItems)
+            {
+                lvNotify.Items.Remove(lv);
+            }
+        }
+
+        private void chkAll_CheckedChanged(object sender, EventArgs e)
+        {
+            foreach (ListViewItem lv in lvNotify.Items)
+            {
+                lv.Checked = chkAll.Checked;
             }
         }
 
