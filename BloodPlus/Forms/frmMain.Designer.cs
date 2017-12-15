@@ -53,6 +53,7 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnClear = new System.Windows.Forms.Button();
             this.chkAll = new System.Windows.Forms.CheckBox();
+            this.tNotify = new System.Windows.Forms.Timer(this.components);
             this.msMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -263,6 +264,11 @@
             this.chkAll.UseVisualStyleBackColor = true;
             this.chkAll.CheckedChanged += new System.EventHandler(this.chkAll_CheckedChanged);
             // 
+            // tNotify
+            // 
+            this.tNotify.Interval = 60000;
+            this.tNotify.Tick += new System.EventHandler(this.tNotify_Tick);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -314,5 +320,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.CheckBox chkAll;
+        private System.Windows.Forms.Timer tNotify;
     }
 }

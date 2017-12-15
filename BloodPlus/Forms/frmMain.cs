@@ -11,6 +11,7 @@ namespace BloodPlus
 {
     public partial class frmMain : Form
     {
+        int iTick = 0;
         public frmMain()
         {
             InitializeComponent();
@@ -78,6 +79,9 @@ namespace BloodPlus
                 isExpire();
                 tBloodStatus.Enabled = true;
                 tBloodStatus.Start();
+
+                tNotify.Enabled = true;
+                tNotify.Start();
             }
             else
             {
@@ -209,7 +213,6 @@ namespace BloodPlus
                              if (Convert.ToInt16(dr["Inv"].ToString()) < Convert.ToInt16(GetOption.GetSettingsVal("ParLevel")))
                              {
                                  btnTypeA.BackColor = Color.Red;
-                                 AddNotify("Please be inform Blood Type A only have " + dr["Inv"].ToString() + " remaining","A");
                              }
                              else {
                                  btnTypeA.BackColor = Color.Blue;
@@ -221,10 +224,8 @@ namespace BloodPlus
                              if (Convert.ToInt16(dr["Inv"].ToString()) < Convert.ToInt16(GetOption.GetSettingsVal("ParLevel")))
                              {
                                  btnTypeB.BackColor = Color.Red;
-                                 AddNotify("Please be inform Blood Type B only have " + dr["Inv"].ToString() + " remaining", "B");
                              }
-                             else
-                             {
+                             else{
                                  btnTypeB.BackColor = Color.Blue;
                              }
                              ttStock.SetToolTip(btnTypeB, dr["Inv"].ToString() + " Stock remaining");    
@@ -234,7 +235,6 @@ namespace BloodPlus
                              if (Convert.ToInt16(dr["Inv"].ToString()) < Convert.ToInt16(GetOption.GetSettingsVal("ParLevel")))
                              {
                                  btnTypeAB.BackColor = Color.Red;
-                                 AddNotify("Please be inform Blood Type AB only have " + dr["Inv"].ToString() + " remaining", "AB");
                              }
                              else
                              {
@@ -247,7 +247,6 @@ namespace BloodPlus
                              if (Convert.ToInt16(dr["Inv"].ToString()) < Convert.ToInt16(GetOption.GetSettingsVal("ParLevel")))
                              {
                                  btnTypeO.BackColor = Color.Red;
-                                 AddNotify("Please be inform Blood Type O only have " + dr["Inv"].ToString() + " remaining", "O");
                              }
                              else
                              {
@@ -260,9 +259,53 @@ namespace BloodPlus
             
         }
 
+        private void BloodNotify()
+        {
+            string mysql = "Select * From tblStock";
+            DataSet ds = Database.LoadSQL(mysql, "tblStock");
+            Maintenance GetOption = new Maintenance();
+            foreach (DataRow dr in ds.Tables[0].Rows)
+            {
+                switch (dr["bloodType"].ToString())
+                {
+                    case "A":
+                        if (Convert.ToInt16(dr["Inv"].ToString()) < Convert.ToInt16(GetOption.GetSettingsVal("ParLevel")))
+                        {
+                            AddNotify("Please be inform Blood Type A only have " + dr["Inv"].ToString() + " remaining", "A");
+                        }
+                        break;
+
+                    case "B":
+                        if (Convert.ToInt16(dr["Inv"].ToString()) < Convert.ToInt16(GetOption.GetSettingsVal("ParLevel")))
+                        {
+                            AddNotify("Please be inform Blood Type B only have " + dr["Inv"].ToString() + " remaining", "B");
+                        }
+                        break;
+
+                    case "AB":
+                        if (Convert.ToInt16(dr["Inv"].ToString()) < Convert.ToInt16(GetOption.GetSettingsVal("ParLevel")))
+                        {
+                            AddNotify("Please be inform Blood Type AB only have " + dr["Inv"].ToString() + " remaining", "AB");
+                        }
+                        break;
+
+                    case "O":
+                        if (Convert.ToInt16(dr["Inv"].ToString()) < Convert.ToInt16(GetOption.GetSettingsVal("ParLevel")))
+                        {
+                            AddNotify("Please be inform Blood Type O only have " + dr["Inv"].ToString() + " remaining", "O");
+                        }
+                        break;
+                }
+            }
+ 
+        }
+
         private void tBloodStatus_Tick(object sender, EventArgs e)
         {
             BloodStatus();
+            iTick += 1;
+            if (iTick == 1) { BloodNotify(); }
+
         }
 
         private void bloodDonationReportToolStripMenuItem_Click(object sender, EventArgs e)
@@ -352,6 +395,11 @@ namespace BloodPlus
             {
                 lv.Checked = chkAll.Checked;
             }
+        }
+
+        private void tNotify_Tick(object sender, EventArgs e)
+        {
+            BloodNotify();
         }
 
     }
