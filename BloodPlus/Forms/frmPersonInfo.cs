@@ -97,6 +97,37 @@ namespace BloodPlus
         private void frmPersonInfo_Load(object sender, EventArgs e)
         {
             ClearText();
+            LoadAddress();
+        }
+
+        private void LoadAddress()
+        {
+            string mysql = "Select Distinct(preBarangay) as Barangay From tblPersonInfo";
+            DataSet ds = Database.LoadSQL(mysql, "tblPersonInfo");
+
+            foreach (DataRow  dr in ds.Tables[0].Rows )
+            {
+                cboPerBarangay.Items.Add(dr["Barangay"]);
+                cboPreBarangay.Items.Add(dr["Barangay"]);
+            }
+
+            mysql = "Select Distinct(PreCity) as City From tblPersonInfo";
+            ds = Database.LoadSQL(mysql,"tblPersonInfo");
+
+            foreach (DataRow dr in ds.Tables[0].Rows )
+            {
+                cboPerCity.Items.Add(dr["City"]);
+                cboPreCity.Items.Add(dr["City"]);
+            }
+
+            mysql = "Select Distinct(PreProvince) as Province From tblPersonInfo";
+            ds = Database.LoadSQL(mysql,"tblPersonInfo");
+
+            foreach(DataRow dr in ds.Tables[0].Rows )
+            {
+                cboPerProvince.Items.Add(dr["Province"]);
+                cboPreProvince.Items.Add(dr["Province"]);
+            }
         }
 
         internal void LoadPersonInfo(PersonInfo info)
