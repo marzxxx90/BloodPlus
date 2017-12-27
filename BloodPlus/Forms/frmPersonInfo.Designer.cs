@@ -249,6 +249,7 @@
             this.txtContactNum.Name = "txtContactNum";
             this.txtContactNum.Size = new System.Drawing.Size(276, 26);
             this.txtContactNum.TabIndex = 13;
+            this.txtContactNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContactNum_KeyPress);
             // 
             // tabControl1
             // 
@@ -396,6 +397,7 @@
             this.txtPreZipcode.Name = "txtPreZipcode";
             this.txtPreZipcode.Size = new System.Drawing.Size(100, 20);
             this.txtPreZipcode.TabIndex = 9;
+            this.txtPreZipcode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPreZipcode_KeyPress);
             // 
             // label13
             // 
@@ -416,6 +418,7 @@
             this.chkAddress.TabIndex = 12;
             this.chkAddress.Text = "Check here if it is the same with the Present";
             this.chkAddress.UseVisualStyleBackColor = true;
+            this.chkAddress.CheckedChanged += new System.EventHandler(this.chkAddress_CheckedChanged);
             // 
             // label14
             // 
@@ -432,6 +435,7 @@
             this.txtPerZipcode.Name = "txtPerZipcode";
             this.txtPerZipcode.Size = new System.Drawing.Size(100, 20);
             this.txtPerZipcode.TabIndex = 21;
+            this.txtPerZipcode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPerZipcode_KeyPress);
             // 
             // label15
             // 

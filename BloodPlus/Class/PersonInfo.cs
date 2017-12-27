@@ -191,6 +191,32 @@ namespace BloodPlus
             }
         }
 
+        internal void UpdatePersonInfo()
+        {
+            string mysql = "Select * From tblPersonInfo Where ID = " + _id ;
+            DataSet ds = Database.LoadSQL(mysql, "tblPersonInfo");
+
+            var dsR = ds.Tables[0].Rows[0];
+            dsR["firstname"] = _firstname;
+            dsR["middlename"] = _middlename;
+            dsR["lastname"] = _lastname;
+            dsR["gender"] = _gender;
+            dsR["dob"] = _dob;
+            dsR["contactNum"] = _contactnum;
+            dsR["maritalStatus"] = _maritalStatus;
+            dsR["preStreet"] = _presentStreet;
+            dsR["preBarangay"] = _presentBarangay;
+            dsR["preCity"] = _presentCity;
+            dsR["preProvince"] = _presentProvince;
+            dsR["preZipcode"] = _presentZipcode;
+            dsR["perStreet"] = _permanentStreet;
+            dsR["perBarangay"] = _permanentBarangay;
+            dsR["perCity"] = _permanentCity;
+            dsR["perProvince"] = _permanentProvince;
+            dsR["perZipcode"] = _permanentZipcode;
+            Database.SaveEntry(ds, false);
+        }
+
         internal void LoadRecepient()
         {
             string mysql = "Select * From tblPersonInfo Where id = '" + _id + "'";

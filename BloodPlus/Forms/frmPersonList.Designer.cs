@@ -37,6 +37,7 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSelect = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.btnView = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -102,7 +103,7 @@
             // 
             // btnSelect
             // 
-            this.btnSelect.Location = new System.Drawing.Point(618, 427);
+            this.btnSelect.Location = new System.Drawing.Point(540, 427);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(76, 26);
             this.btnSelect.TabIndex = 3;
@@ -120,11 +121,22 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // btnView
+            // 
+            this.btnView.Location = new System.Drawing.Point(622, 427);
+            this.btnView.Name = "btnView";
+            this.btnView.Size = new System.Drawing.Size(76, 26);
+            this.btnView.TabIndex = 5;
+            this.btnView.Text = "&View";
+            this.btnView.UseVisualStyleBackColor = true;
+            this.btnView.Click += new System.EventHandler(this.btnView_Click);
+            // 
             // frmPersonList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(706, 460);
+            this.Controls.Add(this.btnView);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.groupBox1);
@@ -150,5 +162,6 @@
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnSelect;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnView;
     }
 }

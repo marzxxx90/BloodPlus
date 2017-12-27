@@ -94,7 +94,12 @@ namespace BloodPlus
 
         private void lvRecepient_DoubleClick(object sender, EventArgs e)
         {
-            btnSelect.PerformClick();
+            if (!fromOtherForm)
+            { btnView.PerformClick(); }
+            else
+            {
+                btnSelect.PerformClick();
+            }
         }
 
         internal void SearchSelect(string src, FormChange.FormName frmOrigin)
@@ -143,6 +148,29 @@ namespace BloodPlus
             if (!string.IsNullOrEmpty(txtSearch.Text))
             {
                 btnSearch.PerformClick();
+            }
+        }
+
+        private void btnView_Click(object sender, EventArgs e)
+        {
+            if (lvRecepient.SelectedItems.Count == 0) {return;}
+
+            int idx = Convert.ToInt16(lvRecepient.FocusedItem.Tag);
+            PersonInfo rec = new PersonInfo();
+            rec.ID = idx;
+            rec.LoadRecepient();
+
+            if (Application.OpenForms["frmPersonInfo"] != null)
+            {
+                (Application.OpenForms["frmPersonInfo"] as frmPersonInfo).Show();
+                (Application.OpenForms["frmPersonInfo"] as frmPersonInfo).LoadPersonInfo(rec);
+            }
+            else
+            {
+                frmPersonInfo frm = new frmPersonInfo();
+                frm.Show();
+                frm.LoadPersonInfo(rec);
+                
             }
         }
     }
