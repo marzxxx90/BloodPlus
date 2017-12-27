@@ -25,6 +25,18 @@ namespace BloodPlus
             Reg.Lastname = txtLastname.Text;
             Reg.Gender = cboGender.Text;
             Reg.DateofBirth = Convert.ToDateTime(dtpDob.Text);
+            Reg.MaritalStatus = cboMaritalStatus.Text;
+            Reg.ContactNum = txtContactNum.Text;
+            Reg.PresentStreet = txtPreStreet.Text;
+            Reg.PresentBarangay = cboPreBarangay.Text;
+            Reg.PresentCity = cboPreCity.Text;
+            Reg.PresentProvince = cboPreProvince.Text;
+            Reg.PresentZipCode = txtPreZipcode.Text;
+            Reg.PermanentStreet = txtPerStreet.Text;
+            Reg.PermanentBarangay = cboPerBarangay.Text;
+            Reg.PermanentCity = cboPerCity.Text;
+            Reg.PermanentProvince = cboPerProvince.Text;
+            Reg.PermanentZipcode = txtPerZipcode.Text;
             Reg.SaveRecepient();
 
             MessageBox.Show("Successfully Saved!","Information");

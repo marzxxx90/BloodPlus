@@ -47,6 +47,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtFirstname = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtContact = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -72,6 +74,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtContact);
+            this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.txtDob);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txtGender);
@@ -91,7 +95,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(406, 377);
+            this.groupBox1.Size = new System.Drawing.Size(406, 435);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -152,7 +156,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(280, 324);
+            this.btnSave.Location = new System.Drawing.Point(280, 384);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(120, 45);
             this.btnSave.TabIndex = 3;
@@ -243,11 +247,29 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Blood Type";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(12, 334);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(93, 20);
+            this.label8.TabIndex = 17;
+            this.label8.Text = "Contact No.";
+            // 
+            // txtContact
+            // 
+            this.txtContact.Location = new System.Drawing.Point(132, 331);
+            this.txtContact.Name = "txtContact";
+            this.txtContact.ReadOnly = true;
+            this.txtContact.Size = new System.Drawing.Size(262, 26);
+            this.txtContact.TabIndex = 18;
+            // 
             // frmDonor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(425, 400);
+            this.ClientSize = new System.Drawing.Size(425, 481);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmDonor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -282,5 +304,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnSearchRecepient;
         private System.Windows.Forms.TextBox txtSearchRecepient;
+        private System.Windows.Forms.TextBox txtContact;
+        private System.Windows.Forms.Label label8;
     }
 }

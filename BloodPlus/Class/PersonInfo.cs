@@ -50,6 +50,89 @@ namespace BloodPlus
             set { _dob = value; }
         }
 
+        private string _contactnum;
+        public virtual string ContactNum
+        {
+            get { return _contactnum; }
+            set { _contactnum  = value; }
+        }
+
+        private string _maritalStatus;
+        public virtual string MaritalStatus
+        {
+            get { return _maritalStatus; }
+            set { _maritalStatus = value; }
+        }
+
+        private string _presentStreet;
+        public virtual string PresentStreet
+        {
+            get { return _presentStreet; }
+            set { _presentStreet = value; }
+        }
+
+        private string _presentBarangay;
+        public virtual string PresentBarangay
+        {
+            get { return _presentBarangay; }
+            set { _presentBarangay = value; }
+        }
+
+        private string _presentCity;
+        public virtual string PresentCity
+        {
+            get { return _presentCity; }
+            set { _presentCity = value; }
+        }
+
+        private string _presentProvince;
+        public virtual string PresentProvince
+        {
+            get { return _presentProvince; }
+            set { _presentProvince = value; }
+        }
+
+        private string _presentZipcode;
+        public virtual string PresentZipCode
+        {
+            get { return _presentZipcode; }
+            set { _presentZipcode = value; }
+        }
+
+        private string _permanentStreet;
+        public virtual string PermanentStreet
+        {
+            get { return _permanentStreet; }
+            set { _permanentStreet = value; }
+        }
+
+        private string _permanentBarangay;
+        public virtual string PermanentBarangay
+        {
+            get { return _permanentBarangay; }
+            set { _permanentBarangay = value; }
+        }
+
+        private string _permanentCity;
+        public virtual string PermanentCity
+        {
+            get { return _permanentCity; }
+            set { _permanentCity = value; }
+        }
+
+        private string _permanentProvince;
+        public virtual string PermanentProvince
+        {
+            get { return _permanentProvince; }
+            set { _permanentProvince = value; }
+        }
+
+        private string _permanentZipcode;
+        public virtual string PermanentZipcode
+        {
+            get { return _permanentZipcode; }
+            set { _permanentZipcode = value; }
+        }
         #endregion
 
         #region "Procedures"
@@ -70,6 +153,18 @@ namespace BloodPlus
                 with["lastname"] = _lastname;
                 with["gender"] = _gender;
                 with["dob"] = _dob;
+                with["contactNum"] = _contactnum ;
+                with["maritalStatus"] = _maritalStatus ;
+                with["preStreet"] = _presentStreet ;
+                with["preBarangay"] = _presentBarangay ;
+                with["preCity"] = _presentCity ;
+                with["preProvince"] = _presentProvince ;
+                with["preZipcode"] = _presentZipcode ;
+                with["perStreet"] = _permanentStreet ;
+                with["perBarangay"] = _permanentBarangay ;
+                with["perCity"] = _permanentCity ;
+                with["perProvince"] = _permanentProvince ;
+                with["perZipcode"] = _permanentZipcode ;
                 ds.Tables[0].Rows.Add(dsnewRow);
                 Database.SaveEntry(ds);
             }
@@ -80,6 +175,18 @@ namespace BloodPlus
                 dsR["lastname"] = _lastname;
                 dsR["gender"] = _gender;
                 dsR["dob"] = _dob;
+                dsR["contactNum"] = _contactnum;
+                dsR["maritalStatus"] = _maritalStatus;
+                dsR["preStreet"] = _presentStreet;
+                dsR["preBarangay"] = _presentBarangay;
+                dsR["preCity"] = _presentCity;
+                dsR["preProvince"] = _presentProvince;
+                dsR["preZipcode"] = _presentZipcode;
+                dsR["perStreet"] = _permanentStreet;
+                dsR["perBarangay"] = _permanentBarangay;
+                dsR["perCity"] = _permanentCity;
+                dsR["perProvince"] = _permanentProvince;
+                dsR["perZipcode"] = _permanentZipcode;
                 Database.SaveEntry(ds, false);
             }
         }
@@ -104,6 +211,18 @@ namespace BloodPlus
             _lastname = dr["Lastname"].ToString();
             _gender = dr["Gender"].ToString();
             _dob = Convert.ToDateTime(dr["dob"].ToString());
+            _contactnum = dr["ContactNum"].ToString();
+            _maritalStatus = dr["maritalStatus"].ToString();
+            _presentStreet = dr["preStreet"].ToString();
+            _presentBarangay = dr["preBarangay"].ToString();
+            _presentCity = dr["preCity"].ToString();
+            _presentProvince = dr["preProvince"].ToString();
+            _presentZipcode = dr["preZipcode"].ToString();
+            _permanentStreet = dr["perStreet"].ToString();
+            _permanentBarangay = dr["perBarangay"].ToString();
+            _permanentCity = dr["perCity"].ToString();
+            _permanentProvince = dr["perProvince"].ToString();
+            _permanentZipcode = dr["perZipcode"].ToString();
         }
 
         internal bool isExist(string tmpfirstname, string tmplastname, string tmpmiddlename = "")
@@ -142,6 +261,18 @@ namespace BloodPlus
             with["lastname"] = _lastname;
             with["gender"] = _gender;
             with["dob"] = _dob;
+            with["contactNum"] = _contactnum;
+            with["maritalStatus"] = _maritalStatus;
+            with["preStreet"] = _presentStreet;
+            with["preBarangay"] = _presentBarangay;
+            with["preCity"] = _presentCity;
+            with["preProvince"] = _presentProvince;
+            with["preZipcode"] = _presentZipcode;
+            with["perStreet"] = _permanentStreet;
+            with["perBarangay"] = _permanentBarangay;
+            with["perCity"] = _permanentCity;
+            with["perProvince"] = _permanentProvince;
+            with["perZipcode"] = _permanentZipcode;
             ds.Tables[0].Rows.Add(dsnewRow);
             Database.SaveEntry(ds);
 

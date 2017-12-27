@@ -106,6 +106,7 @@ namespace BloodPlus
             }
             txtGender.Text = tmpGender ;
             txtDob.Text = Convert.ToString(info.DateofBirth.ToString("yyyy-mm-dd"));
+            txtCardNum.Text = 
             Donor = info;
         }
 
