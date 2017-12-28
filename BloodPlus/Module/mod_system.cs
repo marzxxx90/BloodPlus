@@ -85,6 +85,22 @@ namespace BloodPlus
             age -= 1;
         return age;
     }
+
+
+    static internal System.DateTime GetFirstDate(System.DateTime curDate)
+    {
+        dynamic firstDay = DateAndTime.DateSerial(curDate.Year, curDate.Month, 1);
+        return firstDay;
+    }
+
+    static internal System.DateTime GetLastDate(System.DateTime curDate)
+    {
+        DateTime original = curDate;
+        // The date you want to get the last day of the month for
+        DateTime lastOfMonth = original.Date.AddDays(-(original.Day - 1)).AddMonths(1).AddDays(-1);
+
+        return lastOfMonth;
+    }
       #endregion
   }
 }

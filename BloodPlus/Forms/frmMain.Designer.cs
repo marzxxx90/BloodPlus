@@ -35,8 +35,12 @@
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bloodInventoryReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bloodDonationReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bloodRecipientReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dailyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bloodDonationReportToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.bloodRecipientReportToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.customToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bloodDonationReportToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.bloodRecipientReportToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.maintenanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TransactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -97,8 +101,8 @@
             // 
             this.reportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bloodInventoryReportToolStripMenuItem,
-            this.bloodDonationReportToolStripMenuItem,
-            this.bloodRecipientReportToolStripMenuItem});
+            this.dailyToolStripMenuItem,
+            this.customToolStripMenuItem});
             this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
             this.reportToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.reportToolStripMenuItem.Text = "&Report";
@@ -110,19 +114,51 @@
             this.bloodInventoryReportToolStripMenuItem.Text = "Blood Inventory Report";
             this.bloodInventoryReportToolStripMenuItem.Click += new System.EventHandler(this.bloodInventoryReportToolStripMenuItem_Click);
             // 
-            // bloodDonationReportToolStripMenuItem
+            // dailyToolStripMenuItem
             // 
-            this.bloodDonationReportToolStripMenuItem.Name = "bloodDonationReportToolStripMenuItem";
-            this.bloodDonationReportToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.bloodDonationReportToolStripMenuItem.Text = "Blood Donation Report";
-            this.bloodDonationReportToolStripMenuItem.Click += new System.EventHandler(this.bloodDonationReportToolStripMenuItem_Click);
+            this.dailyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bloodDonationReportToolStripMenuItem1,
+            this.bloodRecipientReportToolStripMenuItem1});
+            this.dailyToolStripMenuItem.Name = "dailyToolStripMenuItem";
+            this.dailyToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.dailyToolStripMenuItem.Text = "&Daily";
             // 
-            // bloodRecipientReportToolStripMenuItem
+            // bloodDonationReportToolStripMenuItem1
             // 
-            this.bloodRecipientReportToolStripMenuItem.Name = "bloodRecipientReportToolStripMenuItem";
-            this.bloodRecipientReportToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.bloodRecipientReportToolStripMenuItem.Text = "Blood Recipient Report";
-            this.bloodRecipientReportToolStripMenuItem.Click += new System.EventHandler(this.bloodRecipientReportToolStripMenuItem_Click);
+            this.bloodDonationReportToolStripMenuItem1.Name = "bloodDonationReportToolStripMenuItem1";
+            this.bloodDonationReportToolStripMenuItem1.Size = new System.Drawing.Size(195, 22);
+            this.bloodDonationReportToolStripMenuItem1.Text = "Blood Donation Report";
+            this.bloodDonationReportToolStripMenuItem1.Click += new System.EventHandler(this.bloodDonationReportToolStripMenuItem1_Click);
+            // 
+            // bloodRecipientReportToolStripMenuItem1
+            // 
+            this.bloodRecipientReportToolStripMenuItem1.Name = "bloodRecipientReportToolStripMenuItem1";
+            this.bloodRecipientReportToolStripMenuItem1.Size = new System.Drawing.Size(195, 22);
+            this.bloodRecipientReportToolStripMenuItem1.Text = "Blood Recipient Report";
+            this.bloodRecipientReportToolStripMenuItem1.Click += new System.EventHandler(this.bloodRecipientReportToolStripMenuItem1_Click);
+            // 
+            // customToolStripMenuItem
+            // 
+            this.customToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bloodDonationReportToolStripMenuItem2,
+            this.bloodRecipientReportToolStripMenuItem2});
+            this.customToolStripMenuItem.Name = "customToolStripMenuItem";
+            this.customToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.customToolStripMenuItem.Text = "&Custom";
+            // 
+            // bloodDonationReportToolStripMenuItem2
+            // 
+            this.bloodDonationReportToolStripMenuItem2.Name = "bloodDonationReportToolStripMenuItem2";
+            this.bloodDonationReportToolStripMenuItem2.Size = new System.Drawing.Size(195, 22);
+            this.bloodDonationReportToolStripMenuItem2.Text = "Blood Donation Report";
+            this.bloodDonationReportToolStripMenuItem2.Click += new System.EventHandler(this.bloodDonationReportToolStripMenuItem2_Click);
+            // 
+            // bloodRecipientReportToolStripMenuItem2
+            // 
+            this.bloodRecipientReportToolStripMenuItem2.Name = "bloodRecipientReportToolStripMenuItem2";
+            this.bloodRecipientReportToolStripMenuItem2.Size = new System.Drawing.Size(195, 22);
+            this.bloodRecipientReportToolStripMenuItem2.Text = "Blood Recipient Report";
+            this.bloodRecipientReportToolStripMenuItem2.Click += new System.EventHandler(this.bloodRecipientReportToolStripMenuItem2_Click);
             // 
             // maintenanceToolStripMenuItem
             // 
@@ -309,17 +345,21 @@
         private System.Windows.Forms.Button btnTypeA;
         private System.Windows.Forms.ToolStripMenuItem clientListToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bloodInventoryReportToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem bloodDonationReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.Button btnTypeB;
         private System.Windows.Forms.Button btnTypeAB;
         private System.Windows.Forms.Button btnTypeO;
         private System.Windows.Forms.Timer tBloodStatus;
-        private System.Windows.Forms.ToolStripMenuItem bloodRecipientReportToolStripMenuItem;
         private System.Windows.Forms.ListView lvNotify;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.CheckBox chkAll;
         private System.Windows.Forms.Timer tNotify;
+        private System.Windows.Forms.ToolStripMenuItem dailyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bloodDonationReportToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem bloodRecipientReportToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem customToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bloodDonationReportToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem bloodRecipientReportToolStripMenuItem2;
     }
 }

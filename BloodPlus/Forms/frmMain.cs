@@ -308,35 +308,6 @@ namespace BloodPlus
 
         }
 
-        private void bloodDonationReportToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (Application.OpenForms["frmTransactionReport"] != null)
-            {
-                (Application.OpenForms["frmTransactionReport"] as frmTransactionReport).FormType = frmTransactionReport.BloodReport.BloodDonor;
-                (Application.OpenForms["frmTransactionReport"] as frmTransactionReport).Show();
-            }
-            else
-            {
-                frmTransactionReport frm = new frmTransactionReport();
-                frm.FormType = frmTransactionReport.BloodReport.BloodDonor;
-                frm.Show();
-            }
-        }
-
-        private void bloodRecipientReportToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (Application.OpenForms["frmTransactionReport"] != null)
-            {
-                (Application.OpenForms["frmTransactionReport"] as frmTransactionReport).FormType = frmTransactionReport.BloodReport.BloodRecipient;
-                (Application.OpenForms["frmTransactionReport"] as frmTransactionReport).Show();
-            }
-            else
-            {
-                frmTransactionReport frm = new frmTransactionReport();
-                frm.FormType = frmTransactionReport.BloodReport.BloodRecipient;
-                frm.Show();
-            }
-        }
 
         private void bloodRecepientToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -400,6 +371,66 @@ namespace BloodPlus
         private void tNotify_Tick(object sender, EventArgs e)
         {
             BloodNotify();
+        }
+
+        private void bloodDonationReportToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["frmTransactionReport"] != null)
+            {
+                (Application.OpenForms["frmTransactionReport"] as frmTransactionReport).FormType = frmTransactionReport.BloodReport.BloodRecipient;
+                (Application.OpenForms["frmTransactionReport"] as frmTransactionReport).Show();
+            }
+            else
+            {
+                frmTransactionReport frm = new frmTransactionReport();
+                frm.FormType = frmTransactionReport.BloodReport.BloodRecipient;
+                frm.Show();
+            }
+        }
+
+        private void bloodRecipientReportToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["frmTransactionReport"] != null)
+            {
+                (Application.OpenForms["frmTransactionReport"] as frmTransactionReport).FormType = frmTransactionReport.BloodReport.BloodDonor;
+                (Application.OpenForms["frmTransactionReport"] as frmTransactionReport).Show();
+            }
+            else
+            {
+                frmTransactionReport frm = new frmTransactionReport();
+                frm.FormType = frmTransactionReport.BloodReport.BloodDonor;
+                frm.Show();
+            }
+        }
+
+        private void bloodDonationReportToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["frmCustomReport"] != null)
+            {
+                (Application.OpenForms["frmCustomReport"] as frmCustomReport).FormType = frmCustomReport.BloodReport.BloodDonor;
+                (Application.OpenForms["frmCustomReport"] as frmCustomReport).Show();
+            }
+            else
+            {
+                frmCustomReport frm = new frmCustomReport();
+                frm.FormType = frmCustomReport.BloodReport.BloodDonor;
+                frm.Show();
+            }
+        }
+
+        private void bloodRecipientReportToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["frmCustomReport"] != null)
+            {
+                (Application.OpenForms["frmCustomReport"] as frmCustomReport).FormType = frmCustomReport.BloodReport.BloodRecipient ;
+                (Application.OpenForms["frmCustomReport"] as frmCustomReport).Show();
+            }
+            else
+            {
+                frmCustomReport frm = new frmCustomReport();
+                frm.FormType = frmCustomReport.BloodReport.BloodRecipient ;
+                frm.Show();
+            }
         }
 
     }
