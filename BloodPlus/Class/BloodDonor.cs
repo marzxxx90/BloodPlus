@@ -9,7 +9,7 @@ namespace BloodPlus
 {
     class BloodDonor
     {
-        const string INTEGRITY_CHECK = "zVo1e+bBFcJICtuJl1vJuqalkFk9hvJq0pZO0TEaDEmBH/CqXHMGUefTsK8JRNYVAKWhaCpMB9cu1IM3iE/2u0x/fCR4P9zxhy0xTGl4OxaBFJSMfpdqwQ==";
+        const string INTEGRITY_CHECK = "zVo1e+bBFcJICtuJl1vJuqalkFk9hvJq0pZO0TEaDEmBH/CqXHMGUefTsK8JRNYVAKWhaCpMB9cu1IM3iE/2uwvatnU3hakx9B+hoKOBWwf59TkSKFU6dYctMUxpeDsWgRSUjH6XasE=";
 
         #region "Properties"
 

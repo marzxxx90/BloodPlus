@@ -86,6 +86,8 @@ namespace BloodPlus
             lv.SubItems.Add(Convert.ToString(tmpoSheet.Cells[tmpCnt, 5].value));
             lv.SubItems.Add(Convert.ToString(tmpoSheet.Cells[tmpCnt, 6].value));
             lv.SubItems.Add(Convert.ToString(tmpoSheet.Cells[tmpCnt, 7].value));
+            lv.SubItems.Add(Convert.ToString(tmpoSheet.Cells[tmpCnt, 8].value));
+            lv.SubItems.Add(Convert.ToString(tmpoSheet.Cells[tmpCnt, 9].value));
         }
 
         private void btnImport_Click(object sender, EventArgs e)
@@ -114,8 +116,10 @@ namespace BloodPlus
                     Donor.Lastname = lv.SubItems[4].Text.ToString();
                     Donor.Gender = lv.SubItems[5].Text.ToString();
                     Donor.DateofBirth = Convert.ToDateTime(lv.SubItems[6].Text.ToString());
+                    Donor.ContactNum = lv.SubItems[7].Text.ToString();
+                    Donor.MaritalStatus = lv.SubItems[8].Text.ToString();
                     Donor.SaveImportRecepient();
-
+                    
                     Donate.Recepient = Donor;
                 }
 

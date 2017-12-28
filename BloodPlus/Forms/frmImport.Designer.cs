@@ -42,6 +42,8 @@
             this.btnImport = new System.Windows.Forms.Button();
             this.chkRandom = new System.Windows.Forms.CheckBox();
             this.pbStatus = new System.Windows.Forms.ProgressBar();
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // ofdImport
@@ -76,7 +78,9 @@
             this.columnHeader4,
             this.columnHeader5,
             this.columnHeader6,
-            this.columnHeader7});
+            this.columnHeader7,
+            this.columnHeader8,
+            this.columnHeader9});
             this.lvImport.FullRowSelect = true;
             this.lvImport.GridLines = true;
             this.lvImport.Location = new System.Drawing.Point(12, 69);
@@ -89,12 +93,12 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Card Number";
-            this.columnHeader1.Width = 153;
+            this.columnHeader1.Width = 130;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Blood Type";
-            this.columnHeader2.Width = 141;
+            this.columnHeader2.Width = 91;
             // 
             // columnHeader3
             // 
@@ -119,7 +123,7 @@
             // columnHeader7
             // 
             this.columnHeader7.Text = "Date of Birth";
-            this.columnHeader7.Width = 139;
+            this.columnHeader7.Width = 120;
             // 
             // btnImport
             // 
@@ -148,6 +152,15 @@
             this.pbStatus.Name = "pbStatus";
             this.pbStatus.Size = new System.Drawing.Size(948, 23);
             this.pbStatus.TabIndex = 5;
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "Contact No";
+            this.columnHeader8.Width = 100;
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "Status";
             // 
             // frmImport
             // 
@@ -184,5 +197,7 @@
         private System.Windows.Forms.CheckBox chkRandom;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ProgressBar pbStatus;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
     }
 }

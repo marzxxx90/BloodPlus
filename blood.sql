@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2017-12-11 15:19:26
+Date: 2017-12-28 09:08:18
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -27,7 +27,7 @@ CREATE TABLE `tbldonor` (
   `status` varchar(1) DEFAULT NULL,
   `Encodeby` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4199 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of tbldonor
@@ -87,8 +87,20 @@ CREATE TABLE `tblpersoninfo` (
   `lastname` varchar(50) DEFAULT NULL,
   `gender` varchar(1) DEFAULT NULL,
   `dob` date DEFAULT NULL,
+  `ContactNum` varchar(15) DEFAULT NULL,
+  `maritalStatus` varchar(20) DEFAULT NULL,
+  `preStreet` varchar(150) DEFAULT NULL,
+  `preBarangay` varchar(150) DEFAULT NULL,
+  `preCity` varchar(150) DEFAULT NULL,
+  `preProvince` varchar(150) DEFAULT NULL,
+  `preZipcode` varchar(10) DEFAULT NULL,
+  `perStreet` varchar(150) DEFAULT NULL,
+  `perBarangay` varchar(150) DEFAULT NULL,
+  `perCity` varchar(150) DEFAULT NULL,
+  `perProvince` varchar(150) DEFAULT NULL,
+  `perZipcode` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2098 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of tblpersoninfo
