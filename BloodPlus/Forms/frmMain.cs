@@ -254,6 +254,50 @@ namespace BloodPlus
                              }
                              ttStock.SetToolTip(btnTypeO, dr["Inv"].ToString() + " Stock remaining");    
                              break;
+                         case "A-":
+                              if (Convert.ToInt16(dr["Inv"].ToString()) < Convert.ToInt16(GetOption.GetSettingsVal("ParLevel")))
+                             {
+                                 btnTypeANeg.BackColor = Color.Red;
+                             }
+                             else
+                             {
+                                 btnTypeANeg.BackColor = Color.Blue;
+                             }
+                              ttStock.SetToolTip(btnTypeANeg, dr["Inv"].ToString() + " Stock remaining");   
+                             break;
+                         case "B-":
+                              if (Convert.ToInt16(dr["Inv"].ToString()) < Convert.ToInt16(GetOption.GetSettingsVal("ParLevel")))
+                             {
+                                 btnTypeBNeg.BackColor = Color.Red;
+                             }
+                             else
+                             {
+                                 btnTypeBNeg.BackColor = Color.Blue;
+                             }
+                              ttStock.SetToolTip(btnTypeBNeg, dr["Inv"].ToString() + " Stock remaining");
+                             break;
+                         case "AB-":
+                              if (Convert.ToInt16(dr["Inv"].ToString()) < Convert.ToInt16(GetOption.GetSettingsVal("ParLevel")))
+                             {
+                                 btnTypeABNeg.BackColor = Color.Red;
+                             }
+                             else
+                             {
+                                 btnTypeABNeg.BackColor = Color.Blue;
+                             }
+                              ttStock.SetToolTip(btnTypeABNeg, dr["Inv"].ToString() + " Stock remaining");
+                             break;
+                         case "O-":
+                              if (Convert.ToInt16(dr["Inv"].ToString()) < Convert.ToInt16(GetOption.GetSettingsVal("ParLevel")))
+                             {
+                                 btnTypeONeg.BackColor = Color.Red;
+                             }
+                             else
+                             {
+                                 btnTypeONeg.BackColor = Color.Blue;
+                             }
+                              ttStock.SetToolTip(btnTypeONeg, dr["Inv"].ToString() + " Stock remaining");
+                             break;
                      } 
 	            }
             
@@ -293,6 +337,30 @@ namespace BloodPlus
                         if (Convert.ToInt16(dr["Inv"].ToString()) < Convert.ToInt16(GetOption.GetSettingsVal("ParLevel")))
                         {
                             AddNotify("Please be inform Blood Type O only have " + dr["Inv"].ToString() + " remaining", "O");
+                        }
+                        break;
+                    case "A-":
+                        if (Convert.ToInt16(dr["Inv"].ToString()) < Convert.ToInt16(GetOption.GetSettingsVal("ParLevel")))
+                        {
+                            AddNotify("Please be inform Blood Type A- only have " + dr["Inv"].ToString() + " remaining", "A-");
+                        }
+                        break;
+                    case "B-":
+                        if (Convert.ToInt16(dr["Inv"].ToString()) < Convert.ToInt16(GetOption.GetSettingsVal("ParLevel")))
+                        {
+                            AddNotify("Please be inform Blood Type B- only have " + dr["Inv"].ToString() + " remaining", "B-");
+                        }
+                        break;
+                    case "AB-":
+                        if (Convert.ToInt16(dr["Inv"].ToString()) < Convert.ToInt16(GetOption.GetSettingsVal("ParLevel")))
+                        {
+                            AddNotify("Please be inform Blood Type AB- only have " + dr["Inv"].ToString() + " remaining", "AB-");
+                        }
+                        break;
+                    case "O-":
+                        if (Convert.ToInt16(dr["Inv"].ToString()) < Convert.ToInt16(GetOption.GetSettingsVal("ParLevel")))
+                        {
+                            AddNotify("Please be inform Blood Type O- only have " + dr["Inv"].ToString() + " remaining", "O-");
                         }
                         break;
                 }
@@ -377,13 +445,13 @@ namespace BloodPlus
         {
             if (Application.OpenForms["frmTransactionReport"] != null)
             {
-                (Application.OpenForms["frmTransactionReport"] as frmTransactionReport).FormType = frmTransactionReport.BloodReport.BloodRecipient;
+                (Application.OpenForms["frmTransactionReport"] as frmTransactionReport).FormType = frmTransactionReport.BloodReport.BloodDonor;
                 (Application.OpenForms["frmTransactionReport"] as frmTransactionReport).Show();
             }
             else
             {
                 frmTransactionReport frm = new frmTransactionReport();
-                frm.FormType = frmTransactionReport.BloodReport.BloodRecipient;
+                frm.FormType = frmTransactionReport.BloodReport.BloodDonor;
                 frm.Show();
             }
         }
@@ -392,13 +460,13 @@ namespace BloodPlus
         {
             if (Application.OpenForms["frmTransactionReport"] != null)
             {
-                (Application.OpenForms["frmTransactionReport"] as frmTransactionReport).FormType = frmTransactionReport.BloodReport.BloodDonor;
+                (Application.OpenForms["frmTransactionReport"] as frmTransactionReport).FormType = frmTransactionReport.BloodReport.BloodRecipient ;
                 (Application.OpenForms["frmTransactionReport"] as frmTransactionReport).Show();
             }
             else
             {
                 frmTransactionReport frm = new frmTransactionReport();
-                frm.FormType = frmTransactionReport.BloodReport.BloodDonor;
+                frm.FormType = frmTransactionReport.BloodReport.BloodRecipient;
                 frm.Show();
             }
         }

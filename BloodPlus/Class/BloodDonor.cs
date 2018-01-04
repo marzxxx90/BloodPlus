@@ -135,7 +135,7 @@ namespace BloodPlus
         {
             string mysql = "Select * From tblStock Where bloodType = '"+ type +"'";
             DataSet ds = Database.LoadSQL(mysql,"tblStock");
-
+            if (ds.Tables[0].Rows.Count == 0) { return; }
             int oldVal = Convert.ToInt16(Convert.ToInt16( ds.Tables[0].Rows[0]["Inv"].ToString()) + inv);
             ds.Tables[0].Rows[0]["Inv"] = oldVal;
             Database.SaveEntry(ds, false);
@@ -145,7 +145,7 @@ namespace BloodPlus
         {
             string mysql = "Select * From tblStock Where bloodType = '" + type + "'";
             DataSet ds = Database.LoadSQL(mysql, "tblStock");
-
+            if (ds.Tables[0].Rows.Count == 0) { return; }
             int oldVal = Convert.ToInt16(Convert.ToInt16(ds.Tables[0].Rows[0]["Inv"].ToString()) - inv);
             ds.Tables[0].Rows[0]["Inv"] = oldVal;
             Database.SaveEntry(ds, false);

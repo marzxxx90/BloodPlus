@@ -20,7 +20,7 @@ namespace BloodPlus
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (!isValid()) { MessageBox.Show("Please Check the Fields!", "Error"); return; }
-
+            if (Convert.ToInt16(mod_system.GetCurrentAge(Convert.ToDateTime(Donor.DateofBirth))) < 18) { MessageBox.Show("Donor must above 18","Invalid!");return; }
             BloodDonor donate = new BloodDonor();
             var d = donate;
             d.CardNum = txtCardNum.Text;
