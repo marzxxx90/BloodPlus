@@ -1333,6 +1333,8 @@ namespace BloodPlus.Reports {
             
             private global::System.Data.DataColumn columnEncoder;
             
+            private global::System.Data.DataColumn columnTotalCount;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public RecipientDataTable() {
@@ -1416,6 +1418,14 @@ namespace BloodPlus.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TotalCountColumn {
+                get {
+                    return this.columnTotalCount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1451,7 +1461,7 @@ namespace BloodPlus.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RecipientRow AddRecipientRow(string ID, string DocDate, string BloodType, string Fullname, string Status, string Encoder) {
+            public RecipientRow AddRecipientRow(string ID, string DocDate, string BloodType, string Fullname, string Status, string Encoder, string TotalCount) {
                 RecipientRow rowRecipientRow = ((RecipientRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ID,
@@ -1459,7 +1469,8 @@ namespace BloodPlus.Reports {
                         BloodType,
                         Fullname,
                         Status,
-                        Encoder};
+                        Encoder,
+                        TotalCount};
                 rowRecipientRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowRecipientRow);
                 return rowRecipientRow;
@@ -1488,6 +1499,7 @@ namespace BloodPlus.Reports {
                 this.columnFullname = base.Columns["Fullname"];
                 this.columnStatus = base.Columns["Status"];
                 this.columnEncoder = base.Columns["Encoder"];
+                this.columnTotalCount = base.Columns["TotalCount"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1505,6 +1517,8 @@ namespace BloodPlus.Reports {
                 base.Columns.Add(this.columnStatus);
                 this.columnEncoder = new global::System.Data.DataColumn("Encoder", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEncoder);
+                this.columnTotalCount = new global::System.Data.DataColumn("TotalCount", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotalCount);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2264,6 +2278,22 @@ namespace BloodPlus.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string TotalCount {
+                get {
+                    try {
+                        return ((string)(this[this.tableRecipient.TotalCountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TotalCount\' in table \'Recipient\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRecipient.TotalCountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsIDNull() {
                 return this.IsNull(this.tableRecipient.IDColumn);
             }
@@ -2332,6 +2362,18 @@ namespace BloodPlus.Reports {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetEncoderNull() {
                 this[this.tableRecipient.EncoderColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTotalCountNull() {
+                return this.IsNull(this.tableRecipient.TotalCountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTotalCountNull() {
+                this[this.tableRecipient.TotalCountColumn] = global::System.Convert.DBNull;
             }
         }
         

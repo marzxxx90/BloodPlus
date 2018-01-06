@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2017-12-28 09:08:18
+Date: 2018-01-04 09:53:30
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -27,7 +27,7 @@ CREATE TABLE `tbldonor` (
   `status` varchar(1) DEFAULT NULL,
   `Encodeby` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4199 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of tbldonor
@@ -48,33 +48,6 @@ CREATE TABLE `tblmaintenance` (
 -- Records of tblmaintenance
 -- ----------------------------
 INSERT INTO `tblmaintenance` VALUES ('1', 'ParLevel', '30');
-
--- ----------------------------
--- Table structure for `tblmonthlystock`
--- ----------------------------
-DROP TABLE IF EXISTS `tblmonthlystock`;
-CREATE TABLE `tblmonthlystock` (
-  `id` smallint(6) NOT NULL AUTO_INCREMENT,
-  `month` varchar(50) DEFAULT NULL,
-  `Stock` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
-
--- ----------------------------
--- Records of tblmonthlystock
--- ----------------------------
-INSERT INTO `tblmonthlystock` VALUES ('1', 'Jan', '40');
-INSERT INTO `tblmonthlystock` VALUES ('2', 'Feb', '30');
-INSERT INTO `tblmonthlystock` VALUES ('3', 'Mar', '50');
-INSERT INTO `tblmonthlystock` VALUES ('4', 'Apr', '20');
-INSERT INTO `tblmonthlystock` VALUES ('5', 'May', '45');
-INSERT INTO `tblmonthlystock` VALUES ('6', 'Jun', '100');
-INSERT INTO `tblmonthlystock` VALUES ('7', 'Jul', '70');
-INSERT INTO `tblmonthlystock` VALUES ('8', 'Aug', '80');
-INSERT INTO `tblmonthlystock` VALUES ('9', 'Sep', '75');
-INSERT INTO `tblmonthlystock` VALUES ('10', 'Oct', '110');
-INSERT INTO `tblmonthlystock` VALUES ('11', 'Nov', '50');
-INSERT INTO `tblmonthlystock` VALUES ('12', 'Dec', '60');
 
 -- ----------------------------
 -- Table structure for `tblpersoninfo`
@@ -100,7 +73,7 @@ CREATE TABLE `tblpersoninfo` (
   `perProvince` varchar(150) DEFAULT NULL,
   `perZipcode` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2098 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of tblpersoninfo
@@ -133,15 +106,19 @@ CREATE TABLE `tblstock` (
   `bloodtype` varchar(5) DEFAULT NULL,
   `inv` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of tblstock
 -- ----------------------------
-INSERT INTO `tblstock` VALUES ('1', 'A', '0');
-INSERT INTO `tblstock` VALUES ('2', 'B', '0');
-INSERT INTO `tblstock` VALUES ('3', 'AB', '0');
-INSERT INTO `tblstock` VALUES ('4', 'O', '0');
+INSERT INTO `tblstock` VALUES ('1', 'A', '-90');
+INSERT INTO `tblstock` VALUES ('2', 'B', '-138');
+INSERT INTO `tblstock` VALUES ('3', 'AB', '-45');
+INSERT INTO `tblstock` VALUES ('4', 'O', '-128');
+INSERT INTO `tblstock` VALUES ('5', 'A-', '-155');
+INSERT INTO `tblstock` VALUES ('6', 'B-', '-173');
+INSERT INTO `tblstock` VALUES ('7', 'AB-', '-170');
+INSERT INTO `tblstock` VALUES ('8', 'O-', '-1002');
 
 -- ----------------------------
 -- Table structure for `tbluser`

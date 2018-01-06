@@ -52,12 +52,22 @@ namespace BloodPlus
         {
             System.DateTime st = Convert.ToDateTime(dtpFrom.Text);
             System.DateTime en = Convert.ToDateTime(dtpTo.Text );
-            string mysql = "Select R.ID, R.BloodType, CONCAT(P.FIRSTNAME, ' ', P.LASTNAME) AS Fullname, ";
+            //string mysql = "Select R.ID, R.BloodType, CONCAT(P.FIRSTNAME, ' ', P.LASTNAME) AS Fullname, ";
+            //mysql += "R.DocDate, R.Status, CONCAT(U.FIRSTNAME, ' ', U.LASTNAME) AS Encoder ";
+            //mysql += "From tblRecipient R ";
+            //mysql += "Inner Join tblPersonInfo P On P.ID = R.RecipientID ";
+            //mysql += "Inner Join tblUser U On U.ID = R.EncodeBy  ";
+            //mysql += "Where R.DocDate Between '" + st.ToString("yyyy-MM-dd") + "' And '" + en.ToString("yyyy-MM-dd") + "'";
+
+            string mysql = "Select Main.*, ";
+            mysql += "(Select Count(R2.RecipientID) From tblRecipient R2 Where Main.RecipientID = R2.RecipientiD) as TotalCount ";
+            mysql += "From (Select R.ID, R.BloodType, R.RecipientID, ";
+            mysql += "CONCAT(P.FIRSTNAME, ' ', P.LASTNAME) AS Fullname, ";
             mysql += "R.DocDate, R.Status, CONCAT(U.FIRSTNAME, ' ', U.LASTNAME) AS Encoder ";
-            mysql += "From tblRecipient R ";
-            mysql += "Inner Join tblPersonInfo P On P.ID = R.RecipientID ";
-            mysql += "Inner Join tblUser U On U.ID = R.EncodeBy  ";
-            mysql += "Where R.DocDate Between '" + st.ToString("yyyy-MM-dd") + "' And '" + en.ToString("yyyy-MM-dd") + "'";
+            mysql += "From tblRecipient R  ";
+            mysql += "Inner Join tblPersonInfo P On P.ID = R.RecipientID  ";
+            mysql += "Inner Join tblUser U On U.ID = R.EncodeBy ";
+            mysql += "Where R.DocDate Between '" + st.ToString("yyyy-MM-dd") + "' And '" + en.ToString("yyyy-MM-dd") + "') as Main ";
 
             Dictionary<string, string> rptPara = new Dictionary<string, string>();
             rptPara.Add("txtDate", "Date: " + st.ToString("yyyy-MM-dd") + " to " + en.ToString("yyyy-MM-dd"));
