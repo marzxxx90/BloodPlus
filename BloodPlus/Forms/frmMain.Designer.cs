@@ -47,7 +47,6 @@
             this.TransactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bloodDonorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bloodRecepientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.importBloodDonorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnTypeA = new System.Windows.Forms.Button();
             this.btnTypeB = new System.Windows.Forms.Button();
@@ -64,6 +63,7 @@
             this.btnTypeABNeg = new System.Windows.Forms.Button();
             this.btnTypeONeg = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.msMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -93,14 +93,14 @@
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(136, 26);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
             this.settingsToolStripMenuItem.Text = "&Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(136, 26);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
             this.logoutToolStripMenuItem.Text = "&Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
@@ -187,7 +187,6 @@
             this.TransactionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bloodDonorToolStripMenuItem,
             this.bloodRecepientToolStripMenuItem,
-            this.importBloodDonorToolStripMenuItem,
             this.clientListToolStripMenuItem});
             this.TransactionToolStripMenuItem.Name = "TransactionToolStripMenuItem";
             this.TransactionToolStripMenuItem.Size = new System.Drawing.Size(102, 25);
@@ -196,28 +195,21 @@
             // bloodDonorToolStripMenuItem
             // 
             this.bloodDonorToolStripMenuItem.Name = "bloodDonorToolStripMenuItem";
-            this.bloodDonorToolStripMenuItem.Size = new System.Drawing.Size(219, 26);
+            this.bloodDonorToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
             this.bloodDonorToolStripMenuItem.Text = "Blood Donor";
             this.bloodDonorToolStripMenuItem.Click += new System.EventHandler(this.bloodDonorToolStripMenuItem_Click);
             // 
             // bloodRecepientToolStripMenuItem
             // 
             this.bloodRecepientToolStripMenuItem.Name = "bloodRecepientToolStripMenuItem";
-            this.bloodRecepientToolStripMenuItem.Size = new System.Drawing.Size(219, 26);
-            this.bloodRecepientToolStripMenuItem.Text = "Blood Recepient";
+            this.bloodRecepientToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
+            this.bloodRecepientToolStripMenuItem.Text = "Blood Recipient";
             this.bloodRecepientToolStripMenuItem.Click += new System.EventHandler(this.bloodRecepientToolStripMenuItem_Click);
-            // 
-            // importBloodDonorToolStripMenuItem
-            // 
-            this.importBloodDonorToolStripMenuItem.Name = "importBloodDonorToolStripMenuItem";
-            this.importBloodDonorToolStripMenuItem.Size = new System.Drawing.Size(219, 26);
-            this.importBloodDonorToolStripMenuItem.Text = "Import Blood Donor";
-            this.importBloodDonorToolStripMenuItem.Click += new System.EventHandler(this.importBloodDonorToolStripMenuItem_Click);
             // 
             // clientListToolStripMenuItem
             // 
             this.clientListToolStripMenuItem.Name = "clientListToolStripMenuItem";
-            this.clientListToolStripMenuItem.Size = new System.Drawing.Size(219, 26);
+            this.clientListToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
             this.clientListToolStripMenuItem.Text = "Client List";
             this.clientListToolStripMenuItem.Click += new System.EventHandler(this.clientListToolStripMenuItem_Click);
             // 
@@ -299,12 +291,14 @@
             // chkAll
             // 
             this.chkAll.AutoSize = true;
+            this.chkAll.BackColor = System.Drawing.Color.Transparent;
+            this.chkAll.ForeColor = System.Drawing.Color.OrangeRed;
             this.chkAll.Location = new System.Drawing.Point(895, 641);
             this.chkAll.Name = "chkAll";
             this.chkAll.Size = new System.Drawing.Size(37, 17);
             this.chkAll.TabIndex = 7;
             this.chkAll.Text = "All";
-            this.chkAll.UseVisualStyleBackColor = true;
+            this.chkAll.UseVisualStyleBackColor = false;
             this.chkAll.CheckedChanged += new System.EventHandler(this.chkAll_CheckedChanged);
             // 
             // tNotify
@@ -359,11 +353,23 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.OrangeRed;
-            this.label1.Location = new System.Drawing.Point(12, 57);
+            this.label1.Location = new System.Drawing.Point(542, 76);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(656, 146);
+            this.label1.Size = new System.Drawing.Size(371, 73);
             this.label1.TabIndex = 12;
-            this.label1.Text = "Blood Bank \r\nManagement System";
+            this.label1.Text = "Blood Bank";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.OrangeRed;
+            this.label2.Location = new System.Drawing.Point(386, 159);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(656, 73);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Management System";
             // 
             // frmMain
             // 
@@ -372,6 +378,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1370, 672);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnTypeONeg);
             this.Controls.Add(this.btnTypeABNeg);
@@ -408,7 +415,6 @@
         private System.Windows.Forms.ToolStripMenuItem bloodDonorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem userManagementToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bloodRecepientToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem importBloodDonorToolStripMenuItem;
         private System.Windows.Forms.Button btnTypeA;
         private System.Windows.Forms.ToolStripMenuItem clientListToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bloodInventoryReportToolStripMenuItem;
@@ -433,5 +439,6 @@
         private System.Windows.Forms.Button btnTypeABNeg;
         private System.Windows.Forms.Button btnTypeONeg;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

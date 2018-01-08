@@ -69,6 +69,7 @@ namespace BloodPlus
                 }
                
                 lv.SubItems.Add(tmpGender);
+                lv.SubItems.Add(dr["DocDate"].ToString());
                      
             }
 

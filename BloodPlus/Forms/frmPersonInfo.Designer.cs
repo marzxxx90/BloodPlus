@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPersonInfo));
             this.label1 = new System.Windows.Forms.Label();
             this.txtFirstname = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtMiddlename = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtContactNum = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.cboMaritalStatus = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -42,24 +45,11 @@
             this.txtLastname = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtContactNum = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtPreStreet = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.cboPreBarangay = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.cboPreCity = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.cboPreProvince = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtPreZipcode = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.chkAddress = new System.Windows.Forms.CheckBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.txtPerZipcode = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -70,7 +60,18 @@
             this.cboPerBarangay = new System.Windows.Forms.ComboBox();
             this.label18 = new System.Windows.Forms.Label();
             this.txtPerStreet = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
+            this.chkAddress = new System.Windows.Forms.CheckBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtPreZipcode = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.cboPreProvince = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.cboPreCity = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cboPreBarangay = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtPreStreet = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -135,6 +136,25 @@
             this.groupBox1.Size = new System.Drawing.Size(634, 348);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
+            // 
+            // txtContactNum
+            // 
+            this.txtContactNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContactNum.Location = new System.Drawing.Point(130, 281);
+            this.txtContactNum.Name = "txtContactNum";
+            this.txtContactNum.Size = new System.Drawing.Size(276, 26);
+            this.txtContactNum.TabIndex = 13;
+            this.txtContactNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContactNum_KeyPress);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(6, 284);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(93, 20);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Contact No.";
             // 
             // cboMaritalStatus
             // 
@@ -232,25 +252,6 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(6, 284);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(93, 20);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "Contact No.";
-            // 
-            // txtContactNum
-            // 
-            this.txtContactNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContactNum.Location = new System.Drawing.Point(130, 281);
-            this.txtContactNum.Name = "txtContactNum";
-            this.txtContactNum.Size = new System.Drawing.Size(276, 26);
-            this.txtContactNum.TabIndex = 13;
-            this.txtContactNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContactNum_KeyPress);
-            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
@@ -314,111 +315,14 @@
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             // 
-            // txtPreStreet
+            // label19
             // 
-            this.txtPreStreet.Location = new System.Drawing.Point(6, 46);
-            this.txtPreStreet.Name = "txtPreStreet";
-            this.txtPreStreet.Size = new System.Drawing.Size(100, 20);
-            this.txtPreStreet.TabIndex = 0;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(3, 16);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(132, 18);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "Present Address";
-            // 
-            // cboPreBarangay
-            // 
-            this.cboPreBarangay.FormattingEnabled = true;
-            this.cboPreBarangay.Location = new System.Drawing.Point(112, 45);
-            this.cboPreBarangay.Name = "cboPreBarangay";
-            this.cboPreBarangay.Size = new System.Drawing.Size(134, 21);
-            this.cboPreBarangay.TabIndex = 3;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(109, 69);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(52, 13);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "Barangay";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(249, 69);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(24, 13);
-            this.label10.TabIndex = 6;
-            this.label10.Text = "City";
-            // 
-            // cboPreCity
-            // 
-            this.cboPreCity.FormattingEnabled = true;
-            this.cboPreCity.Location = new System.Drawing.Point(252, 45);
-            this.cboPreCity.Name = "cboPreCity";
-            this.cboPreCity.Size = new System.Drawing.Size(134, 21);
-            this.cboPreCity.TabIndex = 5;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(389, 69);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(49, 13);
-            this.label11.TabIndex = 8;
-            this.label11.Text = "Province";
-            // 
-            // cboPreProvince
-            // 
-            this.cboPreProvince.FormattingEnabled = true;
-            this.cboPreProvince.Location = new System.Drawing.Point(392, 45);
-            this.cboPreProvince.Name = "cboPreProvince";
-            this.cboPreProvince.Size = new System.Drawing.Size(134, 21);
-            this.cboPreProvince.TabIndex = 7;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(532, 69);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(50, 13);
-            this.label12.TabIndex = 10;
-            this.label12.Text = "Zip Code";
-            // 
-            // txtPreZipcode
-            // 
-            this.txtPreZipcode.Location = new System.Drawing.Point(532, 46);
-            this.txtPreZipcode.Name = "txtPreZipcode";
-            this.txtPreZipcode.Size = new System.Drawing.Size(100, 20);
-            this.txtPreZipcode.TabIndex = 9;
-            this.txtPreZipcode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPreZipcode_KeyPress);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(6, 133);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(155, 18);
-            this.label13.TabIndex = 11;
-            this.label13.Text = "Permanent Address";
-            // 
-            // chkAddress
-            // 
-            this.chkAddress.AutoSize = true;
-            this.chkAddress.Location = new System.Drawing.Point(167, 136);
-            this.chkAddress.Name = "chkAddress";
-            this.chkAddress.Size = new System.Drawing.Size(232, 17);
-            this.chkAddress.TabIndex = 12;
-            this.chkAddress.Text = "Check here if it is the same with the Present";
-            this.chkAddress.UseVisualStyleBackColor = true;
-            this.chkAddress.CheckedChanged += new System.EventHandler(this.chkAddress_CheckedChanged);
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(6, 69);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(35, 13);
+            this.label19.TabIndex = 23;
+            this.label19.Text = "Street";
             // 
             // label14
             // 
@@ -504,19 +408,117 @@
             this.txtPerStreet.Size = new System.Drawing.Size(100, 20);
             this.txtPerStreet.TabIndex = 13;
             // 
-            // label19
+            // chkAddress
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(6, 69);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(35, 13);
-            this.label19.TabIndex = 23;
-            this.label19.Text = "Street";
+            this.chkAddress.AutoSize = true;
+            this.chkAddress.Location = new System.Drawing.Point(167, 136);
+            this.chkAddress.Name = "chkAddress";
+            this.chkAddress.Size = new System.Drawing.Size(232, 17);
+            this.chkAddress.TabIndex = 12;
+            this.chkAddress.Text = "Check here if it is the same with the Present";
+            this.chkAddress.UseVisualStyleBackColor = true;
+            this.chkAddress.CheckedChanged += new System.EventHandler(this.chkAddress_CheckedChanged);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(6, 133);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(155, 18);
+            this.label13.TabIndex = 11;
+            this.label13.Text = "Permanent Address";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(532, 69);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(50, 13);
+            this.label12.TabIndex = 10;
+            this.label12.Text = "Zip Code";
+            // 
+            // txtPreZipcode
+            // 
+            this.txtPreZipcode.Location = new System.Drawing.Point(532, 46);
+            this.txtPreZipcode.Name = "txtPreZipcode";
+            this.txtPreZipcode.Size = new System.Drawing.Size(100, 20);
+            this.txtPreZipcode.TabIndex = 9;
+            this.txtPreZipcode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPreZipcode_KeyPress);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(389, 69);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(49, 13);
+            this.label11.TabIndex = 8;
+            this.label11.Text = "Province";
+            // 
+            // cboPreProvince
+            // 
+            this.cboPreProvince.FormattingEnabled = true;
+            this.cboPreProvince.Location = new System.Drawing.Point(392, 45);
+            this.cboPreProvince.Name = "cboPreProvince";
+            this.cboPreProvince.Size = new System.Drawing.Size(134, 21);
+            this.cboPreProvince.TabIndex = 7;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(249, 69);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(24, 13);
+            this.label10.TabIndex = 6;
+            this.label10.Text = "City";
+            // 
+            // cboPreCity
+            // 
+            this.cboPreCity.FormattingEnabled = true;
+            this.cboPreCity.Location = new System.Drawing.Point(252, 45);
+            this.cboPreCity.Name = "cboPreCity";
+            this.cboPreCity.Size = new System.Drawing.Size(134, 21);
+            this.cboPreCity.TabIndex = 5;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(109, 69);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(52, 13);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "Barangay";
+            // 
+            // cboPreBarangay
+            // 
+            this.cboPreBarangay.FormattingEnabled = true;
+            this.cboPreBarangay.Location = new System.Drawing.Point(112, 45);
+            this.cboPreBarangay.Name = "cboPreBarangay";
+            this.cboPreBarangay.Size = new System.Drawing.Size(134, 21);
+            this.cboPreBarangay.TabIndex = 3;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(3, 16);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(132, 18);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "Present Address";
+            // 
+            // txtPreStreet
+            // 
+            this.txtPreStreet.Location = new System.Drawing.Point(6, 46);
+            this.txtPreStreet.Name = "txtPreStreet";
+            this.txtPreStreet.Size = new System.Drawing.Size(100, 20);
+            this.txtPreStreet.TabIndex = 0;
             // 
             // frmPersonInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(686, 468);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.btnSave);

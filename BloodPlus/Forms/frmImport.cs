@@ -147,6 +147,7 @@ namespace BloodPlus
             }
             MessageBox.Show("Successfuly Imported", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             btnImport.Enabled = true;
+            this.Close();
         }
 
         private void frmImport_Load(object sender, EventArgs e)
