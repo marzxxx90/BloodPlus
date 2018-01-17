@@ -35,10 +35,10 @@
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bloodInventoryReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dailyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bloodDonationReportToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.bloodRecipientReportToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.bloodInventoryReportToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.customToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bloodDonationReportToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.bloodRecipientReportToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,6 +48,7 @@
             this.bloodDonorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bloodRecepientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.movingAverageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnTypeA = new System.Windows.Forms.Button();
             this.btnTypeB = new System.Windows.Forms.Button();
             this.btnTypeAB = new System.Windows.Forms.Button();
@@ -64,9 +65,6 @@
             this.btnTypeONeg = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-
-            this.movingAverageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-
             this.msMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -96,56 +94,56 @@
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(136, 26);
             this.settingsToolStripMenuItem.Text = "&Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(136, 26);
             this.logoutToolStripMenuItem.Text = "&Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
             // reportToolStripMenuItem
             // 
             this.reportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bloodInventoryReportToolStripMenuItem,
             this.dailyToolStripMenuItem,
             this.customToolStripMenuItem});
             this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
             this.reportToolStripMenuItem.Size = new System.Drawing.Size(69, 25);
             this.reportToolStripMenuItem.Text = "&Report";
             // 
-            // bloodInventoryReportToolStripMenuItem
-            // 
-            this.bloodInventoryReportToolStripMenuItem.Name = "bloodInventoryReportToolStripMenuItem";
-            this.bloodInventoryReportToolStripMenuItem.Size = new System.Drawing.Size(241, 26);
-            this.bloodInventoryReportToolStripMenuItem.Text = "Blood Inventory Report";
-            this.bloodInventoryReportToolStripMenuItem.Click += new System.EventHandler(this.bloodInventoryReportToolStripMenuItem_Click);
-            // 
             // dailyToolStripMenuItem
             // 
             this.dailyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bloodDonationReportToolStripMenuItem1,
-            this.bloodRecipientReportToolStripMenuItem1});
+            this.bloodRecipientReportToolStripMenuItem1,
+            this.bloodInventoryReportToolStripMenuItem1});
             this.dailyToolStripMenuItem.Name = "dailyToolStripMenuItem";
-            this.dailyToolStripMenuItem.Size = new System.Drawing.Size(241, 26);
+            this.dailyToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
             this.dailyToolStripMenuItem.Text = "&Daily";
             // 
             // bloodDonationReportToolStripMenuItem1
             // 
             this.bloodDonationReportToolStripMenuItem1.Name = "bloodDonationReportToolStripMenuItem1";
-            this.bloodDonationReportToolStripMenuItem1.Size = new System.Drawing.Size(239, 26);
+            this.bloodDonationReportToolStripMenuItem1.Size = new System.Drawing.Size(241, 26);
             this.bloodDonationReportToolStripMenuItem1.Text = "Blood Donation Report";
             this.bloodDonationReportToolStripMenuItem1.Click += new System.EventHandler(this.bloodDonationReportToolStripMenuItem1_Click);
             // 
             // bloodRecipientReportToolStripMenuItem1
             // 
             this.bloodRecipientReportToolStripMenuItem1.Name = "bloodRecipientReportToolStripMenuItem1";
-            this.bloodRecipientReportToolStripMenuItem1.Size = new System.Drawing.Size(239, 26);
+            this.bloodRecipientReportToolStripMenuItem1.Size = new System.Drawing.Size(241, 26);
             this.bloodRecipientReportToolStripMenuItem1.Text = "Blood Recipient Report";
             this.bloodRecipientReportToolStripMenuItem1.Click += new System.EventHandler(this.bloodRecipientReportToolStripMenuItem1_Click);
+            // 
+            // bloodInventoryReportToolStripMenuItem1
+            // 
+            this.bloodInventoryReportToolStripMenuItem1.Name = "bloodInventoryReportToolStripMenuItem1";
+            this.bloodInventoryReportToolStripMenuItem1.Size = new System.Drawing.Size(241, 26);
+            this.bloodInventoryReportToolStripMenuItem1.Text = "Blood Inventory Report";
+            this.bloodInventoryReportToolStripMenuItem1.Click += new System.EventHandler(this.bloodInventoryReportToolStripMenuItem1_Click);
             // 
             // customToolStripMenuItem
             // 
@@ -153,7 +151,7 @@
             this.bloodDonationReportToolStripMenuItem2,
             this.bloodRecipientReportToolStripMenuItem2});
             this.customToolStripMenuItem.Name = "customToolStripMenuItem";
-            this.customToolStripMenuItem.Size = new System.Drawing.Size(241, 26);
+            this.customToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
             this.customToolStripMenuItem.Text = "&Custom";
             // 
             // bloodDonationReportToolStripMenuItem2
@@ -190,12 +188,8 @@
             this.TransactionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bloodDonorToolStripMenuItem,
             this.bloodRecepientToolStripMenuItem,
-<<<<<<< HEAD
             this.clientListToolStripMenuItem,
             this.movingAverageToolStripMenuItem});
-=======
-            this.clientListToolStripMenuItem});
->>>>>>> origin/master
             this.TransactionToolStripMenuItem.Name = "TransactionToolStripMenuItem";
             this.TransactionToolStripMenuItem.Size = new System.Drawing.Size(102, 25);
             this.TransactionToolStripMenuItem.Text = "Transaction";
@@ -203,35 +197,30 @@
             // bloodDonorToolStripMenuItem
             // 
             this.bloodDonorToolStripMenuItem.Name = "bloodDonorToolStripMenuItem";
-<<<<<<< HEAD
             this.bloodDonorToolStripMenuItem.Size = new System.Drawing.Size(194, 26);
-=======
-            this.bloodDonorToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
->>>>>>> origin/master
             this.bloodDonorToolStripMenuItem.Text = "Blood Donor";
             this.bloodDonorToolStripMenuItem.Click += new System.EventHandler(this.bloodDonorToolStripMenuItem_Click);
             // 
             // bloodRecepientToolStripMenuItem
             // 
             this.bloodRecepientToolStripMenuItem.Name = "bloodRecepientToolStripMenuItem";
-<<<<<<< HEAD
             this.bloodRecepientToolStripMenuItem.Size = new System.Drawing.Size(194, 26);
-=======
-            this.bloodRecepientToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
->>>>>>> origin/master
             this.bloodRecepientToolStripMenuItem.Text = "Blood Recipient";
             this.bloodRecepientToolStripMenuItem.Click += new System.EventHandler(this.bloodRecepientToolStripMenuItem_Click);
             // 
             // clientListToolStripMenuItem
             // 
             this.clientListToolStripMenuItem.Name = "clientListToolStripMenuItem";
-<<<<<<< HEAD
             this.clientListToolStripMenuItem.Size = new System.Drawing.Size(194, 26);
-=======
-            this.clientListToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
->>>>>>> origin/master
             this.clientListToolStripMenuItem.Text = "Client List";
             this.clientListToolStripMenuItem.Click += new System.EventHandler(this.clientListToolStripMenuItem_Click);
+            // 
+            // movingAverageToolStripMenuItem
+            // 
+            this.movingAverageToolStripMenuItem.Name = "movingAverageToolStripMenuItem";
+            this.movingAverageToolStripMenuItem.Size = new System.Drawing.Size(194, 26);
+            this.movingAverageToolStripMenuItem.Text = "Moving Average";
+            this.movingAverageToolStripMenuItem.Click += new System.EventHandler(this.movingAverageToolStripMenuItem_Click);
             // 
             // btnTypeA
             // 
@@ -390,16 +379,6 @@
             this.label2.Size = new System.Drawing.Size(656, 73);
             this.label2.TabIndex = 13;
             this.label2.Text = "Management System";
-<<<<<<< HEAD
-            // 
-            // movingAverageToolStripMenuItem
-            // 
-            this.movingAverageToolStripMenuItem.Name = "movingAverageToolStripMenuItem";
-            this.movingAverageToolStripMenuItem.Size = new System.Drawing.Size(194, 26);
-            this.movingAverageToolStripMenuItem.Text = "Moving Average";
-            this.movingAverageToolStripMenuItem.Click += new System.EventHandler(this.movingAverageToolStripMenuItem_Click);
-=======
->>>>>>> origin/master
             // 
             // frmMain
             // 
@@ -447,7 +426,6 @@
         private System.Windows.Forms.ToolStripMenuItem bloodRecepientToolStripMenuItem;
         private System.Windows.Forms.Button btnTypeA;
         private System.Windows.Forms.ToolStripMenuItem clientListToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem bloodInventoryReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.Button btnTypeB;
         private System.Windows.Forms.Button btnTypeAB;
@@ -470,9 +448,7 @@
         private System.Windows.Forms.Button btnTypeONeg;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-<<<<<<< HEAD
         private System.Windows.Forms.ToolStripMenuItem movingAverageToolStripMenuItem;
-=======
->>>>>>> origin/master
+        private System.Windows.Forms.ToolStripMenuItem bloodInventoryReportToolStripMenuItem1;
     }
 }

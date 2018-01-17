@@ -228,6 +228,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Reports\rpt_BloodInventoryYear.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\frmCustomReport.resx">
       <DependentUpon>frmCustomReport.cs</DependentUpon>
     </EmbeddedResource>

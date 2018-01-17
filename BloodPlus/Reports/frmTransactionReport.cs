@@ -14,14 +14,15 @@ namespace BloodPlus
         public enum BloodReport : int
         {
             BloodDonor = 0,
-            BloodRecipient = 1
+            BloodRecipient = 1,
+            Inventory = 2
             
         }
         public frmTransactionReport()
         {
             InitializeComponent();
         }
-        internal BloodReport FormType = BloodReport.BloodDonor   ;
+        internal BloodReport FormType = BloodReport.Inventory    ;
         private void btnGenerate_Click(object sender, EventArgs e)
         {
             switch (FormType)
@@ -31,6 +32,9 @@ namespace BloodPlus
                     break;
                 case BloodReport.BloodRecipient:
                     BloodRecipient();
+                    break;
+                case BloodReport.Inventory:
+                    Inventory();
                     break;
             }
         }
@@ -79,6 +83,65 @@ namespace BloodPlus
 
             frmReport frm = new frmReport();
             frm.ReportInit(mysql, "dsRecipient", @"Reports\rpt_RecipientReport.rdlc", rptPara);
+            frm.Show();
+        }
+
+        private void Inventory()
+        {
+            string mysql = "";
+            //if (rbMonthly.Checked == true)
+            //{
+                mysql = "Select tbl.BloodType, Sum(tbl.BloodCount) as BloodCount, ";
+                mysql += "Case Month(tbl.DocDate) ";
+                mysql += "When 1 then 'Jan' ";
+                mysql += "When 2 then 'Feb' ";
+                mysql += "When 3 then 'Mar' ";
+                mysql += "When 4 then 'Apr' ";
+                mysql += "When 5 then 'May' ";
+                mysql += "When 6 then 'Jun' ";
+                mysql += "When 7 then 'Jul' ";
+                mysql += "When 8 then 'Aug' ";
+                mysql += "When 9 then 'Sep' ";
+                mysql += "When 10 then 'Oct' ";
+                mysql += "When 11 then 'Nov' ";
+                mysql += "When 12 then 'Dec' else 'None' End as DocDate, Year(tbl.DocDate) as DocYear ";
+                mysql += "From ( ";
+                mysql += "Select D.BloodType ,Count(D.BloodType) as BloodCount, D.DocDate From tblDonor D ";
+                mysql += "Where D.DocDate = '" + MonCalReport.SelectionStart.Date.ToString("yyyy-MM-dd") + "' ";
+                mysql += "Group By D.BloodType, D.DocDate ";
+                mysql += "Union ";
+                mysql += "Select R.BloodType, (Count(R.BloodType) * -1) as BloodCount, R.DocDate From tblRecipient R ";
+                mysql += "Where R.DocDate = '" + MonCalReport.SelectionStart.Date.ToString("yyyy-MM-dd") + "' ";
+                mysql += "Group By R.BloodType, R.DocDate ";
+                mysql += ")as tbl ";
+                mysql += "Left Join tblStock S On S.BloodType = tbl.BloodType ";
+                mysql += "Group By tbl.BloodType, tbl.DocDate ";
+                mysql += "Order By Month(tbl.DocDate), Year(tbl.DocDate)";
+            //}
+            //else
+            //{
+            //    mysql = "Select tbl.BloodType, Sum(tbl.BloodCount) as BloodCount, ";
+            //    mysql += "tbl.DocDate, Year(tbl.DocDate) as DocYear ";
+            //    mysql += "From ( ";
+            //    mysql += "Select D.BloodType ,Count(D.BloodType) as BloodCount, D.DocDate From tblDonor D ";
+            //    mysql += "Where D.DocDate = '" + MonCalReport.SelectionStart.Date.ToString("yyyy-MM-dd") + "' ";
+            //    mysql += "Group By D.BloodType, D.DocDate ";
+            //    mysql += "Union ";
+            //    mysql += "Select R.BloodType, (Count(R.BloodType) * -1) as BloodCount, R.DocDate From tblRecipient R ";
+            //    mysql += "Where R.DocDate = '" + MonCalReport.SelectionStart.Date.ToString("yyyy-MM-dd") + "' ";
+            //    mysql += "Group By R.BloodType, R.DocDate ";
+            //    mysql += ")as tbl ";
+            //    mysql += "Left Join tblStock S On S.BloodType = tbl.BloodType ";
+            //    mysql += "Group By tbl.BloodType, tbl.DocDate ";
+            //    mysql += "Order By Month(tbl.DocDate), Year(tbl.DocDate)";
+            //}
+
+
+            Dictionary<string, string> rptPara = new Dictionary<string, string>();
+            rptPara.Add("txtDate", "Date: " + MonCalReport.SelectionStart.Date.ToString("yyyy-MM-dd"));
+
+            frmReport frm = new frmReport();
+            frm.ReportInit(mysql, "dsStock", @"Reports\rpt_BloodInventory.rdlc", rptPara);
             frm.Show();
         }
     }

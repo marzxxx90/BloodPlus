@@ -41,7 +41,7 @@
             // btnGenerate
             // 
             this.btnGenerate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGenerate.Location = new System.Drawing.Point(5, 171);
+            this.btnGenerate.Location = new System.Drawing.Point(5, 180);
             this.btnGenerate.Name = "btnGenerate";
             this.btnGenerate.Size = new System.Drawing.Size(227, 49);
             this.btnGenerate.TabIndex = 1;
@@ -53,7 +53,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(237, 227);
+            this.ClientSize = new System.Drawing.Size(237, 246);
             this.Controls.Add(this.btnGenerate);
             this.Controls.Add(this.MonCalReport);
             this.MaximizeBox = false;

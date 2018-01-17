@@ -33,6 +33,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnGenerate = new System.Windows.Forms.Button();
+            this.rbMonthly = new System.Windows.Forms.RadioButton();
+            this.rbYearly = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // dtpFrom
@@ -86,11 +88,35 @@
             this.btnGenerate.UseVisualStyleBackColor = true;
             this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
             // 
+            // rbMonthly
+            // 
+            this.rbMonthly.AutoSize = true;
+            this.rbMonthly.Checked = true;
+            this.rbMonthly.Location = new System.Drawing.Point(12, 146);
+            this.rbMonthly.Name = "rbMonthly";
+            this.rbMonthly.Size = new System.Drawing.Size(62, 17);
+            this.rbMonthly.TabIndex = 5;
+            this.rbMonthly.TabStop = true;
+            this.rbMonthly.Text = "Monthly";
+            this.rbMonthly.UseVisualStyleBackColor = true;
+            // 
+            // rbYearly
+            // 
+            this.rbYearly.AutoSize = true;
+            this.rbYearly.Location = new System.Drawing.Point(133, 146);
+            this.rbYearly.Name = "rbYearly";
+            this.rbYearly.Size = new System.Drawing.Size(54, 17);
+            this.rbYearly.TabIndex = 6;
+            this.rbYearly.Text = "Yearly";
+            this.rbYearly.UseVisualStyleBackColor = true;
+            // 
             // frmCustomReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(237, 227);
+            this.Controls.Add(this.rbYearly);
+            this.Controls.Add(this.rbMonthly);
             this.Controls.Add(this.btnGenerate);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -113,5 +139,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnGenerate;
+        private System.Windows.Forms.RadioButton rbMonthly;
+        private System.Windows.Forms.RadioButton rbYearly;
     }
 }

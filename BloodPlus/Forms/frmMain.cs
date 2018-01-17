@@ -134,19 +134,19 @@ namespace BloodPlus
             }
         }
 
-        private void bloodInventoryReportToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            string mysql = "Select * From tblStock ";
+        //private void bloodInventoryReportToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    string mysql = "Select * From tblStock ";
 
-            Dictionary<string, string> rptPara = new Dictionary<string, string>();
-            rptPara.Add("txtDate", "Date: " + DateAndTime.Now.ToString("MMM dd, yyyy"));
-           // rptPara.Add("IsDailyMonthly", "Daily Sales Report");
+        //    Dictionary<string, string> rptPara = new Dictionary<string, string>();
+        //    rptPara.Add("txtDate", "Date: " + DateAndTime.Now.ToString("MMM dd, yyyy"));
+        //   // rptPara.Add("IsDailyMonthly", "Daily Sales Report");
 
-            frmReport frm = new frmReport();
-            frm.ReportInit(mysql, "dsStock", @"Reports\rpt_BloodInventory.rdlc", rptPara);
-            frm.Show();
+        //    frmReport frm = new frmReport();
+        //    frm.ReportInit(mysql, "dsStock", @"Reports\rpt_BloodInventory.rdlc", rptPara);
+        //    frm.Show();
            
-        }
+        //}
 
         private bool isExpire()
         {
@@ -510,6 +510,21 @@ namespace BloodPlus
             else
             {
                 frmMovingAve frm = new frmMovingAve();
+                frm.Show();
+            }
+        }
+
+        private void bloodInventoryReportToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["frmTransactionReport"] != null)
+            {
+                (Application.OpenForms["frmTransactionReport"] as frmTransactionReport).FormType = frmTransactionReport.BloodReport.Inventory ;
+                (Application.OpenForms["frmTransactionReport"] as frmTransactionReport).Show();
+            }
+            else
+            {
+                frmTransactionReport frm = new frmTransactionReport();
+                frm.FormType = frmTransactionReport.BloodReport.Inventory;
                 frm.Show();
             }
         }

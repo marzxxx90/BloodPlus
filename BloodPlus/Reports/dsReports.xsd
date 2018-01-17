@@ -61,6 +61,16 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="Inventory" msprop:Generator_TableClassName="InventoryDataTable" msprop:Generator_TableVarName="tableInventory" msprop:Generator_RowChangedName="InventoryRowChanged" msprop:Generator_TablePropName="Inventory" msprop:Generator_RowDeletingName="InventoryRowDeleting" msprop:Generator_RowChangingName="InventoryRowChanging" msprop:Generator_RowEvHandlerName="InventoryRowChangeEventHandler" msprop:Generator_RowDeletedName="InventoryRowDeleted" msprop:Generator_RowClassName="InventoryRow" msprop:Generator_UserTableName="Inventory" msprop:Generator_RowEvArgName="InventoryRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="BloodType" msprop:Generator_ColumnVarNameInTable="columnBloodType" msprop:Generator_ColumnPropNameInRow="BloodType" msprop:Generator_ColumnPropNameInTable="BloodTypeColumn" msprop:Generator_UserColumnName="BloodType" type="xs:string" minOccurs="0" />
+              <xs:element name="BloodCount" msprop:Generator_ColumnVarNameInTable="columnBloodCount" msprop:Generator_ColumnPropNameInRow="BloodCount" msprop:Generator_ColumnPropNameInTable="BloodCountColumn" msprop:Generator_UserColumnName="BloodCount" type="xs:string" minOccurs="0" />
+              <xs:element name="DocDate" msprop:Generator_ColumnVarNameInTable="columnDocDate" msprop:Generator_ColumnPropNameInRow="DocDate" msprop:Generator_ColumnPropNameInTable="DocDateColumn" msprop:Generator_UserColumnName="DocDate" type="xs:string" minOccurs="0" />
+              <xs:element name="DocYear" msprop:Generator_ColumnVarNameInTable="columnDocYear" msprop:Generator_ColumnPropNameInRow="DocYear" msprop:Generator_ColumnPropNameInTable="DocYearColumn" msprop:Generator_UserColumnName="DocYear" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>

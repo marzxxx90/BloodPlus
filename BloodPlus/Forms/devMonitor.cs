@@ -129,6 +129,7 @@ namespace BloodPlus
 
             button1.Enabled = true;
             MessageBox.Show("Data Loaded", "System Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
         }
     }
 }
