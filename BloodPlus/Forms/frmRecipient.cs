@@ -46,6 +46,8 @@ namespace BloodPlus
             txtName.Text = info.Firstname + " " + info.Lastname;
             txtGender.Text = info.Gender == "F" ? "Female" : "Male";
             txtAge.Text = Convert.ToString(mod_system.GetCurrentAge(info.DateofBirth));
+            txtContact.Text = info.ContactNum;
+            txtAddress.Text = info.PresentStreet + " " + info.PresentBarangay + " " + info.PresentCity;
 
             Recipient = info;
         }
@@ -68,6 +70,7 @@ namespace BloodPlus
             rec.DeductInv(cboBloodType.Text);
 
             MessageBox.Show("Successfully Save!","Information");
+            this.Close();
         }
 
         private bool isValid()

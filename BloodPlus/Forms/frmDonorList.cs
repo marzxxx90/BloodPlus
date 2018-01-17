@@ -30,12 +30,12 @@ namespace BloodPlus
             string name = null;
             if (str == "")
             {
-                mysql = "Select D.id, D.CardNum, D.BloodType, R.Firstname, R.Middlename, R.Lastname, R.Gender, R.dob, D.DocDate, D.Status ";
+                mysql = "Select D.id, D.RefNum, D.BloodType, R.Firstname, R.Middlename, R.Lastname, R.Gender, R.dob, D.DocDate, D.Status ";
                 mysql +=" From tblDonor D " ;
                 mysql += " Inner Join tblPersonInfo R On R.ID = D.DonorID Limit 50";
             }
             else {
-                mysql = "Select D.id, D.CardNum, D.BloodType, R.Firstname, R.Middlename, R.Lastname, R.Gender, R.dob, D.DocDate, D.Status ";
+                mysql = "Select D.id, D.RefNum, D.BloodType, R.Firstname, R.Middlename, R.Lastname, R.Gender, R.dob, D.DocDate, D.Status ";
                 mysql += " From tblDonor D ";
                 mysql += " Inner Join tblPersonInfo R On R.ID = D.DonorID ";
                 mysql += " Where ";
@@ -56,7 +56,7 @@ namespace BloodPlus
             lvDonor.Items.Clear();
             foreach (DataRow dr in ds.Tables[0].Rows )
             {
-                ListViewItem lv = lvDonor.Items.Add(dr["CardNum"].ToString());
+                ListViewItem lv = lvDonor.Items.Add(dr["RefNum"].ToString());
                 lv.SubItems.Add(dr["BloodType"].ToString());
                 lv.SubItems.Add(dr["FirstName"].ToString() + " " + dr["Middlename"].ToString() + " " + dr["Lastname"].ToString());
                 if (Convert.ToString(dr["Gender"]) == "F")
@@ -69,6 +69,7 @@ namespace BloodPlus
                 }
                
                 lv.SubItems.Add(tmpGender);
+                lv.SubItems.Add(dr["DocDate"].ToString());
                      
             }
 

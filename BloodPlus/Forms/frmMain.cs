@@ -501,5 +501,18 @@ namespace BloodPlus
             }
         }
 
+        private void movingAverageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["frmMovingAve"] != null)
+            {
+                (Application.OpenForms["frmMovingAve"] as frmMovingAve).Show();
+            }
+            else
+            {
+                frmMovingAve frm = new frmMovingAve();
+                frm.Show();
+            }
+        }
+
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMovingAve));
             this.lvDev = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -168,6 +169,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1084, 478);
             this.Controls.Add(this.cboTransaction);
             this.Controls.Add(this.rv_display);
@@ -180,7 +183,7 @@
             this.Controls.Add(this.btnGenerate);
             this.Controls.Add(this.lvDev);
             this.Name = "frmMovingAve";
-            this.Text = "frmMovingAve";
+            this.Text = "Moving Average";
             this.Load += new System.EventHandler(this.frmMovingAve_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

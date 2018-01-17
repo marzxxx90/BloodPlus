@@ -126,10 +126,10 @@ namespace BloodPlus
                 if (chkRandom.Checked == true)
                 {
                     Random rnd = new Random();
-                    int i = rnd.Next(1, 365);
+                    int i = rnd.Next(1, 730);
 
-                    if (i > 300) { i = i - 325; }
-                    i = i - 325;
+                    if (i > 300) { i = i - 730; }
+                    i = i - 730;
                     Donate.DocDate = DateTime.Now.AddDays(i);
                 }
                 else
@@ -147,6 +147,7 @@ namespace BloodPlus
             }
             MessageBox.Show("Successfuly Imported", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             btnImport.Enabled = true;
+            this.Close();
         }
 
         private void frmImport_Load(object sender, EventArgs e)

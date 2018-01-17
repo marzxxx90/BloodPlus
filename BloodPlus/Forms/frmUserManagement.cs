@@ -72,7 +72,7 @@ namespace BloodPlus
             btnSave.Text = "&Save";
             chkStatus.Checked = true;
             isEnable();
-
+            this.Close();
         }
 
         private bool isValid()

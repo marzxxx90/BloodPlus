@@ -22,6 +22,7 @@ namespace BloodPlus
             set.UpdateSettings("ParLevel", Convert.ToString((nudParLevel.Value)));
 
             MessageBox.Show("Successfully Set","Information");
+            this.Close();
         }
 
         private void nudParLevel_KeyPress(object sender, KeyPressEventArgs e)

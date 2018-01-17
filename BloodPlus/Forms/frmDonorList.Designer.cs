@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDonorList));
             this.lvDonor = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -37,6 +38,7 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,7 +48,8 @@
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
-            this.columnHeader7});
+            this.columnHeader7,
+            this.columnHeader4});
             this.lvDonor.FullRowSelect = true;
             this.lvDonor.GridLines = true;
             this.lvDonor.Location = new System.Drawing.Point(12, 69);
@@ -59,7 +62,7 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Card #";
-            this.columnHeader1.Width = 201;
+            this.columnHeader1.Width = 173;
             // 
             // columnHeader2
             // 
@@ -69,17 +72,19 @@
             // columnHeader3
             // 
             this.columnHeader3.Text = "Fullname";
-            this.columnHeader3.Width = 340;
+            this.columnHeader3.Width = 287;
             // 
             // columnHeader7
             // 
             this.columnHeader7.Text = "Gender";
-            this.columnHeader7.Width = 123;
+            this.columnHeader7.Width = 90;
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.btnSearch);
             this.groupBox1.Controls.Add(this.txtSearch);
+            this.groupBox1.ForeColor = System.Drawing.Color.OrangeRed;
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(766, 51);
@@ -89,6 +94,7 @@
             // 
             // btnSearch
             // 
+            this.btnSearch.ForeColor = System.Drawing.Color.Black;
             this.btnSearch.Location = new System.Drawing.Point(686, 17);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
@@ -116,10 +122,17 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Date";
+            this.columnHeader4.Width = 115;
+            // 
             // frmDonorList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(785, 417);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.groupBox1);
@@ -145,5 +158,6 @@
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
     }
 }

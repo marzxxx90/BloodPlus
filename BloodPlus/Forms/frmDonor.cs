@@ -20,6 +20,7 @@ namespace BloodPlus
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (!isValid()) { MessageBox.Show("Please Check the Fields!", "Error"); return; }
+            if (!isValidDonor(Donor.ID )) { MessageBox.Show("To Be Edit", "Error"); return; }
             if (Convert.ToInt16(mod_system.GetCurrentAge(Convert.ToDateTime(Donor.DateofBirth))) < 18) { MessageBox.Show("Donor must above 18","Invalid!");return; }
             BloodDonor donate = new BloodDonor();
             var d = donate;
@@ -80,7 +81,7 @@ namespace BloodPlus
         }
         private void txtCardNum_KeyPress(object sender, KeyPressEventArgs e)
         {
-            mod_system.DigitOnly(e);
+            //mod_system.DigitOnly(e);
         }
 
         private void btnSearchRecepient_Click(object sender, EventArgs e)
@@ -108,11 +109,29 @@ namespace BloodPlus
             txtDob.Text = Convert.ToString(info.DateofBirth.ToString("yyyy-mm-dd"));
             txtContact.Text = info.ContactNum;
             Donor = info;
+            txtSearchRecepient.Clear();
         }
 
         private void txtSearchRecepient_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (mod_system.isEnter(e)) { btnSearchRecepient.PerformClick(); }
+        }
+
+        private bool isValidDonor(int idx)
+        {
+            string mysql = "Select * From tblDonor Where Status = '1' And DonorID = " + idx;
+            mysql +=" Order By DocDate Desc";
+            DataSet ds = Database.LoadSQL(mysql, "tblDonor");
+
+            //if (Convert.ToDateTime(ds.Tables[0].Rows[0]["DocDate"]).AddDays(90) ) { return false; }
+
+            if (ds.Tables[0].Rows.Count == 0) { return true; }
+            Console.WriteLine("Docdate " + Convert.ToDateTime(ds.Tables[0].Rows[0]["DocDate"]).AddDays(90));
+            Console.WriteLine("NowDate " + DateTime.Now );
+
+            if (Convert.ToDateTime(ds.Tables[0].Rows[0]["DocDate"]).AddDays(90) > DateTime.Now) { return false; }
+ 
+            return true;
         }
     }
 }

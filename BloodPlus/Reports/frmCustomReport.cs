@@ -32,13 +32,13 @@ namespace BloodPlus
             System.DateTime en = Convert.ToDateTime(dtpTo.Text);
 
             string mysql = "Select Main.*, (Select Count(D2.DonorID) From tblDonor D2 Where Main.DonorID = D2.DonorID) as TotalCount ";
-            mysql += "From (Select D.ID, D.CardNum, D.BloodType, D.DonorID,";
+            mysql += "From (Select D.ID, D.RefNum, D.BloodType, D.DonorID,";
             mysql += "CONCAT(P.FIRSTNAME, ' ', P.LASTNAME) AS DonorFullname, ";
             mysql += "D.DocDate, D.Status, CONCAT(U.FIRSTNAME, ' ', U.LASTNAME) AS Encoder, P.ContactNum ";
             mysql += "From tblDonor D ";
             mysql += "Inner Join tblPersonInfo P On P.ID = D.DonorID ";
             mysql += "Inner Join tblUser U On U.ID = D.EncodeBy ";
-            mysql += "Where D.DocDate Between '" + st.ToString("yyyy-MM-dd") + "' And '" + en.ToString("yyyy-MM-dd") + "') as Main";
+            mysql += "Where D.DocDate Between '" + st.ToString("yyyy-MM-dd") + "' And '" + en.ToString("yyyy-MM-dd") + "') as Main Order By Main.DocDate Desc";
 
             Dictionary<string, string> rptPara = new Dictionary<string, string>();
             rptPara.Add("txtDate", "Date: " + st.ToString("yyyy-MM-dd") + " to " + en.ToString("yyyy-MM-dd"));

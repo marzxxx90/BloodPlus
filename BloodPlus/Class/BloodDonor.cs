@@ -80,7 +80,7 @@ namespace BloodPlus
             dsnewRow = ds.Tables[0].NewRow();
             var with = dsnewRow;
 
-            with["cardnum"] = _cardnum;
+            with["refnum"] = _cardnum;
             with["bloodtype"] = _bloodType;
             with["DonorID"] = _recepient.ID;
             with["DocDate"] = _docDate;
@@ -104,7 +104,7 @@ namespace BloodPlus
         private void LoadbyRows(DataRow dr)
         {
             _id = Convert.ToInt32(dr["ID"]);
-            _cardnum = dr["cardnum"].ToString();
+            _cardnum = dr["refnum"].ToString();
             _bloodType = dr["bloodtype"].ToString();
             //_firstName = dr["firstname"].ToString();
             //_middlename = dr["middlename"].ToString();
