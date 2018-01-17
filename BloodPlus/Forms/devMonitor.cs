@@ -104,10 +104,10 @@ namespace BloodPlus
                 if (chkRandom.Checked == true)
                 {
                     Random rnd = new Random();
-                    int i = rnd.Next(1, 365);
+                    int i = rnd.Next(1, 730);
 
-                    if (i > 300) { i = i - 325; }
-                    i = i - 325;
+                    if (i > 730) { i = i - 730; }
+                    i = i - 730;
                     r.DocDate = DateTime.Now.AddDays(i);
                 }
                 else

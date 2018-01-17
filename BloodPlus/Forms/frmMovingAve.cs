@@ -40,22 +40,56 @@ namespace BloodPlus
             dtpFrom.CustomFormat = "yyyy-MM-dd";
             dtpTo.CustomFormat = "yyyy-MM-dd";
 
-         string mysql = "Select Month(DocDate)as DocNum, case Month(DocDate) ";
-            mysql += "When 1 then 'Jan'  ";
-            mysql += "When 2 then 'Feb'  ";
-            mysql += "When 3 then 'Mar'  ";
-            mysql += "When 4 then 'Apr'  ";
-            mysql += "When 5 then 'May'  ";
-            mysql += "When 6 then 'Jun'  ";
-            mysql += "When 7 then 'Jul'  ";
-            mysql += "When 8 then 'Aug' ";
-            mysql += "When 9 then 'Sep'  ";
-            mysql += "When 10 then 'Oct'  ";
-            mysql += "When 11 then 'Nov'  ";
-            mysql += "When 12 then 'Dec' else 'None' End as DocMonth, BloodType, Count(BloodType)as BloodCount , DocDate, Year(DocDate)as DocYear ";
-            mysql += "From tblDonor Where BloodType = '" + cboBloodType.Text + "' And (DocDate Between '" + dtpFrom.Text  + "' And '" + dtpTo.Text + "') ";
-            mysql += "Group By Month(DocDate), BloodType ";
-            mysql += "Order By DocDate ";
+            string mysql = "";
+            if (rbDaily.Checked == true)
+            {
+                mysql = "Select Day(DocDate)as DocDay, Month(DocDate)as DocNum, case Month(DocDate) ";
+                mysql += "When 1 then 'Jan'  ";
+                mysql += "When 2 then 'Feb'  ";
+                mysql += "When 3 then 'Mar'  ";
+                mysql += "When 4 then 'Apr'  ";
+                mysql += "When 5 then 'May'  ";
+                mysql += "When 6 then 'Jun'  ";
+                mysql += "When 7 then 'Jul'  ";
+                mysql += "When 8 then 'Aug' ";
+                mysql += "When 9 then 'Sep'  ";
+                mysql += "When 10 then 'Oct'  ";
+                mysql += "When 11 then 'Nov'  ";
+                mysql += "When 12 then 'Dec' else 'None' End as DocMonth, BloodType, Count(BloodType)as BloodCount , DocDate, Year(DocDate)as DocYear ";
+                mysql += "From tblDonor Where BloodType = '" + cboBloodType.Text + "' And (DocDate Between '" + dtpFrom.Text + "' And '" + dtpTo.Text + "') ";
+                mysql += "Group By Day(DocDate), BloodType ";
+                mysql += "Order By DocDate ";
+            }
+            else if (rbMonthly.Checked == true)
+            {
+                mysql = "Select Month(DocDate)as DocDay, Month(DocDate)as DocNum, case Month(DocDate) ";
+                mysql += "When 1 then 'Jan'  ";
+                mysql += "When 2 then 'Feb'  ";
+                mysql += "When 3 then 'Mar'  ";
+                mysql += "When 4 then 'Apr'  ";
+                mysql += "When 5 then 'May'  ";
+                mysql += "When 6 then 'Jun'  ";
+                mysql += "When 7 then 'Jul'  ";
+                mysql += "When 8 then 'Aug' ";
+                mysql += "When 9 then 'Sep'  ";
+                mysql += "When 10 then 'Oct'  ";
+                mysql += "When 11 then 'Nov'  ";
+                mysql += "When 12 then 'Dec' else 'None' End as DocMonth, BloodType, Count(BloodType)as BloodCount , DocDate, Year(DocDate)as DocYear ";
+                mysql += "From tblDonor Where BloodType = '" + cboBloodType.Text + "' And (DocDate Between '" + dtpFrom.Text + "' And '" + dtpTo.Text + "') ";
+                mysql += "Group By Month(DocDate), BloodType ";
+                mysql += "Order By DocDate ";
+            }
+            else if (rbYearly.Checked == true)
+            {
+                mysql = "Select Year(DocDate)as DocDay, Year(DocDate)as DocNum, ";
+                mysql += "Month(DocDate) as DocMonth, ";
+                mysql += "BloodType, Count(BloodType)as BloodCount , DocDate, Year(DocDate)as DocYear  ";
+                mysql += "From tblDonor  ";
+                mysql += "Where BloodType = '" + cboBloodType.Text + "' And (DocDate Between '" + dtpFrom.Text + "' And '" + dtpTo.Text + "') ";
+                mysql += "Group By Year(DocDate), BloodType  ";
+                mysql += "Order By DocDate ";
+ 
+            }
             DataSet ds = Database.LoadSQL(mysql, "tblDonor");
 
             var mySeries = new SortedList<string, double>();
@@ -65,28 +99,60 @@ namespace BloodPlus
             foreach (DataRow dr in ds.Tables[0].Rows)
 	            {
                     i +=1;
-                    ListViewItem lv = lvDev.Items.Add(Convert.ToString(dr["DocMonth"]));
-                    lv.SubItems.Add(dr["DocYear"].ToString());
-                    lv.SubItems.Add(dr["BloodCount"].ToString());
-                    if (i >= 3) { lv.SubItems.Add(Convert.ToString(MovingAverage(ds, 3))); }
+                if (rbDaily.Checked ==true)
+                {
+                    lvDev.Columns[0].Width = 69;
+                    lvDev.Columns[1].Width = 84;
+                }
+                else if (rbMonthly.Checked == true )
+                {
+                    lvDev.Columns[0].Width = 0;
+                    lvDev.Columns[1].Width = 84;
+                }
+                else if (rbYearly.Checked ==true) 
+                {
+                  lvDev.Columns[0].Width = 0;
+                  lvDev.Columns[1].Width = 0;
+                }
+                ListViewItem lv = lvDev.Items.Add(Convert.ToString(dr["DocDay"]));
+                lv.SubItems.Add(Convert.ToString(dr["DocMonth"]));
+                lv.SubItems.Add(dr["DocYear"].ToString());
+                lv.SubItems.Add(dr["BloodCount"].ToString());
+                if (i >= 3) { lv.SubItems.Add(Convert.ToString(MovingAverage(ds, 3))); }
                   
 	            }
 
-            mysql = "Select Month(DocDate)as DocNum, case Month(DocDate) ";
-            mysql += "When 1 then 'Jan'  ";
-            mysql += "When 2 then 'Feb'  ";
-            mysql += "When 3 then 'Mar'  ";
-            mysql += "When 4 then 'Apr'  ";
-            mysql += "When 5 then 'May'  ";
-            mysql += "When 6 then 'Jun'  ";
-            mysql += "When 7 then 'Jul'  ";
-            mysql += "When 8 then 'Aug' ";
-            mysql += "When 9 then 'Sep'  ";
-            mysql += "When 10 then 'Oct'  ";
-            mysql += "When 11 then 'Nov'  ";
-            mysql += "When 12 then 'Dec' else 'None' End as DocMonth, BloodType , DocDate, Year(DocDate)as DocYear ";
-            mysql += "From tblDonor Where BloodType = '" + cboBloodType.Text + "' And (DocDate Between '" + dtpFrom.Text + "' And '" + dtpTo.Text + "') ";
-            mysql += "Order By DocDate ";
+            if (rbDaily.Checked == true )
+            {
+                mysql = "Select Day(DocDate)as DocNum, Day(DocDate) as DocMonth, BloodType , DocDate, Year(DocDate)as DocYear ";
+                mysql += "From tblDonor Where BloodType = '" + cboBloodType.Text + "' And (DocDate Between '" + dtpFrom.Text + "' And '" + dtpTo.Text + "') ";
+                mysql += "Order By DocDate ";
+            }
+            else if (rbMonthly.Checked == true)
+            {
+                mysql = "Select Month(DocDate)as DocNum, case Month(DocDate) ";
+                mysql += "When 1 then 'Jan'  ";
+                mysql += "When 2 then 'Feb'  ";
+                mysql += "When 3 then 'Mar'  ";
+                mysql += "When 4 then 'Apr'  ";
+                mysql += "When 5 then 'May'  ";
+                mysql += "When 6 then 'Jun'  ";
+                mysql += "When 7 then 'Jul'  ";
+                mysql += "When 8 then 'Aug' ";
+                mysql += "When 9 then 'Sep'  ";
+                mysql += "When 10 then 'Oct'  ";
+                mysql += "When 11 then 'Nov'  ";
+                mysql += "When 12 then 'Dec' else 'None' End as DocMonth, BloodType , DocDate, Year(DocDate)as DocYear ";
+                mysql += "From tblDonor Where BloodType = '" + cboBloodType.Text + "' And (DocDate Between '" + dtpFrom.Text + "' And '" + dtpTo.Text + "') ";
+                mysql += "Order By DocDate ";
+            }
+            else if (rbYearly.Checked == true)
+            {
+                mysql = "Select Year(DocDate)as DocNum, Year(DocDate) as DocMonth, BloodType , DocDate, Year(DocDate)as DocYear ";
+                mysql += "From tblDonor Where BloodType = '" + cboBloodType.Text + "' And (DocDate Between '" + dtpFrom.Text + "' And '" + dtpTo.Text + "') ";
+                mysql += "Order By DocDate ";
+ 
+            }
             ds = Database.LoadSQL(mysql,"tblDonor");
 
             ReportInit(ds, "dsMonitor", @"Reports\rpt_Graph.rdlc");
@@ -96,54 +162,113 @@ namespace BloodPlus
         {
             dtpFrom.CustomFormat = "yyyy-MM-dd";
             dtpTo.CustomFormat = "yyyy-MM-dd";
-
-            string mysql = "Select Month(DocDate)as DocNum, case Month(DocDate) ";
-            mysql += "When 1 then 'Jan'  ";
-            mysql += "When 2 then 'Feb'  ";
-            mysql += "When 3 then 'Mar'  ";
-            mysql += "When 4 then 'Apr'  ";
-            mysql += "When 5 then 'May'  ";
-            mysql += "When 6 then 'Jun'  ";
-            mysql += "When 7 then 'Jul'  ";
-            mysql += "When 8 then 'Aug' ";
-            mysql += "When 9 then 'Sep'  ";
-            mysql += "When 10 then 'Oct'  ";
-            mysql += "When 11 then 'Nov'  ";
-            mysql += "When 12 then 'Dec' else 'None' End as DocMonth, BloodType, Count(BloodType)as BloodCount , DocDate, Year(DocDate)as DocYear ";
-            mysql += "From tblRecipient Where BloodType = '" + cboBloodType.Text + "' And (DocDate Between '" + dtpFrom.Text + "' And '" + dtpTo.Text + "') ";
-            mysql += "Group By Month(DocDate), BloodType ";
-            mysql += "Order By DocDate ";
+            string mysql = "";
+            if (rbDaily.Checked ==true)
+            {
+                mysql = "Select Day(DocDate)as DocDay, Month(DocDate)as DocNum, Month(DocDate) as DocMonth, BloodType, Count(BloodType)as BloodCount , DocDate, Year(DocDate)as DocYear ";
+                mysql += "From tblRecipient Where BloodType = '" + cboBloodType.Text + "' And (DocDate Between '" + dtpFrom.Text + "' And '" + dtpTo.Text + "') ";
+                mysql += "Group By Day(DocDate), BloodType ";
+                mysql += "Order By DocDate ";
+            }
+            else if (rbMonthly.Checked == true)
+            {
+                mysql = "Select Month(DocDate)as DocDay, Month(DocDate)as DocNum, case Month(DocDate) ";
+                mysql += "When 1 then 'Jan'  ";
+                mysql += "When 2 then 'Feb'  ";
+                mysql += "When 3 then 'Mar'  ";
+                mysql += "When 4 then 'Apr'  ";
+                mysql += "When 5 then 'May'  ";
+                mysql += "When 6 then 'Jun'  ";
+                mysql += "When 7 then 'Jul'  ";
+                mysql += "When 8 then 'Aug' ";
+                mysql += "When 9 then 'Sep'  ";
+                mysql += "When 10 then 'Oct'  ";
+                mysql += "When 11 then 'Nov'  ";
+                mysql += "When 12 then 'Dec' else 'None' End as DocMonth, BloodType, Count(BloodType)as BloodCount , DocDate, Year(DocDate)as DocYear ";
+                mysql += "From tblRecipient Where BloodType = '" + cboBloodType.Text + "' And (DocDate Between '" + dtpFrom.Text + "' And '" + dtpTo.Text + "') ";
+                mysql += "Group By Month(DocDate), BloodType ";
+                mysql += "Order By DocDate ";
+            }
+            else if (rbYearly.Checked == true)
+            {
+                mysql = "Select Year(DocDate)as DocDay, Month(DocDate)as DocNum, Month(DocDate) as DocMonth, BloodType, Count(BloodType)as BloodCount , DocDate, Year(DocDate)as DocYear ";
+                mysql += "From tblRecipient Where BloodType = '" + cboBloodType.Text + "' And (DocDate Between '" + dtpFrom.Text + "' And '" + dtpTo.Text + "') ";
+                mysql += "Group By Year(DocDate), BloodType ";
+                mysql += "Order By DocDate ";
+            }
             DataSet ds = Database.LoadSQL(mysql, "tblRecipient");
 
             var mySeries = new SortedList<string, double>();
             int i = 0;
 
             lvDev.Items.Clear();
+            //foreach (DataRow dr in ds.Tables[0].Rows)
+            //{
+            //    i += 1;
+            //    ListViewItem lv = lvDev.Items.Add(Convert.ToString(dr["DocMonth"]));
+            //    lv.SubItems.Add(dr["DocYear"].ToString());
+            //    lv.SubItems.Add(dr["BloodCount"].ToString());
+            //    if (i >= 3) { lv.SubItems.Add(Convert.ToString(MovingAverage(ds, 3))); }
+
+            //}
+
             foreach (DataRow dr in ds.Tables[0].Rows)
             {
                 i += 1;
-                ListViewItem lv = lvDev.Items.Add(Convert.ToString(dr["DocMonth"]));
+                if (rbDaily.Checked == true)
+                {
+                    lvDev.Columns[0].Width = 69;
+                    lvDev.Columns[1].Width = 84;
+                }
+                else if (rbMonthly.Checked == true)
+                {
+                    lvDev.Columns[0].Width = 0;
+                    lvDev.Columns[1].Width = 84;
+                }
+                else if (rbYearly.Checked == true)
+                {
+                    lvDev.Columns[0].Width = 0;
+                    lvDev.Columns[1].Width = 0;
+                }
+                ListViewItem lv = lvDev.Items.Add(Convert.ToString(dr["DocDay"]));
+                lv.SubItems.Add(Convert.ToString(dr["DocMonth"]));
                 lv.SubItems.Add(dr["DocYear"].ToString());
                 lv.SubItems.Add(dr["BloodCount"].ToString());
                 if (i >= 3) { lv.SubItems.Add(Convert.ToString(MovingAverage(ds, 3))); }
 
             }
 
-            mysql = "Select Month(DocDate)as DocNum, case Month(DocDate) ";
-            mysql += "When 1 then 'Jan'  ";
-            mysql += "When 2 then 'Feb'  ";
-            mysql += "When 3 then 'Mar'  ";
-            mysql += "When 4 then 'Apr'  ";
-            mysql += "When 5 then 'May'  ";
-            mysql += "When 6 then 'Jun'  ";
-            mysql += "When 7 then 'Jul'  ";
-            mysql += "When 8 then 'Aug' ";
-            mysql += "When 9 then 'Sep'  ";
-            mysql += "When 10 then 'Oct'  ";
-            mysql += "When 11 then 'Nov'  ";
-            mysql += "When 12 then 'Dec' else 'None' End as DocMonth, BloodType , DocDate, Year(DocDate)as DocYear ";
-            mysql += "From tblRecipient Where BloodType = '" + cboBloodType.Text + "' And (DocDate Between '" + dtpFrom.Text + "' And '" + dtpTo.Text + "') ";
-            mysql += "Order By DocDate ";
+            if (rbDaily.Checked ==true)
+            {
+                mysql = "Select Day(DocDate)as DocNum, Day(DocDate) as DocMonth, BloodType , DocDate, Year(DocDate)as DocYear ";
+                mysql += "From tblRecipient Where BloodType = '" + cboBloodType.Text + "' And (DocDate Between '" + dtpFrom.Text + "' And '" + dtpTo.Text + "') ";
+                mysql += "Order By DocDate ";
+            }
+            else if (rbMonthly.Checked == true)
+            {
+                mysql = "Select Month(DocDate)as DocNum, case Month(DocDate) ";
+                mysql += "When 1 then 'Jan'  ";
+                mysql += "When 2 then 'Feb'  ";
+                mysql += "When 3 then 'Mar'  ";
+                mysql += "When 4 then 'Apr'  ";
+                mysql += "When 5 then 'May'  ";
+                mysql += "When 6 then 'Jun'  ";
+                mysql += "When 7 then 'Jul'  ";
+                mysql += "When 8 then 'Aug' ";
+                mysql += "When 9 then 'Sep'  ";
+                mysql += "When 10 then 'Oct'  ";
+                mysql += "When 11 then 'Nov'  ";
+                mysql += "When 12 then 'Dec' else 'None' End as DocMonth, BloodType , DocDate, Year(DocDate)as DocYear ";
+                mysql += "From tblRecipient Where BloodType = '" + cboBloodType.Text + "' And (DocDate Between '" + dtpFrom.Text + "' And '" + dtpTo.Text + "') ";
+                mysql += "Order By DocDate ";
+            }
+            else if (rbYearly.Checked == true)
+            {
+                mysql = "Select Year(DocDate)as DocNum, Year(DocDate) as DocMonth, BloodType , DocDate, Year(DocDate)as DocYear ";
+                mysql += "From tblRecipient Where BloodType = '" + cboBloodType.Text + "' And (DocDate Between '" + dtpFrom.Text + "' And '" + dtpTo.Text + "') ";
+                mysql += "Order By DocDate ";
+            }
+
             ds = Database.LoadSQL(mysql, "tblRecipient");
 
             ReportInit(ds, "dsMonitor", @"Reports\rpt_Graph.rdlc");
@@ -170,7 +295,6 @@ namespace BloodPlus
                         else { iRows += 1; }
 
                         return average;
-                    
                 }
             }
 
@@ -238,6 +362,14 @@ namespace BloodPlus
             {
                 MessageBox.Show(ex.Message.ToString());
             }
+        }
+
+        private void AddColumnHeader(string ColumnString)
+        {
+            ColumnHeader NewCh = new ColumnHeader();
+
+            NewCh.Text = ColumnString;
+            lvDev.Columns.Add(NewCh);
         }
 
         private void IniTmpTable()

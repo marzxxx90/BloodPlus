@@ -43,6 +43,10 @@
             this.dtpTo = new System.Windows.Forms.DateTimePicker();
             this.rv_display = new Microsoft.Reporting.WinForms.ReportViewer();
             this.cboTransaction = new System.Windows.Forms.ComboBox();
+            this.rbDaily = new System.Windows.Forms.RadioButton();
+            this.rbMonthly = new System.Windows.Forms.RadioButton();
+            this.rbYearly = new System.Windows.Forms.RadioButton();
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // lvDev
@@ -51,41 +55,42 @@
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
-            this.columnHeader4});
+            this.columnHeader4,
+            this.columnHeader5});
             this.lvDev.FullRowSelect = true;
             this.lvDev.GridLines = true;
-            this.lvDev.Location = new System.Drawing.Point(12, 73);
+            this.lvDev.Location = new System.Drawing.Point(12, 92);
             this.lvDev.Name = "lvDev";
-            this.lvDev.Size = new System.Drawing.Size(400, 393);
+            this.lvDev.Size = new System.Drawing.Size(400, 374);
             this.lvDev.TabIndex = 1;
             this.lvDev.UseCompatibleStateImageBehavior = false;
             this.lvDev.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "Month";
-            this.columnHeader1.Width = 87;
+            this.columnHeader1.Text = "Day";
+            this.columnHeader1.Width = 69;
             // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "Year";
+            this.columnHeader2.Text = "Month";
             this.columnHeader2.Width = 84;
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "Blood Count";
+            this.columnHeader3.Text = "Year";
             this.columnHeader3.Width = 81;
             // 
             // columnHeader4
             // 
-            this.columnHeader4.Text = "Moving Ave";
-            this.columnHeader4.Width = 134;
+            this.columnHeader4.Text = "Blood Count";
+            this.columnHeader4.Width = 77;
             // 
             // btnGenerate
             // 
-            this.btnGenerate.Location = new System.Drawing.Point(311, 12);
+            this.btnGenerate.Location = new System.Drawing.Point(295, 14);
             this.btnGenerate.Name = "btnGenerate";
-            this.btnGenerate.Size = new System.Drawing.Size(101, 55);
+            this.btnGenerate.Size = new System.Drawing.Size(117, 72);
             this.btnGenerate.TabIndex = 2;
             this.btnGenerate.Text = "&Generate";
             this.btnGenerate.UseVisualStyleBackColor = true;
@@ -169,6 +174,49 @@
             this.cboTransaction.Size = new System.Drawing.Size(107, 21);
             this.cboTransaction.TabIndex = 12;
             // 
+            // rbDaily
+            // 
+            this.rbDaily.AutoSize = true;
+            this.rbDaily.BackColor = System.Drawing.Color.Transparent;
+            this.rbDaily.Checked = true;
+            this.rbDaily.ForeColor = System.Drawing.Color.OrangeRed;
+            this.rbDaily.Location = new System.Drawing.Point(13, 69);
+            this.rbDaily.Name = "rbDaily";
+            this.rbDaily.Size = new System.Drawing.Size(48, 17);
+            this.rbDaily.TabIndex = 13;
+            this.rbDaily.TabStop = true;
+            this.rbDaily.Text = "Daily";
+            this.rbDaily.UseVisualStyleBackColor = false;
+            // 
+            // rbMonthly
+            // 
+            this.rbMonthly.AutoSize = true;
+            this.rbMonthly.BackColor = System.Drawing.Color.Transparent;
+            this.rbMonthly.ForeColor = System.Drawing.Color.OrangeRed;
+            this.rbMonthly.Location = new System.Drawing.Point(114, 69);
+            this.rbMonthly.Name = "rbMonthly";
+            this.rbMonthly.Size = new System.Drawing.Size(62, 17);
+            this.rbMonthly.TabIndex = 14;
+            this.rbMonthly.Text = "Monthly";
+            this.rbMonthly.UseVisualStyleBackColor = false;
+            // 
+            // rbYearly
+            // 
+            this.rbYearly.AutoSize = true;
+            this.rbYearly.BackColor = System.Drawing.Color.Transparent;
+            this.rbYearly.ForeColor = System.Drawing.Color.OrangeRed;
+            this.rbYearly.Location = new System.Drawing.Point(235, 69);
+            this.rbYearly.Name = "rbYearly";
+            this.rbYearly.Size = new System.Drawing.Size(54, 17);
+            this.rbYearly.TabIndex = 15;
+            this.rbYearly.Text = "Yearly";
+            this.rbYearly.UseVisualStyleBackColor = false;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Moving Ave";
+            this.columnHeader5.Width = 82;
+            // 
             // frmMovingAve
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -176,6 +224,9 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1084, 478);
+            this.Controls.Add(this.rbYearly);
+            this.Controls.Add(this.rbMonthly);
+            this.Controls.Add(this.rbDaily);
             this.Controls.Add(this.cboTransaction);
             this.Controls.Add(this.rv_display);
             this.Controls.Add(this.dtpTo);
@@ -210,5 +261,9 @@
         private System.Windows.Forms.DateTimePicker dtpTo;
         private Microsoft.Reporting.WinForms.ReportViewer rv_display;
         private System.Windows.Forms.ComboBox cboTransaction;
+        private System.Windows.Forms.RadioButton rbDaily;
+        private System.Windows.Forms.RadioButton rbMonthly;
+        private System.Windows.Forms.RadioButton rbYearly;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
     }
 }
