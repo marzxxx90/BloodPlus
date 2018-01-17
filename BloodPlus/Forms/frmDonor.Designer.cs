@@ -106,6 +106,7 @@
             // 
             this.txtContact.Location = new System.Drawing.Point(132, 331);
             this.txtContact.MaxLength = 11;
+
             this.txtContact.Name = "txtContact";
             this.txtContact.ReadOnly = true;
             this.txtContact.Size = new System.Drawing.Size(262, 26);
