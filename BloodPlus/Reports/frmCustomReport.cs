@@ -114,7 +114,7 @@ namespace BloodPlus
             string mysql = "";
             if (rbMonthly.Checked == true)
             {
-                mysql = "Select tbl.BloodType, Sum(tbl.BloodCount) as BloodCount, ";
+                mysql = "Select tbl.BloodType, Sum(tbl.BloodCount) as BloodCount, Sum(tbl.D1)as DonorCount, Sum(tbl.R1)as RecipCount,  ";
                 mysql += "Case Month(tbl.DocDate) ";
                 mysql += "When 1 then 'Jan' ";
                 mysql += "When 2 then 'Feb' ";
@@ -129,11 +129,13 @@ namespace BloodPlus
                 mysql += "When 11 then 'Nov' ";
                 mysql += "When 12 then 'Dec' else 'None' End as DocDate, Year(tbl.DocDate) as DocYear ";
                 mysql += "From ( ";
-                mysql += "Select D.BloodType ,Count(D.BloodType) as BloodCount, D.DocDate From tblDonor D ";
+                mysql += "Select D.BloodType ,Count(D.BloodType) as BloodCount, D.DocDate, Count(D.BloodType) as D1, '0' as R1  "; 
+                mysql += "From tblDonor D ";
                 mysql += "Where D.DocDate Between '" + st.ToString("yyyy-MM-dd") + "' And '" + en.ToString("yyyy-MM-dd") + "' ";
                 mysql += "Group By D.BloodType, D.DocDate ";
                 mysql += "Union ";
-                mysql += "Select R.BloodType, (Count(R.BloodType) * -1) as BloodCount, R.DocDate From tblRecipient R ";
+                mysql += "Select R.BloodType, (Count(R.BloodType) * -1) as BloodCount, R.DocDate, '0' as D1, Count(R.BloodType)as R1 "; 
+                mysql += "From tblRecipient R ";
                 mysql += "Where R.DocDate Between '" + st.ToString("yyyy-MM-dd") + "' And '" + en.ToString("yyyy-MM-dd") + "' ";
                 mysql += "Group By R.BloodType, R.DocDate ";
                 mysql += ")as tbl ";
@@ -143,29 +145,45 @@ namespace BloodPlus
             }
             else
             {
-                mysql = "Select tbl.BloodType, Sum(tbl.BloodCount) as BloodCount, ";
-                mysql += "tbl.DocDate, Year(tbl.DocDate) as DocYear ";
+                mysql = "Select tbl.BloodType, Sum(tbl.BloodCount) as BloodCount, Sum(tbl.D1)as DonorCount, Sum(tbl.R1)as RecipCount, ";
+                mysql += "Case Month(tbl.DocDate) ";
+                mysql += "When 1 then 'Jan' ";
+                mysql += "When 2 then 'Feb' ";
+                mysql += "When 3 then 'Mar' ";
+                mysql += "When 4 then 'Apr' ";
+                mysql += "When 5 then 'May' ";
+                mysql += "When 6 then 'Jun' ";
+                mysql += "When 7 then 'Jul' ";
+                mysql += "When 8 then 'Aug' ";
+                mysql += "When 9 then 'Sep' ";
+                mysql += "When 10 then 'Oct' ";
+                mysql += "When 11 then 'Nov' ";
+                mysql += "When 12 then 'Dec' else 'None' End as DocDate, Year(tbl.DocDate) as DocYear ";
                 mysql += "From ( ";
-                mysql += "Select D.BloodType ,Count(D.BloodType) as BloodCount, D.DocDate From tblDonor D ";
+                mysql += "Select D.BloodType ,Count(D.BloodType) as BloodCount, D.DocDate, Count(D.BloodType) as D1, 0 as R1 "; 
+                mysql += "From tblDonor D ";
                 mysql += "Where D.DocDate Between '" + st.ToString("yyyy-MM-dd") + "' And '" + en.ToString("yyyy-MM-dd") + "' ";
                 mysql += "Group By D.BloodType, D.DocDate ";
                 mysql += "Union ";
-                mysql += "Select R.BloodType, (Count(R.BloodType) * -1) as BloodCount, R.DocDate From tblRecipient R ";
+                mysql += "Select R.BloodType, (Count(R.BloodType) * -1) as BloodCount, R.DocDate , 0 as D1, Count(R.BloodType)as R1 "; 
+                mysql += "From tblRecipient R ";
                 mysql += "Where R.DocDate Between '" + st.ToString("yyyy-MM-dd") + "' And '" + en.ToString("yyyy-MM-dd") + "' ";
                 mysql += "Group By R.BloodType, R.DocDate ";
                 mysql += ")as tbl ";
-                mysql += "Left Join tblStock S On S.BloodType = tbl.BloodType ";
-                mysql += "Group By tbl.BloodType, tbl.DocDate ";
-                mysql += "Order By Month(tbl.DocDate), Year(tbl.DocDate)";
+                mysql += "Group By tbl.BloodType, Year(tbl.DocDate) ";
+                mysql += "Order By Year(tbl.DocDate)";
             }
+
+          
             Dictionary<string, string> rptPara = new Dictionary<string, string>();
             rptPara.Add("txtDate", "Date: " + st.ToString("yyyy-MM-dd") + " to " + en.ToString("yyyy-MM-dd"));
 
             frmReport frm = new frmReport();
             if (rbMonthly.Checked == true)
             {
-            frm.ReportInit(mysql, "dsStock", @"Reports\rpt_BloodInventory.rdlc", rptPara);
-            }else
+                frm.ReportInit(mysql, "dsStock", @"Reports\rpt_BloodInventory.rdlc", rptPara);
+            }
+            else
             {
                 frm.ReportInit(mysql, "dsStock", @"Reports\rpt_BloodInventoryYear.rdlc", rptPara);
             }

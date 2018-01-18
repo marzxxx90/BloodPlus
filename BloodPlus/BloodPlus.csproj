@@ -61,6 +61,7 @@
     <Compile Include="Class\BloodRecipient.cs" />
     <Compile Include="Class\ComputerUser.cs" />
     <Compile Include="Class\PersonInfo.cs" />
+    <Compile Include="Class\Reporting.cs" />
     <Compile Include="Forms\devMonitor.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -590,5 +590,20 @@ namespace BloodPlus
             { return false; }
         }
 
+        private void bloodInventoryReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["frmCustomReport"] != null)
+            {
+                (Application.OpenForms["frmCustomReport"] as frmCustomReport).FormType = frmCustomReport.BloodReport.Inventory ;
+                (Application.OpenForms["frmCustomReport"] as frmCustomReport).Show();
+            }
+            else
+            {
+                frmCustomReport frm = new frmCustomReport();
+                frm.FormType = frmCustomReport.BloodReport.Inventory;
+                frm.Show();
+            }
+        }
+
     }
 }
