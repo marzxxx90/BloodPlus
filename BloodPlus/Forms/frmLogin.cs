@@ -56,7 +56,16 @@ namespace BloodPlus
             if (Application.OpenForms["frmMain"] != null)
             {
                 (Application.OpenForms["frmMain"] as frmMain).NotYetLogin(true);
+                (Application.OpenForms["frmMain"] as frmMain).Show();
             }
+            else 
+            {
+                frmMain frm = new frmMain();
+                frm.NotYetLogin(true);
+                frm.Show();
+            }
+
+           
 
             txtPassword.Clear();
             txtUserName.Clear();
