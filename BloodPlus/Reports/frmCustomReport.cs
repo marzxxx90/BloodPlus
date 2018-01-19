@@ -139,7 +139,6 @@ namespace BloodPlus
                 mysql += "Where R.DocDate Between '" + st.ToString("yyyy-MM-dd") + "' And '" + en.ToString("yyyy-MM-dd") + "' ";
                 mysql += "Group By R.BloodType, R.DocDate ";
                 mysql += ")as tbl ";
-                mysql += "Left Join tblStock S On S.BloodType = tbl.BloodType ";
                 mysql += "Group By tbl.BloodType, tbl.DocDate ";
                 mysql += "Order By Month(tbl.DocDate), Year(tbl.DocDate)";
             }
