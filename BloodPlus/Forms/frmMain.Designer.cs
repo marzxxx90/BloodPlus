@@ -64,6 +64,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pButtons = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnHide = new System.Windows.Forms.Button();
             this.msMenu.SuspendLayout();
             this.pButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -235,7 +236,7 @@
             // 
             this.btnTypeA.BackColor = System.Drawing.SystemColors.Control;
             this.btnTypeA.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTypeA.Location = new System.Drawing.Point(10, 16);
+            this.btnTypeA.Location = new System.Drawing.Point(3, 3);
             this.btnTypeA.Name = "btnTypeA";
             this.btnTypeA.Size = new System.Drawing.Size(160, 105);
             this.btnTypeA.TabIndex = 1;
@@ -245,7 +246,7 @@
             // btnTypeB
             // 
             this.btnTypeB.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTypeB.Location = new System.Drawing.Point(213, 16);
+            this.btnTypeB.Location = new System.Drawing.Point(192, 3);
             this.btnTypeB.Name = "btnTypeB";
             this.btnTypeB.Size = new System.Drawing.Size(160, 105);
             this.btnTypeB.TabIndex = 2;
@@ -255,7 +256,7 @@
             // btnTypeAB
             // 
             this.btnTypeAB.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTypeAB.Location = new System.Drawing.Point(419, 16);
+            this.btnTypeAB.Location = new System.Drawing.Point(381, 3);
             this.btnTypeAB.Name = "btnTypeAB";
             this.btnTypeAB.Size = new System.Drawing.Size(160, 105);
             this.btnTypeAB.TabIndex = 3;
@@ -265,7 +266,7 @@
             // btnTypeO
             // 
             this.btnTypeO.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTypeO.Location = new System.Drawing.Point(630, 16);
+            this.btnTypeO.Location = new System.Drawing.Point(570, 3);
             this.btnTypeO.Name = "btnTypeO";
             this.btnTypeO.Size = new System.Drawing.Size(160, 105);
             this.btnTypeO.TabIndex = 4;
@@ -286,7 +287,7 @@
             // 
             this.btnTypeANeg.BackColor = System.Drawing.SystemColors.Control;
             this.btnTypeANeg.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTypeANeg.Location = new System.Drawing.Point(10, 152);
+            this.btnTypeANeg.Location = new System.Drawing.Point(3, 139);
             this.btnTypeANeg.Name = "btnTypeANeg";
             this.btnTypeANeg.Size = new System.Drawing.Size(160, 105);
             this.btnTypeANeg.TabIndex = 8;
@@ -296,7 +297,7 @@
             // btnTypeBNeg
             // 
             this.btnTypeBNeg.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTypeBNeg.Location = new System.Drawing.Point(213, 152);
+            this.btnTypeBNeg.Location = new System.Drawing.Point(192, 139);
             this.btnTypeBNeg.Name = "btnTypeBNeg";
             this.btnTypeBNeg.Size = new System.Drawing.Size(160, 105);
             this.btnTypeBNeg.TabIndex = 9;
@@ -306,7 +307,7 @@
             // btnTypeABNeg
             // 
             this.btnTypeABNeg.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTypeABNeg.Location = new System.Drawing.Point(419, 152);
+            this.btnTypeABNeg.Location = new System.Drawing.Point(381, 139);
             this.btnTypeABNeg.Name = "btnTypeABNeg";
             this.btnTypeABNeg.Size = new System.Drawing.Size(160, 105);
             this.btnTypeABNeg.TabIndex = 10;
@@ -316,7 +317,7 @@
             // btnTypeONeg
             // 
             this.btnTypeONeg.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTypeONeg.Location = new System.Drawing.Point(630, 152);
+            this.btnTypeONeg.Location = new System.Drawing.Point(570, 139);
             this.btnTypeONeg.Name = "btnTypeONeg";
             this.btnTypeONeg.Size = new System.Drawing.Size(160, 105);
             this.btnTypeONeg.TabIndex = 11;
@@ -350,6 +351,7 @@
             // pButtons
             // 
             this.pButtons.BackColor = System.Drawing.Color.Transparent;
+            this.pButtons.Controls.Add(this.btnHide);
             this.pButtons.Controls.Add(this.btnTypeA);
             this.pButtons.Controls.Add(this.btnTypeB);
             this.pButtons.Controls.Add(this.btnTypeAB);
@@ -358,9 +360,9 @@
             this.pButtons.Controls.Add(this.btnTypeABNeg);
             this.pButtons.Controls.Add(this.btnTypeANeg);
             this.pButtons.Controls.Add(this.btnTypeBNeg);
-            this.pButtons.Location = new System.Drawing.Point(277, 381);
+            this.pButtons.Location = new System.Drawing.Point(-750, 406);
             this.pButtons.Name = "pButtons";
-            this.pButtons.Size = new System.Drawing.Size(804, 279);
+            this.pButtons.Size = new System.Drawing.Size(796, 258);
             this.pButtons.TabIndex = 14;
             // 
             // pictureBox1
@@ -372,6 +374,17 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
+            // 
+            // btnHide
+            // 
+            this.btnHide.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHide.Location = new System.Drawing.Point(753, 3);
+            this.btnHide.Name = "btnHide";
+            this.btnHide.Size = new System.Drawing.Size(33, 31);
+            this.btnHide.TabIndex = 12;
+            this.btnHide.Text = "=";
+            this.btnHide.UseVisualStyleBackColor = true;
+            this.btnHide.Click += new System.EventHandler(this.btnHide_Click);
             // 
             // frmMain
             // 
@@ -435,5 +448,6 @@
         private System.Windows.Forms.ToolStripMenuItem bloodInventoryReportToolStripMenuItem;
         private System.Windows.Forms.Panel pButtons;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnHide;
     }
 }

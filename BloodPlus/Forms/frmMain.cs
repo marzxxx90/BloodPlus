@@ -13,6 +13,7 @@ namespace BloodPlus
     public partial class frmMain : Form
     {
         int iTick = 0;
+        bool isHide = false;
         public frmMain()
         {
             InitializeComponent();
@@ -602,6 +603,20 @@ namespace BloodPlus
                 frmCustomReport frm = new frmCustomReport();
                 frm.FormType = frmCustomReport.BloodReport.Inventory;
                 frm.Show();
+            }
+        }
+
+        private void btnHide_Click(object sender, EventArgs e)
+        {
+            if (isHide == true)
+            {
+                pButtons.Location = new Point(-750, 406);
+                isHide = false;
+            }
+            else
+            {
+                pButtons.Location = new Point(250, 406);
+                isHide = true;
             }
         }
 
