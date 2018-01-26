@@ -28,8 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRecipient));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtAddress = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtContact = new System.Windows.Forms.TextBox();
             this.cboBloodType = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtAge = new System.Windows.Forms.TextBox();
@@ -42,10 +45,6 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.lblDate = new System.Windows.Forms.Label();
-            this.txtContact = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtAddress = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,6 +73,47 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
+            // txtAddress
+            // 
+            this.txtAddress.Location = new System.Drawing.Point(14, 266);
+            this.txtAddress.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtAddress.Multiline = true;
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.ReadOnly = true;
+            this.txtAddress.Size = new System.Drawing.Size(352, 102);
+            this.txtAddress.TabIndex = 13;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label6.Location = new System.Drawing.Point(10, 241);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(68, 20);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Address";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label5.Location = new System.Drawing.Point(9, 200);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(93, 20);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Contact No.";
+            // 
+            // txtContact
+            // 
+            this.txtContact.Location = new System.Drawing.Point(110, 197);
+            this.txtContact.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtContact.Name = "txtContact";
+            this.txtContact.ReadOnly = true;
+            this.txtContact.Size = new System.Drawing.Size(256, 26);
+            this.txtContact.TabIndex = 10;
+            // 
             // cboBloodType
             // 
             this.cboBloodType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -86,7 +126,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.OrangeRed;
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label4.Location = new System.Drawing.Point(8, 379);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
@@ -106,7 +146,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.OrangeRed;
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label3.Location = new System.Drawing.Point(8, 158);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
@@ -126,7 +166,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.OrangeRed;
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label2.Location = new System.Drawing.Point(9, 116);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
@@ -157,7 +197,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.OrangeRed;
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label1.Location = new System.Drawing.Point(9, 77);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
@@ -188,7 +228,7 @@
             // 
             this.lblDate.AutoSize = true;
             this.lblDate.BackColor = System.Drawing.Color.Transparent;
-            this.lblDate.ForeColor = System.Drawing.Color.OrangeRed;
+            this.lblDate.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblDate.Location = new System.Drawing.Point(9, 9);
             this.lblDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDate.Name = "lblDate";
@@ -196,52 +236,10 @@
             this.lblDate.TabIndex = 10;
             this.lblDate.Text = "Date";
             // 
-            // txtContact
-            // 
-            this.txtContact.Location = new System.Drawing.Point(110, 197);
-            this.txtContact.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtContact.Name = "txtContact";
-            this.txtContact.ReadOnly = true;
-            this.txtContact.Size = new System.Drawing.Size(256, 26);
-            this.txtContact.TabIndex = 10;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.Color.OrangeRed;
-            this.label5.Location = new System.Drawing.Point(9, 200);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(93, 20);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Contact No.";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.Color.OrangeRed;
-            this.label6.Location = new System.Drawing.Point(10, 241);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(68, 20);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Address";
-            // 
-            // txtAddress
-            // 
-            this.txtAddress.Location = new System.Drawing.Point(14, 266);
-            this.txtAddress.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtAddress.Multiline = true;
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.ReadOnly = true;
-            this.txtAddress.Size = new System.Drawing.Size(352, 102);
-            this.txtAddress.TabIndex = 13;
-            // 
             // frmRecipient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(406, 515);
             this.Controls.Add(this.lblDate);

@@ -304,76 +304,76 @@ namespace BloodPlus
             
         }
 
-        private void BloodNotify()
-        {
-            string mysql = "Select * From tblStock";
-            DataSet ds = Database.LoadSQL(mysql, "tblStock");
-            Maintenance GetOption = new Maintenance();
-            foreach (DataRow dr in ds.Tables[0].Rows)
-            {
-                switch (dr["bloodType"].ToString())
-                {
-                    case "A":
-                        if (Convert.ToInt16(dr["Inv"].ToString()) < Convert.ToInt16(GetOption.GetSettingsVal("ParLevel")))
-                        {
-                            AddNotify("Please be inform Blood Type A only have " + dr["Inv"].ToString() + " remaining", "A");
-                        }
-                        break;
+        //private void BloodNotify()
+        //{
+        //    string mysql = "Select * From tblStock";
+        //    DataSet ds = Database.LoadSQL(mysql, "tblStock");
+        //    Maintenance GetOption = new Maintenance();
+        //    foreach (DataRow dr in ds.Tables[0].Rows)
+        //    {
+        //        switch (dr["bloodType"].ToString())
+        //        {
+        //            case "A":
+        //                if (Convert.ToInt16(dr["Inv"].ToString()) < Convert.ToInt16(GetOption.GetSettingsVal("ParLevel")))
+        //                {
+        //                    AddNotify("Please be inform Blood Type A only have " + dr["Inv"].ToString() + " remaining", "A");
+        //                }
+        //                break;
 
-                    case "B":
-                        if (Convert.ToInt16(dr["Inv"].ToString()) < Convert.ToInt16(GetOption.GetSettingsVal("ParLevel")))
-                        {
-                            AddNotify("Please be inform Blood Type B only have " + dr["Inv"].ToString() + " remaining", "B");
-                        }
-                        break;
+        //            case "B":
+        //                if (Convert.ToInt16(dr["Inv"].ToString()) < Convert.ToInt16(GetOption.GetSettingsVal("ParLevel")))
+        //                {
+        //                    AddNotify("Please be inform Blood Type B only have " + dr["Inv"].ToString() + " remaining", "B");
+        //                }
+        //                break;
 
-                    case "AB":
-                        if (Convert.ToInt16(dr["Inv"].ToString()) < Convert.ToInt16(GetOption.GetSettingsVal("ParLevel")))
-                        {
-                            AddNotify("Please be inform Blood Type AB only have " + dr["Inv"].ToString() + " remaining", "AB");
-                        }
-                        break;
+        //            case "AB":
+        //                if (Convert.ToInt16(dr["Inv"].ToString()) < Convert.ToInt16(GetOption.GetSettingsVal("ParLevel")))
+        //                {
+        //                    AddNotify("Please be inform Blood Type AB only have " + dr["Inv"].ToString() + " remaining", "AB");
+        //                }
+        //                break;
 
-                    case "O":
-                        if (Convert.ToInt16(dr["Inv"].ToString()) < Convert.ToInt16(GetOption.GetSettingsVal("ParLevel")))
-                        {
-                            AddNotify("Please be inform Blood Type O only have " + dr["Inv"].ToString() + " remaining", "O");
-                        }
-                        break;
-                    case "A-":
-                        if (Convert.ToInt16(dr["Inv"].ToString()) < Convert.ToInt16(GetOption.GetSettingsVal("ParLevel")))
-                        {
-                            AddNotify("Please be inform Blood Type A- only have " + dr["Inv"].ToString() + " remaining", "A-");
-                        }
-                        break;
-                    case "B-":
-                        if (Convert.ToInt16(dr["Inv"].ToString()) < Convert.ToInt16(GetOption.GetSettingsVal("ParLevel")))
-                        {
-                            AddNotify("Please be inform Blood Type B- only have " + dr["Inv"].ToString() + " remaining", "B-");
-                        }
-                        break;
-                    case "AB-":
-                        if (Convert.ToInt16(dr["Inv"].ToString()) < Convert.ToInt16(GetOption.GetSettingsVal("ParLevel")))
-                        {
-                            AddNotify("Please be inform Blood Type AB- only have " + dr["Inv"].ToString() + " remaining", "AB-");
-                        }
-                        break;
-                    case "O-":
-                        if (Convert.ToInt16(dr["Inv"].ToString()) < Convert.ToInt16(GetOption.GetSettingsVal("ParLevel")))
-                        {
-                            AddNotify("Please be inform Blood Type O- only have " + dr["Inv"].ToString() + " remaining", "O-");
-                        }
-                        break;
-                }
-            }
+        //            case "O":
+        //                if (Convert.ToInt16(dr["Inv"].ToString()) < Convert.ToInt16(GetOption.GetSettingsVal("ParLevel")))
+        //                {
+        //                    AddNotify("Please be inform Blood Type O only have " + dr["Inv"].ToString() + " remaining", "O");
+        //                }
+        //                break;
+        //            case "A-":
+        //                if (Convert.ToInt16(dr["Inv"].ToString()) < Convert.ToInt16(GetOption.GetSettingsVal("ParLevel")))
+        //                {
+        //                    AddNotify("Please be inform Blood Type A- only have " + dr["Inv"].ToString() + " remaining", "A-");
+        //                }
+        //                break;
+        //            case "B-":
+        //                if (Convert.ToInt16(dr["Inv"].ToString()) < Convert.ToInt16(GetOption.GetSettingsVal("ParLevel")))
+        //                {
+        //                    AddNotify("Please be inform Blood Type B- only have " + dr["Inv"].ToString() + " remaining", "B-");
+        //                }
+        //                break;
+        //            case "AB-":
+        //                if (Convert.ToInt16(dr["Inv"].ToString()) < Convert.ToInt16(GetOption.GetSettingsVal("ParLevel")))
+        //                {
+        //                    AddNotify("Please be inform Blood Type AB- only have " + dr["Inv"].ToString() + " remaining", "AB-");
+        //                }
+        //                break;
+        //            case "O-":
+        //                if (Convert.ToInt16(dr["Inv"].ToString()) < Convert.ToInt16(GetOption.GetSettingsVal("ParLevel")))
+        //                {
+        //                    AddNotify("Please be inform Blood Type O- only have " + dr["Inv"].ToString() + " remaining", "O-");
+        //                }
+        //                break;
+        //        }
+        //    }
  
-        }
+        //}
 
         private void tBloodStatus_Tick(object sender, EventArgs e)
         {
             BloodStatus();
             iTick += 1;
-            if (iTick == 1) { BloodNotify(); }
+           // if (iTick == 1) { BloodNotify(); }
 
         }
 
@@ -391,55 +391,55 @@ namespace BloodPlus
             }
         }
 
-        private void AddNotify(string strNote, string type)
-        {
-            bool isExist = false;
-            if (lvNotify.Items.Count == 0)
-            {
-                ListViewItem lv = lvNotify.Items.Add(strNote);
-                lv.Tag = type;
+        //private void AddNotify(string strNote, string type)
+        //{
+        //    bool isExist = false;
+        //    if (lvNotify.Items.Count == 0)
+        //    {
+        //        ListViewItem lv = lvNotify.Items.Add(strNote);
+        //        lv.Tag = type;
          
-            }
-            else 
-            {
-                foreach (ListViewItem lvitm in lvNotify.Items)
-                {
-                    if (lvitm.Tag == type)
-                    {
-                        isExist = true ;
-                    }
+        //    }
+        //    else 
+        //    {
+        //        foreach (ListViewItem lvitm in lvNotify.Items)
+        //        {
+        //            if (lvitm.Tag == type)
+        //            {
+        //                isExist = true ;
+        //            }
 
-                }
+        //        }
 
-                if (isExist == false)
-                {
-                    ListViewItem lv = lvNotify.Items.Add(strNote);
-                    lv.Tag = type;
-                }
-            }
+        //        if (isExist == false)
+        //        {
+        //            ListViewItem lv = lvNotify.Items.Add(strNote);
+        //            lv.Tag = type;
+        //        }
+        //    }
             
            
-        }
+        //}
 
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            foreach (ListViewItem lv in lvNotify.CheckedItems)
-            {
-                lvNotify.Items.Remove(lv);
-            }
-        }
+        //private void btnClear_Click(object sender, EventArgs e)
+        //{
+        //    foreach (ListViewItem lv in lvNotify.CheckedItems)
+        //    {
+        //        lvNotify.Items.Remove(lv);
+        //    }
+        //}
 
-        private void chkAll_CheckedChanged(object sender, EventArgs e)
-        {
-            foreach (ListViewItem lv in lvNotify.Items)
-            {
-                lv.Checked = chkAll.Checked;
-            }
-        }
+        //private void chkAll_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    foreach (ListViewItem lv in lvNotify.Items)
+        //    {
+        //        lv.Checked = chkAll.Checked;
+        //    }
+        //}
 
         private void tNotify_Tick(object sender, EventArgs e)
         {
-            BloodNotify();
+           // BloodNotify();
         }
 
         private void bloodDonationReportToolStripMenuItem1_Click(object sender, EventArgs e)

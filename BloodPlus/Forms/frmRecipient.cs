@@ -70,6 +70,14 @@ namespace BloodPlus
             rec.DeductInv(cboBloodType.Text);
 
             MessageBox.Show("Successfully Save!","Information");
+
+            Maintenance GetOption = new Maintenance();
+
+            if (rec.GetBloodInv(rec.BloodType ) < Convert.ToInt16(GetOption.GetSettingsVal("ParLevel"))) 
+            {
+                MessageBox.Show("Please be inform Blood Type " + rec.BloodType + " only " + rec.GetBloodInv(rec.BloodType ) + " remaining", "Warning . . .",MessageBoxButtons.OK,  MessageBoxIcon.Exclamation);
+            }
+
             this.Close();
         }
 

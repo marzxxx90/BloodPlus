@@ -115,6 +115,15 @@ namespace BloodPlus
             ds.Tables[0].Rows[0]["Inv"] = oldVal;
             Database.SaveEntry(ds, false);
         }
+
+        internal int GetBloodInv(string type)
+        {
+            string mysql = "Select * From tblStock Where BloodType = '" + type + "'";
+            DataSet ds = Database.LoadSQL(mysql, "tblStock");
+
+            return Convert.ToInt32(ds.Tables[0].Rows[0]["Inv"].ToString()) ;
+        }
+
         #endregion
     }
 }

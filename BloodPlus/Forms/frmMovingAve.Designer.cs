@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMovingAve));
             this.lvDev = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnGenerate = new System.Windows.Forms.Button();
             this.cboBloodType = new System.Windows.Forms.ComboBox();
             this.dtpFrom = new System.Windows.Forms.DateTimePicker();
@@ -46,7 +46,6 @@
             this.rbDaily = new System.Windows.Forms.RadioButton();
             this.rbMonthly = new System.Windows.Forms.RadioButton();
             this.rbYearly = new System.Windows.Forms.RadioButton();
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // lvDev
@@ -86,6 +85,11 @@
             this.columnHeader4.Text = "Blood Count";
             this.columnHeader4.Width = 77;
             // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Moving Ave";
+            this.columnHeader5.Width = 82;
+            // 
             // btnGenerate
             // 
             this.btnGenerate.Location = new System.Drawing.Point(295, 14);
@@ -118,7 +122,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.ForeColor = System.Drawing.Color.OrangeRed;
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label1.Location = new System.Drawing.Point(10, 49);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(30, 13);
@@ -129,7 +133,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.ForeColor = System.Drawing.Color.OrangeRed;
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label2.Location = new System.Drawing.Point(9, 14);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 13);
@@ -179,7 +183,7 @@
             this.rbDaily.AutoSize = true;
             this.rbDaily.BackColor = System.Drawing.Color.Transparent;
             this.rbDaily.Checked = true;
-            this.rbDaily.ForeColor = System.Drawing.Color.OrangeRed;
+            this.rbDaily.ForeColor = System.Drawing.SystemColors.ControlText;
             this.rbDaily.Location = new System.Drawing.Point(13, 69);
             this.rbDaily.Name = "rbDaily";
             this.rbDaily.Size = new System.Drawing.Size(48, 17);
@@ -192,7 +196,7 @@
             // 
             this.rbMonthly.AutoSize = true;
             this.rbMonthly.BackColor = System.Drawing.Color.Transparent;
-            this.rbMonthly.ForeColor = System.Drawing.Color.OrangeRed;
+            this.rbMonthly.ForeColor = System.Drawing.SystemColors.ControlText;
             this.rbMonthly.Location = new System.Drawing.Point(114, 69);
             this.rbMonthly.Name = "rbMonthly";
             this.rbMonthly.Size = new System.Drawing.Size(62, 17);
@@ -204,7 +208,7 @@
             // 
             this.rbYearly.AutoSize = true;
             this.rbYearly.BackColor = System.Drawing.Color.Transparent;
-            this.rbYearly.ForeColor = System.Drawing.Color.OrangeRed;
+            this.rbYearly.ForeColor = System.Drawing.SystemColors.ControlText;
             this.rbYearly.Location = new System.Drawing.Point(235, 69);
             this.rbYearly.Name = "rbYearly";
             this.rbYearly.Size = new System.Drawing.Size(54, 17);
@@ -212,16 +216,10 @@
             this.rbYearly.Text = "Yearly";
             this.rbYearly.UseVisualStyleBackColor = false;
             // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Moving Ave";
-            this.columnHeader5.Width = 82;
-            // 
             // frmMovingAve
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1084, 478);
             this.Controls.Add(this.rbYearly);
