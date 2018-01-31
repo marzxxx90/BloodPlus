@@ -63,8 +63,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pButtons = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnHide = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.msMenu.SuspendLayout();
             this.pButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -328,11 +329,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Modern No. 20", 39.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.OrangeRed;
-            this.label1.Location = new System.Drawing.Point(533, 194);
+            this.label1.Location = new System.Drawing.Point(564, 194);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(371, 73);
+            this.label1.Size = new System.Drawing.Size(294, 54);
             this.label1.TabIndex = 12;
             this.label1.Text = "Blood Bank";
             // 
@@ -340,17 +341,18 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Modern No. 20", 39.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.OrangeRed;
-            this.label2.Location = new System.Drawing.Point(380, 258);
+            this.label2.Location = new System.Drawing.Point(468, 248);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(656, 73);
+            this.label2.Size = new System.Drawing.Size(472, 54);
             this.label2.TabIndex = 13;
             this.label2.Text = "Management System";
             // 
             // pButtons
             // 
             this.pButtons.BackColor = System.Drawing.Color.Transparent;
+            this.pButtons.Controls.Add(this.btnRefresh);
             this.pButtons.Controls.Add(this.btnHide);
             this.pButtons.Controls.Add(this.btnTypeA);
             this.pButtons.Controls.Add(this.btnTypeB);
@@ -365,16 +367,6 @@
             this.pButtons.Size = new System.Drawing.Size(796, 258);
             this.pButtons.TabIndex = 14;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(621, 48);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(174, 143);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 15;
-            this.pictureBox1.TabStop = false;
-            // 
             // btnHide
             // 
             this.btnHide.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -385,6 +377,25 @@
             this.btnHide.Text = "=";
             this.btnHide.UseVisualStyleBackColor = true;
             this.btnHide.Click += new System.EventHandler(this.btnHide_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(621, 48);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(174, 143);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(753, 54);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(33, 31);
+            this.btnRefresh.TabIndex = 16;
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // frmMain
             // 
@@ -449,5 +460,6 @@
         private System.Windows.Forms.Panel pButtons;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnHide;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }

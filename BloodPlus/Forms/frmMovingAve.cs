@@ -276,22 +276,33 @@ namespace BloodPlus
         public double MovingAverage(DataSet ds, int period)
         {
             double average;
+            //iRows ---> Kong asa sya magstart ug loop
+            //ds.table[0].rows.count ---> count sa list kong pila
+
+            //dri loop ang list kong pila ang count
             for (int i = iRows; i < ds.Tables[0].Rows.Count; i++)
             {
+                //if ika 3 pataas na ang list magproced sya sa ug compute
                 if (i >= period - 1)
                 {
                     double total = 0;
+                    //dri kay g loop ulit ang collection katong pang ika 3 
                     for (int x = i; x > (i - period); x--)
                     {
+                        //dri g add tong mga g loop 
                         total += Convert.ToDouble(ds.Tables[0].Rows[x]["BloodCount"]);
                         Console.WriteLine("Month " + ds.Tables[0].Rows[x]["DocMonth"].ToString());
                         Console.WriteLine("Value " + ds.Tables[0].Rows[x]["BloodCount"].ToString());
                     }
+                    //average --> mao ning total sa mga g loop
                         average = total / period;
+
+                    //dri kong ang iRows value kay gamay sa period, eh add nya ang iRows ug perion para magproced sya sa ika 4
                         if (iRows < period)
                         {
                             iRows += period;
                         }
+                            //dri addan nlng ug 1  
                         else { iRows += 1; }
 
                         return average;

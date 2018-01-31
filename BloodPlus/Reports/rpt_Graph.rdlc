@@ -314,6 +314,8 @@
               <BackgroundGradientType>None</BackgroundGradientType>
               <FontSize>8pt</FontSize>
             </Style>
+            <Position>TopLeft</Position>
+            <DockOutsideChartArea>true</DockOutsideChartArea>
             <ChartLegendTitle>
               <Caption>=First(Fields!BloodType.Value, "dsMonitor")</Caption>
               <Style>

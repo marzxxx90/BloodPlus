@@ -20,7 +20,7 @@ namespace BloodPlus
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (!isValid()) { MessageBox.Show("Please Check the Fields!", "Error"); return; }
-            if (!isValidDonor(Donor.ID )) { MessageBox.Show("To Be Edit", "Error"); return; }
+            if (!isValidDonor(Donor.ID )) { MessageBox.Show("Last Donate "+ getLastDonate(Donor.ID) + " To Be Edit", "Error"); return; }
             if (Convert.ToInt16(mod_system.GetCurrentAge(Convert.ToDateTime(Donor.DateofBirth))) < 18) { MessageBox.Show("Donor must above 18","Invalid!");return; }
             BloodDonor donate = new BloodDonor();
             var d = donate;
@@ -133,5 +133,16 @@ namespace BloodPlus
  
             return true;
         }
+
+        private string getLastDonate(int idx)
+        {
+            string mysql = "Select * From tblDonor Where Status = '1' And DonorID = " + idx;
+            mysql += " Order By DocDate Desc";
+            DataSet ds = Database.LoadSQL(mysql, "tblDonor");
+
+            if (ds.Tables[0].Rows.Count == 0) { return ""; }
+
+            return Convert.ToString(Convert.ToDateTime(ds.Tables[0].Rows[0]["DocDate"].ToString()).ToString("yyyy-mm-dd"));
+        }
     }
-}
+}   

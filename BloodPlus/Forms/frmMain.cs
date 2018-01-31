@@ -30,6 +30,11 @@ namespace BloodPlus
                 NotYetLogin();
                
             }
+
+            ToolTip tFresh = new ToolTip();
+
+            tFresh.SetToolTip(btnRefresh , "Click to Refresh");
+
         }
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -618,6 +623,11 @@ namespace BloodPlus
                 pButtons.Location = new Point(250, 406);
                 isHide = true;
             }
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            BloodStatus();
         }
 
     }

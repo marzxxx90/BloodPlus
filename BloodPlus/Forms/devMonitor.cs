@@ -104,6 +104,7 @@ namespace BloodPlus
                 if (chkRandom.Checked == true)
                 {
                     Random rnd = new Random();
+                    //From 1 to 500 ang iyang random
                     int i = rnd.Next(1, 500);
 
                     if (i > 600) { i = i - 500; }
