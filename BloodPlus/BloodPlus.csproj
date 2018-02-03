@@ -74,18 +74,6 @@
     <Compile Include="Forms\frmConsole.Designer.cs">
       <DependentUpon>frmConsole.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmDonor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmDonor.Designer.cs">
-      <DependentUpon>frmDonor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\frmDonorList.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmDonorList.Designer.cs">
-      <DependentUpon>frmDonorList.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\frmImport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,17 +110,17 @@
     <Compile Include="Forms\frmPersonList.Designer.cs">
       <DependentUpon>frmPersonList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmRecipient.cs">
+    <Compile Include="Forms\frmRecipDonor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmRecipient.Designer.cs">
-      <DependentUpon>frmRecipient.cs</DependentUpon>
+    <Compile Include="Forms\frmRecipDonor.Designer.cs">
+      <DependentUpon>frmRecipDonor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmRecipientList.cs">
+    <Compile Include="Forms\frmRecipDonorList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmRecipientList.Designer.cs">
-      <DependentUpon>frmRecipientList.cs</DependentUpon>
+    <Compile Include="Forms\frmRecipDonorList.Designer.cs">
+      <DependentUpon>frmRecipDonorList.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmSettings.cs">
       <SubType>Form</SubType>
@@ -184,12 +172,6 @@
     <EmbeddedResource Include="Forms\frmConsole.resx">
       <DependentUpon>frmConsole.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmDonor.resx">
-      <DependentUpon>frmDonor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmDonorList.resx">
-      <DependentUpon>frmDonorList.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmImport.resx">
       <DependentUpon>frmImport.cs</DependentUpon>
     </EmbeddedResource>
@@ -208,11 +190,11 @@
     <EmbeddedResource Include="Forms\frmPersonList.resx">
       <DependentUpon>frmPersonList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmRecipient.resx">
-      <DependentUpon>frmRecipient.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\frmRecipDonor.resx">
+      <DependentUpon>frmRecipDonor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmRecipientList.resx">
-      <DependentUpon>frmRecipientList.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\frmRecipDonorList.resx">
+      <DependentUpon>frmRecipDonorList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmSettings.resx">
       <DependentUpon>frmSettings.cs</DependentUpon>

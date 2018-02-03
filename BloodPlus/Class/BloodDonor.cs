@@ -160,6 +160,14 @@ namespace BloodPlus
             Database.SaveEntry(ds,false);
         }
 
+        internal int loadLastID()
+        {
+            string mysql = "Select * From tblDonor Order by ID Desc Limit 1";
+            DataSet ds = Database.LoadSQL(mysql, "tblDonor");
+
+            return Convert.ToInt16(ds.Tables[0].Rows[0]["id"]);
+        }
+
         #endregion
     }
 }

@@ -124,6 +124,13 @@ namespace BloodPlus
             return Convert.ToInt32(ds.Tables[0].Rows[0]["Inv"].ToString()) ;
         }
 
+        internal int loadLastID()
+        {
+            string mysql = "Select * From tblRecipient Order by ID Desc Limit 1";
+            DataSet ds = Database.LoadSQL(mysql, "tblRecipient");
+
+            return Convert.ToInt16(ds.Tables[0].Rows[0]["id"]);
+        }
         #endregion
     }
 }

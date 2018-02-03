@@ -118,7 +118,7 @@ namespace BloodPlus
                 lv.SubItems.Add(Convert.ToString(dr["DocMonth"]));
                 lv.SubItems.Add(dr["DocYear"].ToString());
                 lv.SubItems.Add(dr["BloodCount"].ToString());
-                if (i >= 3) { lv.SubItems.Add(Convert.ToString(MovingAverage(ds, 3))); }
+                if (i >= 3) { lv.SubItems.Add(Convert.ToString(MovingAverage(ds,3))); }
                   
 	            }
 

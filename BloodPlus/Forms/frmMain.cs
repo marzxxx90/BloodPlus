@@ -96,18 +96,18 @@ namespace BloodPlus
             }
         }
 
-        private void bloodDonorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (Application.OpenForms["frmDonorList"] != null)
-            {
-                (Application.OpenForms["frmDonorList"] as frmDonorList).Show();
-            }
-            else
-            {
-                frmDonorList frm = new frmDonorList();
-                frm.Show();
-            }
-        }
+        //private void bloodDonorToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    if (Application.OpenForms["frmDonorList"] != null)
+        //    {
+        //        (Application.OpenForms["frmDonorList"] as frmDonorList).Show();
+        //    }
+        //    else
+        //    {
+        //        frmDonorList frm = new frmDonorList();
+        //        frm.Show();
+        //    }
+        //}
 
         private void userManagementToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -384,18 +384,18 @@ namespace BloodPlus
         }
 
 
-        private void bloodRecepientToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (Application.OpenForms["frmRecipientList"] != null)
-            {
-                (Application.OpenForms["frmRecipientList"] as frmRecipientList).Show();
-            }
-            else
-            {
-                frmRecipientList frm = new frmRecipientList();
-                frm.Show();
-            }
-        }
+        //private void bloodRecepientToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    if (Application.OpenForms["frmRecipientList"] != null)
+        //    {
+        //        (Application.OpenForms["frmRecipientList"] as frmRecipientList).Show();
+        //    }
+        //    else
+        //    {
+        //        frmRecipientList frm = new frmRecipientList();
+        //        frm.Show();
+        //    }
+        //}
 
         //private void AddNotify(string strNote, string type)
         //{
@@ -628,6 +628,19 @@ namespace BloodPlus
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             BloodStatus();
+        }
+
+        private void selectTransactionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["frmRecipDonor"] != null)
+            {
+                (Application.OpenForms["frmRecipDonor"] as frmRecipDonor).Show();
+            }
+            else
+            {
+                frmRecipDonor frm = new frmRecipDonor();
+                frm.Show();
+            }
         }
 
     }

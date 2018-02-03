@@ -46,8 +46,6 @@
             this.maintenanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TransactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bloodDonorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bloodRecepientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.movingAverageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnTypeA = new System.Windows.Forms.Button();
@@ -63,9 +61,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pButtons = new System.Windows.Forms.Panel();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.btnHide = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnRefresh = new System.Windows.Forms.Button();
+            this.selectTransactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.msMenu.SuspendLayout();
             this.pButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -197,27 +196,12 @@
             // TransactionToolStripMenuItem
             // 
             this.TransactionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bloodDonorToolStripMenuItem,
-            this.bloodRecepientToolStripMenuItem,
+            this.selectTransactionToolStripMenuItem,
             this.clientListToolStripMenuItem,
             this.movingAverageToolStripMenuItem});
             this.TransactionToolStripMenuItem.Name = "TransactionToolStripMenuItem";
             this.TransactionToolStripMenuItem.Size = new System.Drawing.Size(102, 25);
             this.TransactionToolStripMenuItem.Text = "Transaction";
-            // 
-            // bloodDonorToolStripMenuItem
-            // 
-            this.bloodDonorToolStripMenuItem.Name = "bloodDonorToolStripMenuItem";
-            this.bloodDonorToolStripMenuItem.Size = new System.Drawing.Size(194, 26);
-            this.bloodDonorToolStripMenuItem.Text = "Blood Donor";
-            this.bloodDonorToolStripMenuItem.Click += new System.EventHandler(this.bloodDonorToolStripMenuItem_Click);
-            // 
-            // bloodRecepientToolStripMenuItem
-            // 
-            this.bloodRecepientToolStripMenuItem.Name = "bloodRecepientToolStripMenuItem";
-            this.bloodRecepientToolStripMenuItem.Size = new System.Drawing.Size(194, 26);
-            this.bloodRecepientToolStripMenuItem.Text = "Blood Recipient";
-            this.bloodRecepientToolStripMenuItem.Click += new System.EventHandler(this.bloodRecepientToolStripMenuItem_Click);
             // 
             // clientListToolStripMenuItem
             // 
@@ -367,6 +351,15 @@
             this.pButtons.Size = new System.Drawing.Size(796, 258);
             this.pButtons.TabIndex = 14;
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(753, 54);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(33, 31);
+            this.btnRefresh.TabIndex = 16;
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // btnHide
             // 
             this.btnHide.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -388,14 +381,12 @@
             this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
             // 
-            // btnRefresh
+            // selectTransactionToolStripMenuItem
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(753, 54);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(33, 31);
-            this.btnRefresh.TabIndex = 16;
-            this.btnRefresh.UseVisualStyleBackColor = true;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            this.selectTransactionToolStripMenuItem.Name = "selectTransactionToolStripMenuItem";
+            this.selectTransactionToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
+            this.selectTransactionToolStripMenuItem.Text = "Select Transaction";
+            this.selectTransactionToolStripMenuItem.Click += new System.EventHandler(this.selectTransactionToolStripMenuItem_Click);
             // 
             // frmMain
             // 
@@ -431,9 +422,7 @@
         private System.Windows.Forms.ToolStripMenuItem reportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem maintenanceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem TransactionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem bloodDonorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem userManagementToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem bloodRecepientToolStripMenuItem;
         private System.Windows.Forms.Button btnTypeA;
         private System.Windows.Forms.ToolStripMenuItem clientListToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
@@ -461,5 +450,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnHide;
         private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.ToolStripMenuItem selectTransactionToolStripMenuItem;
     }
 }

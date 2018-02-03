@@ -106,7 +106,7 @@ namespace BloodPlus
                 tmpGender = "Male";
             }
             txtGender.Text = tmpGender ;
-            txtDob.Text = Convert.ToString(info.DateofBirth.ToString("yyyy-mm-dd"));
+            txtDob.Text = Convert.ToString(info.DateofBirth.ToString("yyyy-MM-dd"));
             txtContact.Text = info.ContactNum;
             Donor = info;
             txtSearchRecepient.Clear();
@@ -142,7 +142,7 @@ namespace BloodPlus
 
             if (ds.Tables[0].Rows.Count == 0) { return ""; }
 
-            return Convert.ToString(Convert.ToDateTime(ds.Tables[0].Rows[0]["DocDate"].ToString()).ToString("yyyy-mm-dd"));
+            return Convert.ToString(Convert.ToDateTime(ds.Tables[0].Rows[0]["DocDate"]).ToString("yyyy-MM-dd"));
         }
     }
 }   
