@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2018-01-04 09:53:30
+Date: 2018-02-03 13:53:57
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -20,14 +20,14 @@ SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `tbldonor`;
 CREATE TABLE `tbldonor` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `cardNum` varchar(20) DEFAULT NULL,
+  `refNum` varchar(20) DEFAULT NULL,
   `bloodtype` varchar(10) DEFAULT NULL,
   `donorID` int(11) DEFAULT NULL,
   `DocDate` date DEFAULT NULL,
   `status` varchar(1) DEFAULT NULL,
   `Encodeby` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2104 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of tbldonor
@@ -73,7 +73,7 @@ CREATE TABLE `tblpersoninfo` (
   `perProvince` varchar(150) DEFAULT NULL,
   `perZipcode` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2102 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of tblpersoninfo
@@ -91,7 +91,7 @@ CREATE TABLE `tblrecipient` (
   `Status` varchar(1) DEFAULT NULL,
   `Encodeby` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2102 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of tblrecipient
@@ -111,14 +111,30 @@ CREATE TABLE `tblstock` (
 -- ----------------------------
 -- Records of tblstock
 -- ----------------------------
-INSERT INTO `tblstock` VALUES ('1', 'A', '-90');
-INSERT INTO `tblstock` VALUES ('2', 'B', '-138');
-INSERT INTO `tblstock` VALUES ('3', 'AB', '-45');
-INSERT INTO `tblstock` VALUES ('4', 'O', '-128');
-INSERT INTO `tblstock` VALUES ('5', 'A-', '-155');
-INSERT INTO `tblstock` VALUES ('6', 'B-', '-173');
-INSERT INTO `tblstock` VALUES ('7', 'AB-', '-170');
-INSERT INTO `tblstock` VALUES ('8', 'O-', '-1002');
+INSERT INTO `tblstock` VALUES ('1', 'A', '0');
+INSERT INTO `tblstock` VALUES ('2', 'B', '0');
+INSERT INTO `tblstock` VALUES ('3', 'AB', '0');
+INSERT INTO `tblstock` VALUES ('4', 'O', '0');
+INSERT INTO `tblstock` VALUES ('5', 'A-', '0');
+INSERT INTO `tblstock` VALUES ('6', 'B-', '0');
+INSERT INTO `tblstock` VALUES ('7', 'AB-', '0');
+INSERT INTO `tblstock` VALUES ('8', 'O-', '0');
+
+-- ----------------------------
+-- Table structure for `tbltransaction`
+-- ----------------------------
+DROP TABLE IF EXISTS `tbltransaction`;
+CREATE TABLE `tbltransaction` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `transDate` date DEFAULT NULL,
+  `transID` bigint(20) DEFAULT NULL,
+  `transType` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of tbltransaction
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for `tbluser`
