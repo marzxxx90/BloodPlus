@@ -55,6 +55,7 @@ namespace BloodPlus
             DataSet ds = Database.LoadSQL(mysql);
             string tmpGender;
             lvRecipDonor.Items.Clear();
+            lvRecipDonor.Columns[0].Width = 173;
             foreach (DataRow dr in ds.Tables[0].Rows)
             {
                 ListViewItem lv = lvRecipDonor.Items.Add(dr["RefNum"].ToString());
@@ -70,7 +71,7 @@ namespace BloodPlus
                 }
 
                 lv.SubItems.Add(tmpGender);
-                lv.SubItems.Add(dr["DocDate"].ToString());
+                lv.SubItems.Add(Convert.ToDateTime(dr["DocDate"].ToString()).ToString("yyyy/MM/dd"));
 
             }
 
@@ -85,13 +86,13 @@ namespace BloodPlus
             string name = null;
             if (str == "")
             {
-                mysql = "Select R.ID, R.DocDate, R.BloodType, P.Firstname, P.Middlename, P.Lastname ";
+                mysql = "Select R.ID, R.DocDate, R.BloodType, P.Firstname, P.Middlename, P.Lastname, P.Gender ";
                 mysql += "From tblRecipient R ";
                 mysql += "Inner Join tblPersonInfo P On P.ID = R.RecipientID Limit 50";
             }
             else
             {
-                mysql = "Select R.ID, R.DocDate, R.BloodType, P.Firstname, P.Middlename, P.Lastname ";
+                mysql = "Select R.ID, R.DocDate, R.BloodType, P.Firstname, P.Middlename, P.Lastname, P.Gender ";
                 mysql += "From tblRecipient R ";
                 mysql += "Inner Join tblPersonInfo P On P.ID = R.RecipientID ";
                 mysql += "Where ";
@@ -111,11 +112,24 @@ namespace BloodPlus
             DataSet ds = Database.LoadSQL(mysql);
 
             lvRecipDonor.Items.Clear();
+            string tmpGender;
+            lvRecipDonor.Columns[0].Width = 0;
             foreach (DataRow dr in ds.Tables[0].Rows)
             {
-                ListViewItem lv = lvRecipDonor.Items.Add(dr["DocDate"].ToString());
+                ListViewItem lv = lvRecipDonor.Items.Add(dr["ID"].ToString());
                 lv.SubItems.Add(dr["BloodType"].ToString());
                 lv.SubItems.Add(dr["FirstName"].ToString() + " " + dr["Middlename"].ToString() + " " + dr["Lastname"].ToString());
+                if (Convert.ToString(dr["Gender"]) == "F")
+                {
+                    tmpGender = "Female";
+                }
+                else
+                {
+                    tmpGender = "Male";
+                }
+
+                lv.SubItems.Add(tmpGender);
+                lv.SubItems.Add(Convert.ToDateTime(dr["DocDate"].ToString()).ToString("yyyy/MM/dd"));
                 lv.Tag = Convert.ToInt16(dr["ID"]);
             }
 
@@ -152,6 +166,18 @@ namespace BloodPlus
                 frm.isNewTransaction = false;
                 frm.Show();
                
+            }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (rbDonor.Checked == true)
+            {
+                LoadDonor(txtSearch.Text);
+            }
+            else
+            {
+                LoadRecipient(txtSearch.Text);
             }
         }
     }
