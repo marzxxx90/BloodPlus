@@ -138,16 +138,16 @@ namespace BloodPlus
             if (info.Gender == "F")
             {
                 cboGender.Text = "Female";
-                txtFirstname.Enabled = false;
-                txtMiddlename.Enabled = false;
+               // txtFirstname.Enabled = false;
+               // txtMiddlename.Enabled = false;
                
             }
             else
             {
                 cboGender.Text = "Male";
-                txtFirstname.Enabled = false;
-                txtMiddlename.Enabled = false;
-                txtLastname.Enabled = false;
+               // txtFirstname.Enabled = false;
+               // txtMiddlename.Enabled = false;
+               // txtLastname.Enabled = false;
             }
             dtpDob.Value = info.DateofBirth;
             cboMaritalStatus.Text = info.MaritalStatus;
@@ -163,7 +163,7 @@ namespace BloodPlus
             cboPerProvince.Text = info.PermanentProvince;
             txtPerZipcode.Text = info.PermanentZipcode;
 
-            dtpDob.Enabled = false;
+            //dtpDob.Enabled = false;
             btnSave.Text = "&Update";
             PersonalInformation = info;
         }

@@ -83,7 +83,10 @@ namespace BloodPlus
             //{
             //    (Application.OpenForms["frmDonor"] as frmDonor).LoadRecepientInfo(rec);
             //}
+            //if ()s
+            //{
             FormChange.ReloadFormFromItemList(frmOrig,rec);
+           // }
             this.Close();
         }
 

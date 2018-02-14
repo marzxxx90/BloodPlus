@@ -145,6 +145,9 @@ namespace BloodPlus
 
                 Donate.AddInv(lv.SubItems[1].Text.ToString());
                 System.Windows.Forms.Application.DoEvents();
+
+                //dri eh butang
+
             }
             MessageBox.Show("Successfuly Imported", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             btnImport.Enabled = true;

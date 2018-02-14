@@ -51,6 +51,13 @@ namespace BloodPlus
             get { return _encodeby; }
             set { _encodeby = value; }
         }
+
+        private string _refNum;
+        public virtual string RefNum
+        {
+            get { return _refNum; }
+            set { _refNum = value; }
+        }
         #endregion
 
         #region "Properties"
@@ -63,6 +70,7 @@ namespace BloodPlus
             var with = dsnewRow;
 
             with["DocDate"] = _docDate ;
+            with["RefNum"] = _refNum;
             with["bloodtype"] = _bloodType;
             with["RecipientID"] = _recipientInfo.ID;
             with["Status"] = 1;
@@ -85,6 +93,7 @@ namespace BloodPlus
         private void LoadByRows(DataRow dr)
         {
             _id = Convert.ToInt16(dr["ID"]);
+            _refNum = dr["RefNum"].ToString();
             _docDate = Convert.ToDateTime(dr["DocDate"]);
             _bloodType = dr["BloodType"].ToString();
 
@@ -130,6 +139,24 @@ namespace BloodPlus
             DataSet ds = Database.LoadSQL(mysql, "tblRecipient");
 
             return Convert.ToInt16(ds.Tables[0].Rows[0]["id"]);
+        }
+
+        internal bool isBloodTypeAvailable(string tmpBloodType)
+        {
+            string mysql = "Select * From tblStock Where BloodType = '"+ tmpBloodType +"'";
+            DataSet ds = Database.LoadSQL(mysql,"tblStock");
+
+            if (Convert.ToInt16(ds.Tables[0].Rows[0]["Inv"]) <= 0) { return false; }
+            return true;
+        }
+
+        internal string getPIPODonor(string DBloodType)
+        {
+            string mysql = "Select * From tblDonor Where BloodType = '"+ DBloodType +"' And Status = 1 Order By ID Asc Limit 1";
+            DataSet ds = Database.LoadSQL(mysql, "tblDonor");
+
+
+            return ds.Tables[0].Rows[0]["RefNum"].ToString();
         }
         #endregion
     }

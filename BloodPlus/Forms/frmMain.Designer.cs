@@ -43,11 +43,12 @@
             this.bloodDonationReportToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.bloodRecipientReportToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.bloodInventoryReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.movingAverageToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.maintenanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TransactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.selectTransactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.movingAverageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnTypeA = new System.Windows.Forms.Button();
             this.btnTypeB = new System.Windows.Forms.Button();
             this.btnTypeAB = new System.Windows.Forms.Button();
@@ -64,7 +65,6 @@
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnHide = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.selectTransactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.msMenu.SuspendLayout();
             this.pButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -111,7 +111,8 @@
             // 
             this.reportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dailyToolStripMenuItem,
-            this.customToolStripMenuItem});
+            this.customToolStripMenuItem,
+            this.movingAverageToolStripMenuItem1});
             this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
             this.reportToolStripMenuItem.Size = new System.Drawing.Size(69, 25);
             this.reportToolStripMenuItem.Text = "&Report";
@@ -123,7 +124,7 @@
             this.bloodRecipientReportToolStripMenuItem1,
             this.bloodInventoryReportToolStripMenuItem1});
             this.dailyToolStripMenuItem.Name = "dailyToolStripMenuItem";
-            this.dailyToolStripMenuItem.Size = new System.Drawing.Size(134, 26);
+            this.dailyToolStripMenuItem.Size = new System.Drawing.Size(194, 26);
             this.dailyToolStripMenuItem.Text = "&Daily";
             // 
             // bloodDonationReportToolStripMenuItem1
@@ -154,7 +155,7 @@
             this.bloodRecipientReportToolStripMenuItem2,
             this.bloodInventoryReportToolStripMenuItem});
             this.customToolStripMenuItem.Name = "customToolStripMenuItem";
-            this.customToolStripMenuItem.Size = new System.Drawing.Size(134, 26);
+            this.customToolStripMenuItem.Size = new System.Drawing.Size(194, 26);
             this.customToolStripMenuItem.Text = "&Custom";
             // 
             // bloodDonationReportToolStripMenuItem2
@@ -178,6 +179,13 @@
             this.bloodInventoryReportToolStripMenuItem.Text = "Blood Inventory Report";
             this.bloodInventoryReportToolStripMenuItem.Click += new System.EventHandler(this.bloodInventoryReportToolStripMenuItem_Click);
             // 
+            // movingAverageToolStripMenuItem1
+            // 
+            this.movingAverageToolStripMenuItem1.Name = "movingAverageToolStripMenuItem1";
+            this.movingAverageToolStripMenuItem1.Size = new System.Drawing.Size(221, 26);
+            this.movingAverageToolStripMenuItem1.Text = "&Blood Graph Forcast";
+            this.movingAverageToolStripMenuItem1.Click += new System.EventHandler(this.movingAverageToolStripMenuItem1_Click);
+            // 
             // maintenanceToolStripMenuItem
             // 
             this.maintenanceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -197,25 +205,24 @@
             // 
             this.TransactionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.selectTransactionToolStripMenuItem,
-            this.clientListToolStripMenuItem,
-            this.movingAverageToolStripMenuItem});
+            this.clientListToolStripMenuItem});
             this.TransactionToolStripMenuItem.Name = "TransactionToolStripMenuItem";
             this.TransactionToolStripMenuItem.Size = new System.Drawing.Size(102, 25);
             this.TransactionToolStripMenuItem.Text = "Transaction";
             // 
+            // selectTransactionToolStripMenuItem
+            // 
+            this.selectTransactionToolStripMenuItem.Name = "selectTransactionToolStripMenuItem";
+            this.selectTransactionToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
+            this.selectTransactionToolStripMenuItem.Text = "Select Transaction";
+            this.selectTransactionToolStripMenuItem.Click += new System.EventHandler(this.selectTransactionToolStripMenuItem_Click);
+            // 
             // clientListToolStripMenuItem
             // 
             this.clientListToolStripMenuItem.Name = "clientListToolStripMenuItem";
-            this.clientListToolStripMenuItem.Size = new System.Drawing.Size(194, 26);
+            this.clientListToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
             this.clientListToolStripMenuItem.Text = "Client List";
             this.clientListToolStripMenuItem.Click += new System.EventHandler(this.clientListToolStripMenuItem_Click);
-            // 
-            // movingAverageToolStripMenuItem
-            // 
-            this.movingAverageToolStripMenuItem.Name = "movingAverageToolStripMenuItem";
-            this.movingAverageToolStripMenuItem.Size = new System.Drawing.Size(194, 26);
-            this.movingAverageToolStripMenuItem.Text = "Moving Average";
-            this.movingAverageToolStripMenuItem.Click += new System.EventHandler(this.movingAverageToolStripMenuItem_Click);
             // 
             // btnTypeA
             // 
@@ -381,13 +388,6 @@
             this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
             // 
-            // selectTransactionToolStripMenuItem
-            // 
-            this.selectTransactionToolStripMenuItem.Name = "selectTransactionToolStripMenuItem";
-            this.selectTransactionToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
-            this.selectTransactionToolStripMenuItem.Text = "Select Transaction";
-            this.selectTransactionToolStripMenuItem.Click += new System.EventHandler(this.selectTransactionToolStripMenuItem_Click);
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -443,7 +443,6 @@
         private System.Windows.Forms.Button btnTypeONeg;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ToolStripMenuItem movingAverageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bloodInventoryReportToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem bloodInventoryReportToolStripMenuItem;
         private System.Windows.Forms.Panel pButtons;
@@ -451,5 +450,6 @@
         private System.Windows.Forms.Button btnHide;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.ToolStripMenuItem selectTransactionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem movingAverageToolStripMenuItem1;
     }
 }

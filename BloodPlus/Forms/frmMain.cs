@@ -79,7 +79,13 @@ namespace BloodPlus
             reportToolStripMenuItem.Enabled = st;
             maintenanceToolStripMenuItem.Enabled = st;
             settingsToolStripMenuItem.Enabled = st;
-           
+            dailyToolStripMenuItem.Enabled = st;
+            customToolStripMenuItem.Enabled = st;
+            userManagementToolStripMenuItem.Enabled = st;
+            TransactionToolStripMenuItem.Enabled = st;
+            clientListToolStripMenuItem.Enabled = st;
+           // movingAverageToolStripMenuItem.Enabled = st;
+            movingAverageToolStripMenuItem1.Enabled = st;
             if (st == true)
             {
                 logoutToolStripMenuItem.Text = "&Logout";
@@ -157,14 +163,18 @@ namespace BloodPlus
 
         private bool isExpire()
         {
-            string mysql = "Select *, date_add(DocDate, Interval 60 Day) ";
+            string mysql = "Select *, date_add(DocDate, Interval 45 Day) ";
             mysql += "From tblDonor ";
-            mysql += "Where date_add(DocDate, Interval 60 Day) <= '" + DateTime.Now.ToString("yyyy-MM-dd") + "' And Status = 1";
-            DataSet ds = Database.LoadSQL(mysql, "tblDonor");
-            if (ds.Tables[0].Rows.Count == 0) { return true; }
-
+            mysql += "Where date_add(DocDate, Interval 45 Day) <= '" + DateTime.Now.ToString("yyyy-MM-dd") + "' And Status = 1";
+            DataSet ds = Database.LoadSQL(mysql,"tblDonor");
            
+            //foreach (DataRow dr in ds.Tables[0].Rows )
+            //{
+            //    Console.WriteLine("Data" + dr["id"].ToString());
+            //}
+            if (ds.Tables[0].Rows.Count == 0)  { return true; }
 
+            Console.WriteLine("Date" + ds.Tables[0].Rows.Count);
             foreach (DataRow  dr in ds.Tables[0].Rows )
             {
                 if (Application.OpenForms["frmConsole"] != null)
@@ -508,19 +518,6 @@ namespace BloodPlus
             }
         }
 
-        private void movingAverageToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (Application.OpenForms["frmMovingAve"] != null)
-            {
-                (Application.OpenForms["frmMovingAve"] as frmMovingAve).Show();
-            }
-            else
-            {
-                frmMovingAve frm = new frmMovingAve();
-                frm.Show();
-            }
-        }
-
         private void bloodInventoryReportToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             if (Application.OpenForms["frmTransactionReport"] != null)
@@ -632,13 +629,26 @@ namespace BloodPlus
 
         private void selectTransactionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Application.OpenForms["frmRecipDonor"] != null)
+            if (Application.OpenForms["frmRecipDonorList"] != null)
             {
-                (Application.OpenForms["frmRecipDonor"] as frmRecipDonor).Show();
+                (Application.OpenForms["frmRecipDonorList"] as frmRecipDonorList).Show();
             }
             else
             {
-                frmRecipDonor frm = new frmRecipDonor();
+                frmRecipDonorList frm = new frmRecipDonorList();
+                frm.Show();
+            }
+        }
+
+        private void movingAverageToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["frmMovingAve"] != null)
+            {
+                (Application.OpenForms["frmMovingAve"] as frmMovingAve).Show();
+            }
+            else
+            {
+                frmMovingAve frm = new frmMovingAve();
                 frm.Show();
             }
         }

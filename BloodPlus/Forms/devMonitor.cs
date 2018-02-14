@@ -120,6 +120,8 @@ namespace BloodPlus
                 r.DeductInv(oSheet.Cells[cnt, 2].value);
                 pbStatus.Value += 1;
                 System.Windows.Forms.Application.DoEvents();
+
+                //dri eh butang
             }
 
             //Memory Unload

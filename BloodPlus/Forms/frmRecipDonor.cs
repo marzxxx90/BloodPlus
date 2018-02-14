@@ -46,6 +46,7 @@ namespace BloodPlus
             else 
             {
                 gbSearch.Enabled = true;
+                isDisable();
             }
 
             string mysql = "Select * From tblStock";
@@ -112,7 +113,7 @@ namespace BloodPlus
             if (rbDonor.Checked == true)
             {
                 if (!isValid()) { MessageBox.Show("Please Check the Fields!", "Error"); return; }
-                if (!isValidDonor(Donor.ID)) { MessageBox.Show("Last Donate " + getLastDonate(Donor.ID) + " To Be Edit", "Error"); return; }
+                if (!isValidDonor(Donor.ID)) { MessageBox.Show("Last Donate " + getLastDonate(Donor.ID) + " Come back after 3 months", "Error"); return; }
                 if (Convert.ToInt16(mod_system.GetCurrentAge(Convert.ToDateTime(Donor.DateofBirth))) < 18) { MessageBox.Show("Donor must above 18", "Invalid!"); return; }
                 BloodDonor donate = new BloodDonor();
                 var d = donate;
@@ -134,10 +135,12 @@ namespace BloodPlus
             {
                 if (!isValidRecip ()) { MessageBox.Show("Please Check the Fields!", "Error"); return; }
                 BloodRecipient rec = new BloodRecipient();
+                if (rec.isBloodTypeAvailable(cboBloodType.Text) == false) { MessageBox.Show("Blood Type " + cboBloodType.Text + " out of Stock!"); return; }
                 rec.DocDate = DateTime.Now;
                 rec.BloodType = cboBloodType.Text;
                 rec.RecipientInfo = Recipient;
                 rec.EncodeBy = mod_system.bloodUser.ID;
+                rec.RefNum = rec.getPIPODonor(cboBloodType.Text );
                 rec.SaveRecipient();
 
                 rec.DeductInv(cboBloodType.Text);
@@ -152,6 +155,7 @@ namespace BloodPlus
                 }
             }
 
+            //Save para sa Table Transaction
             string mysql = "Select * From tblTransaction Limit 0";
             DataSet ds = Database.LoadSQL(mysql, "tblTransaction");
 
@@ -176,6 +180,7 @@ namespace BloodPlus
             _with3["TransType"] = transType;
             ds.Tables["tblTransaction"].Rows.Add(dsNewRow);
             Database.SaveEntry(ds);
+            //Hangtud dri
             this.Close();
         }
 
@@ -250,22 +255,7 @@ namespace BloodPlus
 
         internal void LoadPersonInfo(PersonInfo info)
         {
-            txtFirstname.Enabled = false;
-            txtMiddlename.Enabled = false;
-            txtLastname.Enabled = false;
-            cboGender.Enabled = false;
-            dtpDob.Enabled = false;
-            cboMaritalStatus.Enabled = false;
-            txtPreStreet.Enabled = false;
-            cboPreBarangay.Enabled = false;
-            cboPreCity.Enabled = false;
-            cboPreProvince.Enabled = false;
-            txtPreZipcode.Enabled = false;
-            txtPerStreet.Enabled = false;
-            cboPerBarangay.Enabled = false;
-            cboPerCity.Enabled = false;
-            cboPerProvince.Enabled = false;
-            txtPerZipcode.Enabled = false;
+            isDisable();
 
             string tmpGender;
             txtFirstname.Text = info.Firstname;
@@ -305,6 +295,32 @@ namespace BloodPlus
         private void txtSearchRecepient_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (mod_system.isEnter(e)) { btnSearchName.PerformClick(); }
+        }
+
+        private void isDisable()
+        {
+            txtFirstname.Enabled = false;
+            txtMiddlename.Enabled = false;
+            txtLastname.Enabled = false;
+            cboGender.Enabled = false;
+            dtpDob.Enabled = false;
+            cboMaritalStatus.Enabled = false;
+            txtPreStreet.Enabled = false;
+            cboPreBarangay.Enabled = false;
+            cboPreCity.Enabled = false;
+            cboPreProvince.Enabled = false;
+            txtPreZipcode.Enabled = false;
+            txtPerStreet.Enabled = false;
+            cboPerBarangay.Enabled = false;
+            cboPerCity.Enabled = false;
+            cboPerProvince.Enabled = false;
+            txtPerZipcode.Enabled = false;
+        }
+
+        private void txtContactNum_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            mod_system.DigitOnly(e);
+            
         }
     }
 }

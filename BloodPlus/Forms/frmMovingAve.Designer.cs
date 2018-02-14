@@ -236,7 +236,7 @@
             this.Controls.Add(this.btnGenerate);
             this.Controls.Add(this.lvDev);
             this.Name = "frmMovingAve";
-            this.Text = "Moving Average";
+            this.Text = "Blood Graph Forcast";
             this.Load += new System.EventHandler(this.frmMovingAve_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

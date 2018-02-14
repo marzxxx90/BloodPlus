@@ -55,7 +55,7 @@
             this.groupBox1.Size = new System.Drawing.Size(766, 51);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Search";
+            this.groupBox1.Text = "Search Transaction";
             // 
             // btnSearch
             // 
@@ -74,6 +74,7 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(674, 20);
             this.txtSearch.TabIndex = 0;
+            this.txtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearch_KeyPress);
             // 
             // lvRecipDonor
             // 
@@ -94,7 +95,7 @@
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "Card #";
+            this.columnHeader1.Text = "Ref #";
             this.columnHeader1.Width = 173;
             // 
             // columnHeader2
@@ -120,6 +121,7 @@
             // rbDonor
             // 
             this.rbDonor.AutoSize = true;
+            this.rbDonor.Checked = true;
             this.rbDonor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbDonor.Location = new System.Drawing.Point(12, 69);
             this.rbDonor.Name = "rbDonor";

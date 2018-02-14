@@ -32,7 +32,7 @@ namespace BloodPlus
             {
                 mysql = "Select D.id, D.RefNum, D.BloodType, R.Firstname, R.Middlename, R.Lastname, R.Gender, R.dob, D.DocDate, D.Status ";
                 mysql += " From tblDonor D ";
-                mysql += " Inner Join tblPersonInfo R On R.ID = D.DonorID Limit 50";
+                mysql += " Inner Join tblPersonInfo R On R.ID = D.DonorID Order By DocDate Desc Limit 50";
             }
             else
             {
@@ -51,6 +51,7 @@ namespace BloodPlus
                         break;
                     }
                 }
+                mysql += " Order By DocDate Desc ";
             }
             DataSet ds = Database.LoadSQL(mysql);
             string tmpGender;
@@ -88,7 +89,7 @@ namespace BloodPlus
             {
                 mysql = "Select R.ID, R.DocDate, R.BloodType, P.Firstname, P.Middlename, P.Lastname, P.Gender ";
                 mysql += "From tblRecipient R ";
-                mysql += "Inner Join tblPersonInfo P On P.ID = R.RecipientID Limit 50";
+                mysql += "Inner Join tblPersonInfo P On P.ID = R.RecipientID Order By DocDate Desc Limit 50";
             }
             else
             {
@@ -107,6 +108,8 @@ namespace BloodPlus
                         break;
                     }
                 }
+
+                mysql += " Order By DocDate Desc ";
             }
 
             DataSet ds = Database.LoadSQL(mysql);
@@ -179,6 +182,11 @@ namespace BloodPlus
             {
                 LoadRecipient(txtSearch.Text);
             }
+        }
+
+        private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (mod_system.isEnter(e)) { btnSearch.PerformClick(); }
         }
     }
 }

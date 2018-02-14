@@ -27,16 +27,12 @@ D:\Dgomez\2018\BloodPlus\BloodPlus\bin\Debug\DeathCodez.dll
 D:\Dgomez\2018\BloodPlus\BloodPlus\obj\x86\Debug\BloodPlus.csprojResolveAssemblyReference.cache
 D:\Dgomez\2018\BloodPlus\BloodPlus\obj\x86\Debug\BloodPlus.devMonitor.resources
 D:\Dgomez\2018\BloodPlus\BloodPlus\obj\x86\Debug\BloodPlus.frmConsole.resources
-D:\Dgomez\2018\BloodPlus\BloodPlus\obj\x86\Debug\BloodPlus.frmDonor.resources
-D:\Dgomez\2018\BloodPlus\BloodPlus\obj\x86\Debug\BloodPlus.frmDonorList.resources
 D:\Dgomez\2018\BloodPlus\BloodPlus\obj\x86\Debug\BloodPlus.frmImport.resources
 D:\Dgomez\2018\BloodPlus\BloodPlus\obj\x86\Debug\BloodPlus.frmLogin.resources
 D:\Dgomez\2018\BloodPlus\BloodPlus\obj\x86\Debug\BloodPlus.frmMain.resources
 D:\Dgomez\2018\BloodPlus\BloodPlus\obj\x86\Debug\BloodPlus.frmMovingAve.resources
 D:\Dgomez\2018\BloodPlus\BloodPlus\obj\x86\Debug\BloodPlus.frmPersonInfo.resources
 D:\Dgomez\2018\BloodPlus\BloodPlus\obj\x86\Debug\BloodPlus.frmPersonList.resources
-D:\Dgomez\2018\BloodPlus\BloodPlus\obj\x86\Debug\BloodPlus.frmRecipient.resources
-D:\Dgomez\2018\BloodPlus\BloodPlus\obj\x86\Debug\BloodPlus.frmRecipientList.resources
 D:\Dgomez\2018\BloodPlus\BloodPlus\obj\x86\Debug\BloodPlus.frmSettings.resources
 D:\Dgomez\2018\BloodPlus\BloodPlus\obj\x86\Debug\BloodPlus.frmUserManagement.resources
 D:\Dgomez\2018\BloodPlus\BloodPlus\obj\x86\Debug\BloodPlus.Properties.Resources.resources
@@ -48,3 +44,5 @@ D:\Dgomez\2018\BloodPlus\BloodPlus\obj\x86\Debug\RdlCompile.cache
 D:\Dgomez\2018\BloodPlus\BloodPlus\obj\x86\Debug\RdlCompile.compiled
 D:\Dgomez\2018\BloodPlus\BloodPlus\obj\x86\Debug\BloodPlus.exe
 D:\Dgomez\2018\BloodPlus\BloodPlus\obj\x86\Debug\BloodPlus.pdb
+D:\Dgomez\2018\BloodPlus\BloodPlus\obj\x86\Debug\BloodPlus.frmRecipDonor.resources
+D:\Dgomez\2018\BloodPlus\BloodPlus\obj\x86\Debug\BloodPlus.frmRecipDonorList.resources

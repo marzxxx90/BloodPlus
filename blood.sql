@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2018-02-03 13:53:57
+Date: 2018-02-08 19:26:59
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -25,9 +25,9 @@ CREATE TABLE `tbldonor` (
   `donorID` int(11) DEFAULT NULL,
   `DocDate` date DEFAULT NULL,
   `status` varchar(1) DEFAULT NULL,
-  `Encodeby` int(11) DEFAULT NULL,
+  `Encodeby` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2104 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of tbldonor
@@ -73,7 +73,7 @@ CREATE TABLE `tblpersoninfo` (
   `perProvince` varchar(150) DEFAULT NULL,
   `perZipcode` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2102 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of tblpersoninfo
@@ -91,7 +91,7 @@ CREATE TABLE `tblrecipient` (
   `Status` varchar(1) DEFAULT NULL,
   `Encodeby` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2102 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of tblrecipient
@@ -129,8 +129,9 @@ CREATE TABLE `tbltransaction` (
   `transDate` date DEFAULT NULL,
   `transID` bigint(20) DEFAULT NULL,
   `transType` varchar(50) DEFAULT NULL,
+  `TransTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of tbltransaction
@@ -141,7 +142,7 @@ CREATE TABLE `tbltransaction` (
 -- ----------------------------
 DROP TABLE IF EXISTS `tbluser`;
 CREATE TABLE `tbluser` (
-  `ID` int(11) NOT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `UserName` varchar(50) DEFAULT NULL,
   `UserPassword` varchar(50) DEFAULT NULL,
   `Firstname` varchar(50) DEFAULT NULL,
@@ -150,9 +151,9 @@ CREATE TABLE `tbluser` (
   `Role` varchar(50) DEFAULT NULL,
   `Status` varchar(1) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of tbluser
 -- ----------------------------
-INSERT INTO `tbluser` VALUES ('0', 'd', 'xrz5OsUeCbg=', 'Dar', 'Baisac', 'Gomez', 'Admin', '1');
+INSERT INTO `tbluser` VALUES ('1', 'darlene', 'xrz5OsUeCbg=', 'Darlene', 'Baisac', 'Gomez', 'Admin', '1');

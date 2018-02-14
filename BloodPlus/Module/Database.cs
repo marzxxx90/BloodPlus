@@ -187,6 +187,7 @@ namespace BloodPlus
         /// <returns>return ds after reading the mysql data.</returns>
         /// <remarks></remarks>
         static internal DataSet LoadSQL(string mySql, string tblName = "QuickSQL")
+        
         {
             dbOpen();
             //open the database.

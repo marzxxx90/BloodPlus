@@ -36,7 +36,6 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSelect = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.btnView = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -113,16 +112,6 @@
             this.btnSelect.UseVisualStyleBackColor = true;
             this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
-            // btnAdd
-            // 
-            this.btnAdd.Location = new System.Drawing.Point(12, 427);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(143, 26);
-            this.btnAdd.TabIndex = 4;
-            this.btnAdd.Text = "&Register New Person";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
             // btnView
             // 
             this.btnView.Location = new System.Drawing.Point(622, 427);
@@ -139,7 +128,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(706, 460);
             this.Controls.Add(this.btnView);
-            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lvRecepient);
@@ -163,7 +151,6 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnSelect;
-        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnView;
     }
 }
