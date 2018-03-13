@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2018-02-14 09:06:01
+Date: 2018-03-13 09:43:20
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -26,6 +26,7 @@ CREATE TABLE `tbldonor` (
   `DocDate` date DEFAULT NULL,
   `status` varchar(1) DEFAULT NULL,
   `Encodeby` int(11) DEFAULT NULL,
+  `isRelease` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -157,4 +158,4 @@ CREATE TABLE `tbluser` (
 -- ----------------------------
 -- Records of tbluser
 -- ----------------------------
-INSERT INTO `tbluser` VALUES ('1', 'd', 'xrz5OsUeCbg=', 'Dar', 'Baisac', 'Gomez', 'Admin', '1');
+INSERT INTO `tbluser` VALUES ('1', 'darlene', 'xrz5OsUeCbg=', 'Dar', 'Baisac', 'Gomez', 'Admin', '1');
