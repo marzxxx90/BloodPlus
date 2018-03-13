@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2018-02-08 19:26:59
+Date: 2018-02-14 09:06:01
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -25,7 +25,7 @@ CREATE TABLE `tbldonor` (
   `donorID` int(11) DEFAULT NULL,
   `DocDate` date DEFAULT NULL,
   `status` varchar(1) DEFAULT NULL,
-  `Encodeby` int(11) NOT NULL,
+  `Encodeby` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -85,6 +85,7 @@ CREATE TABLE `tblpersoninfo` (
 DROP TABLE IF EXISTS `tblrecipient`;
 CREATE TABLE `tblrecipient` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `RefNum` varchar(50) DEFAULT NULL,
   `DocDate` date DEFAULT NULL,
   `BloodType` varchar(10) DEFAULT NULL,
   `RecipientID` int(11) DEFAULT NULL,
@@ -129,7 +130,7 @@ CREATE TABLE `tbltransaction` (
   `transDate` date DEFAULT NULL,
   `transID` bigint(20) DEFAULT NULL,
   `transType` varchar(50) DEFAULT NULL,
-  `TransTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `tranTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -156,4 +157,4 @@ CREATE TABLE `tbluser` (
 -- ----------------------------
 -- Records of tbluser
 -- ----------------------------
-INSERT INTO `tbluser` VALUES ('1', 'darlene', 'xrz5OsUeCbg=', 'Darlene', 'Baisac', 'Gomez', 'Admin', '1');
+INSERT INTO `tbluser` VALUES ('1', 'd', 'xrz5OsUeCbg=', 'Dar', 'Baisac', 'Gomez', 'Admin', '1');

@@ -70,13 +70,14 @@ namespace BloodPlus
 
             string mysql = "Select Main.*, ";
             mysql += "(Select Count(R2.RecipientID) From tblRecipient R2 Where Main.RecipientID = R2.RecipientiD) as TotalCount ";
-            mysql += "From (Select R.ID, R.BloodType, R.RecipientID, ";
+            mysql += "From (Select Distinct(R.RecipientID)as RecipientID, R.ID, R.BloodType,  ";
             mysql += "CONCAT(P.FIRSTNAME, ' ', P.LASTNAME) AS Fullname, "; 
             mysql += "R.DocDate, R.Status, CONCAT(U.FIRSTNAME, ' ', U.LASTNAME) AS Encoder "; 
             mysql += "From tblRecipient R  ";
             mysql += "Inner Join tblPersonInfo P On P.ID = R.RecipientID  ";
             mysql += "Inner Join tblUser U On U.ID = R.EncodeBy ";
-            mysql += "Where R.DocDate = '" + MonCalReport.SelectionStart.Date.ToString("yyyy-MM-dd") + "') as Main ";
+            mysql += "Where R.DocDate = '" + MonCalReport.SelectionStart.Date.ToString("yyyy-MM-dd") + "' " ;
+            mysql += "Group by R.RecipientID, R.BloodType, R.DocDate ) as Main ";
 
             Dictionary<string, string> rptPara = new Dictionary<string, string>();
             rptPara.Add("txtDate", "Date: " + MonCalReport.SelectionStart.Date.ToString("yyyy-MM-dd"));

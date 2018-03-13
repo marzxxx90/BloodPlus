@@ -152,11 +152,23 @@ namespace BloodPlus
 
         internal string getPIPODonor(string DBloodType)
         {
-            string mysql = "Select * From tblDonor Where BloodType = '"+ DBloodType +"' And Status = 1 Order By ID Asc Limit 1";
+            string mysql = "Select * From tblDonor Where BloodType = '" + DBloodType + "' And Status = 1 And isRelease = 0 Order By ID Asc Limit 1";
             DataSet ds = Database.LoadSQL(mysql, "tblDonor");
 
+            isReleaseUpdate(Convert.ToInt16(ds.Tables[0].Rows[0]["ID"]));
 
             return ds.Tables[0].Rows[0]["RefNum"].ToString();
+        }
+
+        private void isReleaseUpdate(int idx)
+        {
+            string mysql = "Select * From tblDonor Where ID = " + idx;
+            DataSet ds = Database.LoadSQL(mysql, "tblDonor");
+
+            ds.Tables[0].Rows[0]["isRelease"] = 1;
+
+            Database.SaveEntry(ds, false);
+ 
         }
         #endregion
     }
